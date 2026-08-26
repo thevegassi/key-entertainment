@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="page_title_dist">Дистрибуция музыки | Key Entertainment Distribution</title>
+    <meta name="description" content="Key Distribution — полный цикл цифрового распространения музыки. Spotify, Apple Music, YouTube Music, TikTok, Яндекс Музыка. Аналитика, роялти, верификация артистов.">
+    <meta name="keywords" content="дистрибуция музыки Казахстан, загрузить трек Spotify, Apple Music дистрибуция, TikTok верификация артиста, Яндекс Музыка лейбл, музыкальная дистрибуция СНГ, ISRC коды, Content ID YouTube, роялти музыка">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.keyent.kz/distribution.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.keyent.kz/distribution.html">
+    <meta property="og:title" content="Key Distribution | Цифровая дистрибуция музыки">
+    <meta property="og:description" content="Полный цикл цифрового распространения на 150+ платформах мира.">
+    <meta property="og:image" content="https://www.keyent.kz/og-image.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        #scroll-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 46px;
+            height: 46px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9000;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+        #scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        #scroll-top:hover {
+            background: #fff;
+        }
+        @media (max-width: 640px) {
+            #scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1rem; }
+        }
+    </style>
+    <script src="translations.js?v=3"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFJEKS7VYZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KFJEKS7VYZ');
+    </script>
+</head>
+<body>
+    <button id="scroll-top" aria-label="Наверх">↑</button>
+    <!-- ПАТТЕРНЫ -->
+    <div id="pl1" class="pattern-layer"></div>
+    <div id="pl2" class="pattern-layer"></div>
+    <div id="pl3" class="pattern-layer"></div>
+    <div id="pl4" class="pattern-layer"></div>
+    <div id="ambient-bg" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <header class="top-nav">
+        <a href="/"><img src="logo.png" class="nav-logo" alt="Key Entertainment"></a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <a href="/" data-i18n="nav_about">О нас</a>
+            <a href="/distribution" class="active">Distribution</a>
+            <a href="/legal">Legal</a>
+            <a href="/label" >Label</a>
+            <a href="/pr" >PR & Marketing</a>
+            <a href="/booking" >Booking</a>
+            <a href="/brand" data-i18n="nav_brand_upper">БРЕНДБУК</a>
+            <a href="/contacts" data-i18n="nav_contacts">Контакты</a>
+        </nav>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru" onclick="applyLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="kz" onclick="applyLanguage('kz')">KZ</button>
+            <button class="lang-btn" data-lang="en" onclick="applyLanguage('en')">EN</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-dist" class="hero-bg-animate" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero_dist.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 100dvh; padding: 80px 5%;">
+            <div style="background: rgba(0,0,0,0.4); padding: clamp(28px, 5vw, 60px); border-radius: 10px; backdrop-filter: blur(5px); max-width: 900px; width: 100%;">
+                <span class="slide-num reveal" style="margin-bottom: 20px;">01 / DISTRIBUTION</span>
+                <h1 class="reveal">KEY <span style="color: var(--accent)">DISTRIBUTION</span><br>SERVICES</h1>
+                <p class="reveal" style="letter-spacing: 10px; text-transform: uppercase; margin-top: 28px; opacity: 0.8; font-size: 0.75rem;">MUSIC • STRATEGY • GROWTH</p>
+            </div>
+        </section>
+    <!-- БЕГУЩАЯ СТРОКА -->
+    <style>@keyframes tkDist{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
+    <div class="ticker-outer"><div style="overflow:hidden;padding:14px 0;border-top:1px solid rgba(211,255,51,0.12);border-bottom:1px solid rgba(211,255,51,0.12);">
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;width:max-content;animation:tkDist 160s linear infinite;" id="tickerDist">
+            <span style="display:inline-block;white-space:nowrap;padding:0 40px;font-size:0.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.28);">L'One <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Jambul <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> QARAKESEK <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BEKCHURIN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Qanay <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Kalifarniya <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Miko <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Diana Ismail <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ray <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> R-ONE <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BYTANAT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ALHAM <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ALI Otenov <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ALLI <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ESKO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DAKELOT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ZAQ <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Screamteen <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> TUMA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Меховая 8/1 <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Yerkezhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Janer <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Дана Кентай <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ренат Гайсин <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Amina Esimzhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> KOBA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> THE KITCHEN SONGS <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Анара Батырхан <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Bakha & Bereek <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Saken Maigaziyev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DELIN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Rafa <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dilbara <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Beibit Kushkaliyev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ANU <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> SSS SABINA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> AIDARBEKOV REMIX <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Arsenaleen <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> AyaFunk <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DIDAR TOLEGEN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Бағым Мухитденова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DemAir <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Динара Алжан <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ZIGZAGSOLO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> 2KEN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Bizzlle & Mvrlo <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Zhakau <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Nina Moiseeva <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Jordan Arakelyan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Nurshat Asymov <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sultan Berikovich <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BYIRABAS <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sufano <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Akbolat Utebai <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Индира Елемес <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Azamat Torekhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Stels Travoltah <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Мади Ақділдәұлы <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> AZEQE <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> oiu <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Daro <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Almas Olzhagaliyev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DOHA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Азамат Омаров <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dekart04 <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BD <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> JYLTYR <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> SHVRINGVN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DeeSpace <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> anyz <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ANABALA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> JASKO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ish Pysqanda <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ардақ Балажанова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Makeloot <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> JasStars <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Galymbek Ismbergenov <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dana Zharas <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Rukhiya <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dinara Tiney <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dj Solo <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> MATIN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dana Berik <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> YEVGENII ABU-ZEID <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> vegassi <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Aka1dar <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ISSAXX <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Jaani Vert <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Fred Gunjazzy <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Художник <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Batyr <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Young Khan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Динара Сапакова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> NERALINO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ARTIKBAEEV <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> PVNDV <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Balqis <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Aila <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Aigerim Altynbek <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Айдана Максутова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> INABAT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Abeke <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> YEl'dos <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sharis <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sunz <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> NVRV <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ARSLAPS & ELLDI <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> 3rkezhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> RINAT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Kuby <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> SHYNGASHYK <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Marlen Amir <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Zhamanatty <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Coolness Idea <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> GULNAR KOSHENOVA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Moonguy <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> LINELLI <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> MERIMXAN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ZhasUlanS <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> MAGZHAN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sanglier <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Kazi <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Meylimusic <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BBgangsta <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Nurbek Aiqynbayev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Zhantleu <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Gulnur Bayanova <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sixtyone</span>
+            <span style="display:inline-block;white-space:nowrap;padding:0 40px;font-size:0.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.28);">L'One <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Jambul <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> QARAKESEK <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BEKCHURIN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Qanay <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Kalifarniya <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Miko <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Diana Ismail <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ray <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> R-ONE <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BYTANAT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ALHAM <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ALI Otenov <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ALLI <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ESKO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DAKELOT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ZAQ <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Screamteen <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> TUMA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Меховая 8/1 <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Yerkezhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Janer <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Дана Кентай <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ренат Гайсин <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Amina Esimzhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> KOBA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> THE KITCHEN SONGS <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Анара Батырхан <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Bakha & Bereek <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Saken Maigaziyev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DELIN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Rafa <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dilbara <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Beibit Kushkaliyev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ANU <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> SSS SABINA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> AIDARBEKOV REMIX <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Arsenaleen <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> AyaFunk <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DIDAR TOLEGEN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Бағым Мухитденова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DemAir <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Динара Алжан <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ZIGZAGSOLO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> 2KEN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Bizzlle & Mvrlo <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Zhakau <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Nina Moiseeva <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Jordan Arakelyan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Nurshat Asymov <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sultan Berikovich <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BYIRABAS <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sufano <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Akbolat Utebai <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Индира Елемес <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Azamat Torekhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Stels Travoltah <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Мади Ақділдәұлы <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> AZEQE <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> oiu <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Daro <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Almas Olzhagaliyev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DOHA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Азамат Омаров <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dekart04 <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BD <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> JYLTYR <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> SHVRINGVN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> DeeSpace <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> anyz <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ANABALA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> JASKO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ish Pysqanda <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Ардақ Балажанова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Makeloot <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> JasStars <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Galymbek Ismbergenov <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dana Zharas <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Rukhiya <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dinara Tiney <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dj Solo <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> MATIN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Dana Berik <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> YEVGENII ABU-ZEID <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> vegassi <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Aka1dar <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ISSAXX <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Jaani Vert <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Fred Gunjazzy <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Художник <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Batyr <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Young Khan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Динара Сапакова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> NERALINO <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ARTIKBAEEV <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> PVNDV <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Balqis <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Aila <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Aigerim Altynbek <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Айдана Максутова <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> INABAT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Abeke <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> YEl'dos <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sharis <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sunz <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> NVRV <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ARSLAPS & ELLDI <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> 3rkezhan <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> RINAT <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Kuby <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> SHYNGASHYK <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Marlen Amir <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Zhamanatty <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Coolness Idea <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> GULNAR KOSHENOVA <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Moonguy <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> LINELLI <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> MERIMXAN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> ZhasUlanS <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> MAGZHAN <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sanglier <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Kazi <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Meylimusic <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> BBgangsta <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Nurbek Aiqynbayev <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Zhantleu <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Gulnur Bayanova <span style="color:#D3FF33 !important;font-size:0.9em;font-weight:900;">✦</span> Sixtyone</span>
+        </div>
+    </div>
+    </div>
+
+        <section id="dist-services">
+            <div class="reveal" style="max-width: 860px; margin-bottom: 80px;">
+                <span class="slide-num" data-i18n="dist_s1_label">01 / GLOBAL RELEASE</span>
+                <h2 data-i18n="dist_s1_title">ПОЛНЫЙ ЦИКЛ ЦИФРОВОГО РАСПРОСТРАНЕНИЯ</h2>
+                <div class="lead-text" data-i18n="dist_s1_sub">Мы обеспечиваем не просто доставку треков, а полный цикл управления вашим цифровым присутствием. Прозрачная аналитика, техподдержка 24/7 и стратегическое продвижение в плейлисты.</div>
+            </div>
+
+            <div class="services-grid reveal">
+                <div class="info-card">
+                    <i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.8rem; color: var(--accent); margin-bottom: 18px;"></i>
+                    <h4 data-i18n="dist_card1_title">Цифровая отгрузка</h4>
+                    <p data-i18n="dist_card1_desc">Загрузка релизов на Spotify, Apple Music, YouTube Music, Deezer, TikTok, Яндекс Музыка, VK Музыка и др. Проверка метаданных, коды ISRC и UPC.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-chart-line" style="font-size: 1.8rem; color: var(--accent); margin-bottom: 18px;"></i>
+                    <h4 data-i18n="dist_card2_title">Аналитика и выплаты</h4>
+                    <p data-i18n="dist_card2_desc">Ежеквартальные финансовые отчеты и регулярные выплаты роялти. Прозрачный личный кабинет для отслеживания стримов по странам и площадкам.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 1.8rem; color: var(--accent); margin-bottom: 18px;"></i>
+                    <h4 data-i18n="dist_card3_title">Верификация и права</h4>
+                    <p data-i18n="dist_card3_desc">Получение официальных галочек в TikTok, YouTube, Instagram и на всех DSP. Настройка YouTube Content ID и защита авторских прав 24/7.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-microphone-lines" style="font-size: 1.8rem; color: var(--accent); margin-bottom: 18px;"></i>
+                    <h4 data-i18n="dist_card4_title">Продвижение</h4>
+                    <p data-i18n="dist_card4_desc">Поддержка при попадании в редакционные и алгоритмические плейлисты. Работа с обложками, текстами, клипами и видеоформатами.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="partnership" style="background: transparent; padding: 100px 10%;">
+            <div class="reveal mobile-stack" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <img src="studio_session.jpg" style="width: 100%; border-radius: 5px; display: block;" alt="Студийная сессия" loading="lazy">
+                </div>
+                <div>
+                    <span class="slide-num" data-i18n="dist_partner_label">PARTNERSHIP</span>
+                    <h2 data-i18n="dist_partner_title">ДЛЯ КОГО МЫ РАБОТАЕМ?</h2>
+                    <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 28px; line-height: 1.6;" data-i18n="dist_partner_sub">Артисты получают полную дистрибуцию по договору, а компании — мощный B2B инструмент для управления каталогами.</p>
+                    <div class="mobile-stack"style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="border-left: 2px solid var(--accent); padding-left: 18px;">
+                            <h4 style="font-size: 1rem; margin-bottom: 8px; color: #fff; text-transform: uppercase;" data-i18n="dist_artists_title">АРТИСТЫ</h4>
+                            <p style="font-size: 0.9rem; color: #888; line-height: 1.6;" data-i18n="dist_artists_desc">Персональное сопровождение, стратегия выпуска и аналитический доступ.</p>
+                        </div>
+                        <div style="border-left: 2px solid var(--accent); padding-left: 18px;">
+                            <h4 style="font-size: 1rem; margin-bottom: 8px; color: #fff; text-transform: uppercase;" data-i18n="dist_companies_title">КОМПАНИИ</h4>
+                            <p style="font-size: 0.9rem; color: #888; line-height: 1.6;" data-i18n="dist_companies_desc">Лейблы, студии, продюсерские центры. Каждый получает личный кабинет.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOUTUBE MANAGEMENT -->
+        <section id="youtube-management" style="background: transparent; padding: 100px 10%;">
+            <div class="reveal" style="max-width: 860px; margin-bottom: 50px;">
+                <span class="slide-num" data-i18n="dist_yt_label">02 / PLATFORM GROWTH</span>
+                <h2 data-i18n="dist_yt_title">YOUTUBE MANAGEMENT</h2>
+                <p class="lead-text" style="font-size: 1.1rem;" data-i18n="dist_yt_sub">Мы берём на себя полное управление YouTube-каналом артиста, чтобы превратить его в медиа-инструмент.</p>
+                <div class="platform-details reveal">
+                    <p class="platform-details-heading" data-i18n="platform_what_title">Что представляет эта услуга?</p>
+                    <ol class="platform-list" data-i18n="dist_yt_list">
+                        <li>Загрузка и оптимизация музыкальных видео, сниппетов и контента</li>
+                        <li>Оформление обложек, описаний, тегов и плейлистов под SEO-алгоритмы YouTube</li>
+                        <li>Мониторинг и решение жалоб по авторским правам и Content ID</li>
+                        <li>Включение и настройка монетизации</li>
+                        <li>Получение официальной галочки (верификации) для артиста</li>
+                        <li>Аналитика просмотров, вовлечённости и прироста аудитории</li>
+                        <li>Повышение узнаваемости канала через внутренние алгоритмы и рекомендации</li>
+                    </ol>
+                    <div class="platform-result">
+                        <span class="platform-result-label" data-i18n="platform_result_label">Результат</span>
+                        <p data-i18n="dist_yt_result">Артисты получают профессионально оформленный и защищённый канал, приносящий стабильный доход и укрепляющий личный бренд в YouTube-экосистеме.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cases-carousel-wrap">
+                <div class="cases-carousel" id="ytCarousel">
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="qanay.jpg" alt="Qanay" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Qanay</h4>
+                            <span class="channel-handle">@qanay.913</span>
+                        </div>
+                        <a href="https://www.youtube.com/@qanay.913" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="beibitkushkaliyev.jpg" alt="Beibit Kushkaliyev" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Beibit Kushkaliyev</h4>
+                            <span class="channel-handle">@beibitkushkaliev</span>
+                        </div>
+                        <a href="https://www.youtube.com/@beibitkushkaliev" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="anarabatyrkhan.jpg" alt="Anara Batyrkhan" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Anara Batyrkhan</h4>
+                            <span class="channel-handle">@AnaraBatyrkhan</span>
+                        </div>
+                        <a href="https://www.youtube.com/@AnaraBatyrkhan" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="aigerim_altynbek.jpg" alt="Aigerim Altynbek" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Aigerim Altynbek</h4>
+                            <span class="channel-handle">@aigerim_altynbek</span>
+                        </div>
+                        <a href="https://www.youtube.com/@aigerim_altynbek" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="thekitchensongs.jpg" alt="The Kitchen Songs" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>The Kitchen Songs</h4>
+                            <span class="channel-handle">@thekitchensongs</span>
+                        </div>
+                        <a href="https://www.youtube.com/@thekitchensongs" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="koba.jpg" alt="KOBA" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>KOBA</h4>
+                            <span class="channel-handle">@kobylandy_bolat</span>
+                        </div>
+                        <a href="https://youtube.com/@kobylandy_bolat" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="jordan_arakelyan.jpg" alt="Jordan Arakelyan" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Jordan Arakelyan</h4>
+                            <span class="channel-handle">@JordanArakelyan</span>
+                        </div>
+                        <a href="https://www.youtube.com/@JordanArakelyan" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="ronemusic.jpg" alt="R-ONE" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>R-ONE</h4>
+                            <span class="channel-handle">@ronemusic1</span>
+                        </div>
+                        <a href="https://www.youtube.com/@ronemusic1" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="azamat_torekhan.jpg" alt="Azamat Torekhan" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Azamat Torekhan</h4>
+                            <span class="channel-handle">@Torekhan_azamat</span>
+                        </div>
+                        <a href="https://www.youtube.com/@Torekhan_azamat" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top yt-top channel-has-photo">
+                            <img src="matin.jpg" alt="MATIN" loading="lazy">
+                            <i class="fa-brands fa-youtube channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>MATIN</h4>
+                            <span class="channel-handle">@MATINMUZ</span>
+                        </div>
+                        <a href="https://www.youtube.com/@MATINMUZ" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="yt_visit_channel">Смотреть канал →</a>
+                    </div>
+                    <div class="channel-slide channel-slide-others">
+                        <div class="channel-slide-top yt-top">
+                            <i class="fa-brands fa-youtube channel-brand-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4 data-i18n="channel_and_others">и другие</h4>
+                            <span class="channel-handle" style="opacity:0.4;">YouTube Artists</span>
+                        </div>
+                        <a href="/contacts" class="channel-cta" data-i18n="channel_contact_us">Связаться →</a>
+                    </div>
+                </div>
+                <div class="carousel-hint" data-i18n="carousel_hint">← свайп или скролл →</div>
+            </div>
+        </section>
+
+        <!-- TIKTOK FOR ARTISTS -->
+        <section id="tiktok-artists" style="background: url('cases_bg.jpg') no-repeat center center; background-size: cover; padding: 100px 10%;">
+            <div class="reveal" style="max-width: 860px; margin-bottom: 50px;">
+                <span class="slide-num" data-i18n="dist_tt_label">03 / PLATFORM GROWTH</span>
+                <h2 data-i18n="dist_tt_title">TIKTOK FOR ARTISTS</h2>
+                <p class="lead-text" style="font-size: 1.1rem;" data-i18n="dist_tt_sub">Мы подключаем артистов к системе TikTok for Artists, помогая получить официальный статус Official Artist Account — подтверждённую страницу, где весь музыкальный каталог собран в одном месте.</p>
+                <div class="platform-details reveal">
+                    <p class="platform-details-heading" data-i18n="platform_what_title">Что представляет эта услуга?</p>
+                    <ol class="platform-list" data-i18n="dist_tt_list">
+                        <li>Оформление и подключение официального профиля артиста в TikTok</li>
+                        <li>Привязка треков и создание раздела «Музыка артиста»</li>
+                        <li>Синхронизация релизов с дистрибьютором (Spotify, Apple Music и др.)</li>
+                        <li>Получение официальной галочки (верификации)</li>
+                        <li>Добавление ссылок на стриминговые платформы и соцсети</li>
+                        <li>Оптимизация профиля для продвижения и роста аудитории</li>
+                    </ol>
+                    <div class="platform-result">
+                        <span class="platform-result-label" data-i18n="platform_result_label">Результат</span>
+                        <ol class="platform-list" data-i18n="dist_tt_result">
+                            <li>Все треки артиста объединены в одном официальном профиле</li>
+                            <li>Подтверждённый статус Official Artist Account</li>
+                            <li>Рост охватов и узнаваемости через алгоритмы TikTok</li>
+                            <li>Защищённое авторство</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="cases-carousel-wrap">
+                <div class="cases-carousel" id="ttCarousel">
+                    <div class="channel-slide">
+                        <div class="channel-slide-top tt-top channel-has-photo">
+                            <img src="kalifarniya.jpg" alt="Kalifarniya" loading="lazy">
+                            <i class="fa-brands fa-tiktok channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Kalifarniya</h4>
+                            <span class="channel-handle">@kalifarniyaga</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@kalifarniyaga" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="tt_visit_profile">Открыть TikTok →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top tt-top channel-has-photo">
+                            <img src="renatgaissin.jpg" alt="Ренат Гайсин" loading="lazy">
+                            <i class="fa-brands fa-tiktok channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Ренат Гайсин</h4>
+                            <span class="channel-handle">@gaissin</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@gaissin" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="tt_visit_profile">Открыть TikTok →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top tt-top channel-has-photo">
+                            <img src="qanay.jpg" alt="Qanay" loading="lazy">
+                            <i class="fa-brands fa-tiktok channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Qanay</h4>
+                            <span class="channel-handle">@qanay.913</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@qanay.913" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="tt_visit_profile">Открыть TikTok →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top tt-top channel-has-photo">
+                            <img src="diana_ismail.jpg" alt="Diana Ismail" loading="lazy">
+                            <i class="fa-brands fa-tiktok channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>Diana Ismail</h4>
+                            <span class="channel-handle">@diana_ismail__</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@diana_ismail__" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="tt_visit_profile">Открыть TikTok →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top tt-top channel-has-photo">
+                            <img src="esko.jpg" alt="ESKO" loading="lazy">
+                            <i class="fa-brands fa-tiktok channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>ESKO</h4>
+                            <span class="channel-handle">@q1eskoo</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@q1eskoo" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="tt_visit_profile">Открыть TikTok →</a>
+                    </div>
+                    <div class="channel-slide">
+                        <div class="channel-slide-top tt-top channel-has-photo">
+                            <img src="dakelot.jpg" alt="DAKELOT" loading="lazy">
+                            <i class="fa-brands fa-tiktok channel-badge-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4>DAKELOT</h4>
+                            <span class="channel-handle">@dakelot1</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@dakelot1" target="_blank" rel="noopener noreferrer" class="channel-cta" data-i18n="tt_visit_profile">Открыть TikTok →</a>
+                    </div>
+                    <div class="channel-slide channel-slide-others">
+                        <div class="channel-slide-top tt-top">
+                            <i class="fa-brands fa-tiktok channel-brand-icon"></i>
+                        </div>
+                        <div class="channel-slide-body">
+                            <h4 data-i18n="channel_and_others">и другие</h4>
+                            <span class="channel-handle" style="opacity:0.4;">TikTok Artists</span>
+                        </div>
+                        <a href="/contacts" class="channel-cta" data-i18n="channel_contact_us">Связаться →</a>
+                    </div>
+                </div>
+                <div class="carousel-hint" data-i18n="carousel_hint">← свайп или скролл →</div>
+            </div>
+        </section>
+    <style>
+        .platform-details {
+            margin-top: 36px;
+            padding: 32px;
+            border: 1px solid rgba(211,255,51,0.12);
+            background: rgba(0,0,0,0.3);
+        }
+        .platform-details-heading {
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 20px;
+        }
+        .platform-list {
+            padding-left: 20px;
+            margin: 0 0 28px;
+        }
+        .platform-list li {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+            margin-bottom: 4px;
+        }
+        .platform-result {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 24px;
+        }
+        .platform-result-label {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .platform-result > p {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+            margin: 0;
+        }
+        .cases-carousel-wrap {
+            position: relative;
+            margin: 0 -10%;
+            padding: 0 10%;
+        }
+        .cases-carousel {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            cursor: grab;
+            padding-bottom: 8px;
+        }
+        .cases-carousel::-webkit-scrollbar { display: none; }
+        .cases-carousel:active { cursor: grabbing; }
+        .channel-slide {
+            flex: 0 0 240px;
+            scroll-snap-align: start;
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s;
+        }
+        .channel-slide:hover { border-color: rgba(211,255,51,0.35); }
+        .channel-slide-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 140px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .yt-top { background: linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(0,0,0,0) 100%); }
+        .tt-top { background: linear-gradient(135deg, rgba(105,201,208,0.10) 0%, rgba(0,0,0,0) 100%); }
+        .channel-has-photo { padding: 0; }
+        .channel-has-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            pointer-events: none;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+        .channel-has-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(211,255,51,0.22);
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .channel-slide:hover .channel-has-photo img {
+            filter: grayscale(0%);
+        }
+        .channel-slide:hover .channel-has-photo::after {
+            opacity: 0;
+        }
+        .channel-brand-icon {
+            font-size: 2.6rem;
+            color: var(--accent);
+        }
+        .channel-badge-icon {
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-shadow: 0 0 8px rgba(0,0,0,0.8);
+        }
+        .channel-slide-body {
+            padding: 18px 20px 10px;
+            flex: 1;
+        }
+        .channel-slide-body h4 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+        }
+        .channel-handle {
+            font-size: 0.78rem;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+        .channel-cta {
+            display: block;
+            margin: 0 20px 20px;
+            padding: 10px 0;
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            background: var(--accent);
+            transition: background 0.3s, color 0.3s;
+        }
+        .channel-cta:hover { background: #fff; }
+        .channel-slide-others { opacity: 0.6; }
+        .carousel-hint {
+            text-align: center;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.2);
+            margin-top: 16px;
+            text-transform: uppercase;
+        }
+        @media (max-width: 640px) {
+            .channel-slide { flex: 0 0 200px; }
+        }
+    </style>
+    <script>
+        (function(){
+            ['ytCarousel','ttCarousel'].forEach(function(id){
+                var c = document.getElementById(id);
+                if (!c) return;
+                var down = false, sx, sl;
+                c.addEventListener('mousedown', function(e){ down=true; sx=e.pageX-c.offsetLeft; sl=c.scrollLeft; });
+                c.addEventListener('mouseleave', function(){ down=false; });
+                c.addEventListener('mouseup', function(){ down=false; });
+                c.addEventListener('mousemove', function(e){ if(!down) return; e.preventDefault(); c.scrollLeft = sl-(e.pageX-c.offsetLeft-sx)*1.2; });
+            });
+        })();
+    </script>
+
+        <section id="contact-section" style="background: transparent;">
+            <div class="contact-form-container reveal">
+                <span class="slide-num" data-i18n="contacts_label">GET IN TOUCH</span>
+                <h2 style="margin-bottom: 16px;" data-i18n="contacts_form_title">ОСТАВИТЬ ЗАЯВКУ</h2>
+                <p style="color: var(--gray); margin-bottom: 50px; font-size: 0.95rem;" data-i18n="dist_form_intro">Заполните форму, и наш менеджер свяжется с вами для обсуждения стратегии вашего релиза.</p>
+                <form class="contact-form" action="https://formsubmit.co/ajax/info@keyent.kz" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_source" value="distribution.html">
+            <input type="hidden" name="_subject" value="Заявка — Distribution">
+                    <div class="form-group">
+                        <label data-i18n="contacts_name">Ваше имя</label>
+                        <input type="text" name="Имя" placeholder="Иван Иванов" data-i18n-placeholder="dist_form_name_ph" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="contacts_email">Email</label>
+                        <input type="email" name="Email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="dist_form_demo">Ссылка на демо / Соцсети</label>
+                        <input type="url" name="Ссылка на демо" placeholder="https://soundcloud.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="dist_form_type">Тип партнерства</label>
+                        <input type="text" name="Тип партнерства" placeholder="Артист / Лейбл / Студия" data-i18n-placeholder="dist_form_type_ph">
+                    </div>
+                    <div class="form-group full">
+                        <label data-i18n="contacts_message_label">Сообщение</label>
+                        <textarea name="Сообщение" rows="4" placeholder="Расскажите немного о вашем проекте" data-i18n-placeholder="dist_form_msg_ph"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" data-i18n="dist_form_submit">ОТПРАВИТЬ ЗАЯВКУ —></button>
+                </form>
+            </div>
+        </section>
+    
+    <!-- SEO keywords -->
+    <span style="display:none">дистрибуция музыки</span> <span style="display:none">Spotify</span> <span style="display:none">Apple Music</span> <span style="display:none">TikTok верификация</span> <span style="display:none">ISRC</span> <span style="display:none">Content ID</span> <span style="display:none">роялти</span> <span style="display:none">Яндекс Музыка</span> <span style="display:none">VK Музыка</span> <span style="display:none">глобальная дистрибуция</span> <span style="display:none">Kalifarniya</span> <span style="display:none">Qanay</span> <span style="display:none">Diana Ismail</span> <span style="display:none">QARAKESEK</span> <span style="display:none">R-ONE</span> <span style="display:none">TUMA</span> <span style="display:none">Screamteen</span>
+</main>
+
+            <footer style="padding: 60px 10% 40px; text-align: center; position: relative; z-index: 1;">
+        <img src="logo.png" style="width: 60px; margin-bottom: 28px;" alt="Key Entertainment">
+
+        <!-- Соцсети -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 28px; flex-wrap: wrap;">
+            <a href="https://wa.me/77010520606" target="_blank" rel="noopener" title="WhatsApp"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#25D366'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/keyentkz" target="_blank" rel="noopener" title="Telegram"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#0088cc'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+            <a href="https://instagram.com/keyentertainment.kz" target="_blank" rel="noopener" title="Instagram"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#E4405F'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@keyentkz" target="_blank" rel="noopener" title="YouTube"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#FF0000'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://vk.com/keyentertainment" target="_blank" rel="noopener" title="VK"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#4C75A3'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-vk"></i>
+            </a>
+            <a href="https://music.yandex.kz/label/632686" target="_blank" rel="noopener" title="Яндекс Музыка"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;display:inline-flex;align-items:center;"
+               onmouseover="this.style.opacity=1"
+               onmouseout="this.style.opacity=0.5">
+                <img src="yandex-music.png" alt="Яндекс Музыка" style="width:24px;height:24px;object-fit:contain;filter:brightness(0) invert(1);transition:0.3s;"
+                     onmouseover="this.style.filter='none'" onmouseout="this.style.filter='brightness(0) invert(1)'" loading="lazy">
+            </a>
+
+        </div>
+
+        <!-- Навигация -->
+        <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; font-size: 0.7rem; letter-spacing: 1.5px; color: rgba(211,255,51,0.9); flex-wrap: wrap; font-weight: 700;">
+            <a href="/distribution" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">DISTRIBUTION</a>
+            <a href="/legal" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">LEGAL</a>
+            <a href="/label" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">LABEL</a>
+            <a href="/pr" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">PR & MARKETING</a>
+            <a href="/booking" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">BOOKING</a>
+            <a href="/brand" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'" data-i18n="nav_brand_upper">БРЕНДБУК</a>
+            <a href="/contacts" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'" data-i18n="nav_contacts_upper">КОНТАКТЫ</a>
+        </div>
+
+        <!-- Копирайт -->
+        <div style="display:flex;justify-content:center;gap:24px;margin-bottom:16px;font-size:0.58rem;letter-spacing:1px;flex-wrap:wrap;">
+            <a href="/privacy" style="color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'" data-i18n="footer_privacy">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
+            <a href="/offer" style="color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a>
+        </div>
+        <p style="font-size:0.58rem;opacity:0.45;letter-spacing:2px;margin:0;" data-i18n="footer_copy">ТОО «KEY ENTERTAINMENT» · БИН 231240023174 · © 2015–2026 ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        const burger = document.getElementById("burger");
+        const navLinks = document.getElementById("nav-links");
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("open"); navLinks.classList.toggle("open");
+            burger.setAttribute("aria-expanded", navLinks.classList.contains("open"));
+            document.body.style.overflow = navLinks.classList.contains("open") ? "hidden" : "";
+        });
+        navLinks.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => { burger.classList.remove("open"); navLinks.classList.remove("open"); document.body.style.overflow = ""; });
+        });
+        ScrollReveal().reveal('.reveal', { delay: 150, distance: '40px', duration: 1000, easing: 'ease-in-out', origin: 'bottom', interval: 80 });
+    </script>
+
+    <script>
+        // Чередование паттернов при скролле
+        (function() {
+            var layers = [
+                document.getElementById('pl1'),
+                document.getElementById('pl2'),
+                document.getElementById('pl3'),
+                document.getElementById('pl4')
+            ];
+            var current = 0;
+            var pageH, segH;
+
+            function getActive(scrollY) {
+                pageH = document.body.scrollHeight - window.innerHeight;
+                if (pageH <= 0) return 0;
+                segH = pageH / layers.length;
+                return Math.min(Math.floor(scrollY / segH), layers.length - 1);
+            }
+
+            function update() {
+                var active = getActive(window.scrollY || window.pageYOffset);
+                if (active !== current) {
+                    layers[current].classList.remove('visible');
+                    layers[active].classList.add('visible');
+                    current = active;
+                }
+            }
+
+            // Показываем первый сразу
+            layers[0].classList.add('visible');
+
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update, { passive: true });
+        })();
+    </script>
+
+    <script>
+        // Защита контента
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            // Блокируем Ctrl+S, Ctrl+U, Ctrl+A, F12, Ctrl+Shift+I/J/C
+            if ((e.ctrlKey || e.metaKey) && ['s','u','a','p'].includes(e.key.toLowerCase())) e.preventDefault();
+            if (e.key === 'F12') e.preventDefault();
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase())) e.preventDefault();
+        });
+        // Блокируем drag изображений
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', e => e.preventDefault());
+        });
+    </script>
+
+    <script>
+    </script>
+
+    <script>
+    });
+    </script>
+
+    <script>
+    // Hover pause для всех бегущих строк
+    document.querySelectorAll('.ticker-outer').forEach(function(wrap) {
+        var track = wrap.querySelector('[style*="animation"]');
+        if (!track) return;
+        wrap.addEventListener('mouseenter', function() {
+            track.style.animationPlayState = 'paused';
+        });
+        wrap.addEventListener('mouseleave', function() {
+            track.style.animationPlayState = 'running';
+        });
+    });
+    </script>
+
+    <script>
+        // Scroll to top
+        (function() {
+            var btn = document.getElementById('scroll-top');
+            if (!btn) return;
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }, { passive: true });
+            btn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+
+    <script>
+    // ===== ВАЛИДАЦИЯ + AJAX ОТПРАВКА =====
+    (function() {
+
+        function phoneMask(input) {
+            input.addEventListener('input', function() {
+                var v = this.value.replace(/[^+\d]/g, '');
+                if (!v.startsWith('+')) v = '+' + v;
+                v = '+' + v.slice(1).replace(/\+/g, '');
+                if (v.length > 13) v = v.slice(0, 13);
+                this.value = v;
+            });
+            input.addEventListener('focus', function() {
+                if (!this.value) this.value = '+';
+            });
+        }
+
+        function validateEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.trim()); }
+        function validatePhone(p) { return /^\+[\d]{10,12}$/.test(p.replace(/\s/g,'')); }
+
+        function setError(input, msg) {
+            input.style.borderColor = '#ff4444';
+            var err = input.nextElementSibling;
+            if (!err || !err.classList.contains('field-error')) {
+                err = document.createElement('span');
+                err.className = 'field-error';
+                err.style.cssText = 'color:#ff4444;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;display:block;margin-top:4px;';
+                input.parentNode.insertBefore(err, input.nextSibling);
+            }
+            err.textContent = msg;
+        }
+
+        function clearError(input) {
+            input.style.borderColor = '';
+            var err = input.nextElementSibling;
+            if (err && err.classList.contains('field-error')) err.remove();
+        }
+
+        document.querySelectorAll('form.contact-form').forEach(function(form) {
+
+            // Phone mask
+            form.querySelectorAll('input[type="tel"]').forEach(phoneMask);
+
+            // Live validation
+            form.querySelectorAll('input[type="email"]').forEach(function(input) {
+                input.addEventListener('blur', function() {
+                    var t = (window.KEY_TRANSLATIONS[window.currentLang||'ru']||{});
+                    if (this.value && !validateEmail(this.value)) setError(this, t.val_email||'Введите корректный email');
+                    else clearError(this);
+                });
+                input.addEventListener('input', function() { if (validateEmail(this.value)) clearError(this); });
+            });
+
+            form.querySelectorAll('input[type="tel"]').forEach(function(input) {
+                input.addEventListener('blur', function() {
+                    var t = (window.KEY_TRANSLATIONS[window.currentLang||'ru']||{});
+                    if (this.value && this.value !== '+' && !validatePhone(this.value)) setError(this, t.val_phone||'Формат: +7XXXXXXXXXX');
+                    else clearError(this);
+                });
+                input.addEventListener('input', function() { if (validatePhone(this.value)) clearError(this); });
+            });
+
+            // Submit — validate then AJAX
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                var t = window.KEY_TRANSLATIONS[window.currentLang||'ru'] || window.KEY_TRANSLATIONS['ru'] || {};
+                var valid = true;
+
+                form.querySelectorAll('input[required]').forEach(function(input) {
+                    if (!input.value.trim()) { setError(input, t.val_required||'Обязательное поле'); valid = false; }
+                });
+                form.querySelectorAll('input[type="email"]').forEach(function(input) {
+                    if (!validateEmail(input.value)) { setError(input, t.val_email||'Введите корректный email'); valid = false; }
+                });
+                form.querySelectorAll('input[type="tel"]').forEach(function(input) {
+                    if (input.value && input.value !== '+' && !validatePhone(input.value)) { setError(input, t.val_phone||'Формат: +7XXXXXXXXXX'); valid = false; }
+                });
+
+                if (!valid) return;
+
+                var btn = form.querySelector('button[type="submit"], .submit-btn');
+                var originalHTML = btn ? btn.innerHTML : '';
+                if (btn) { btn.textContent = t.val_sending||'ОТПРАВЛЯЕМ...'; btn.disabled = true; }
+
+                fetch('https://formsubmit.co/ajax/info@keyent.kz', {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.success === 'true' || data.success === true) {
+                        window.location.href = '/thank-you';
+                    } else {
+                        if (btn) { btn.innerHTML = originalHTML; btn.disabled = false; }
+                        alert(t.val_error||'ОШИБКА. ПОПРОБУЙТЕ ЕЩЁ РАЗ');
+                    }
+                })
+                .catch(function() {
+                    if (btn) { btn.innerHTML = originalHTML; btn.disabled = false; }
+                    alert(t.val_error||'ОШИБКА. ПОПРОБУЙТЕ ЕЩЁ РАЗ');
+                });
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

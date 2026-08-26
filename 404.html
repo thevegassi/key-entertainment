@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Страница не найдена | Key Entertainment</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="translations.js?v=3"></script>
+    <style>
+        .error-page {
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 5%;
+            position: relative;
+            z-index: 1;
+        }
+        .error-num {
+            font-size: clamp(7rem, 22vw, 16rem);
+            font-weight: 900;
+            line-height: 1;
+            color: rgba(211,255,51,0.08);
+            letter-spacing: -8px;
+            margin-bottom: -20px;
+            display: block;
+            pointer-events: none;
+        }
+        .error-title {
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        .error-sub {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            max-width: 420px;
+            margin-bottom: 48px;
+        }
+        .error-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        .error-link {
+            padding: 14px 28px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .error-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .error-link.primary {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+        .error-link.primary:hover {
+            background: #fff;
+            border-color: #fff;
+        }
+        .error-logo {
+            width: 50px;
+            margin-bottom: 32px;
+            opacity: 0.5;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFJEKS7VYZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KFJEKS7VYZ');
+    </script>
+</head>
+<body style="background: #020202; color: #fff; overflow-x: hidden;">
+    <div id="pl1" class="pattern-layer"></div>
+    <div id="pl2" class="pattern-layer"></div>
+    <div id="pl3" class="pattern-layer"></div>
+    <div id="pl4" class="pattern-layer"></div>
+    <div id="ambient-bg" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <header class="top-nav">
+        <a href="/"><img src="logo.png" class="nav-logo" alt="Key Entertainment"></a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <a href="/" data-i18n="nav_about">О нас</a>
+            <a href="/distribution">Distribution</a>
+            <a href="/legal">Legal</a>
+            <a href="/label">Label</a>
+            <a href="/pr">PR & Marketing</a>
+            <a href="/booking">Booking</a>
+            <a href="/brand" data-i18n="nav_brand_upper">БРЕНДБУК</a>
+            <a href="/contacts" data-i18n="nav_contacts">Контакты</a>
+        </nav>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru" onclick="applyLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="kz" onclick="applyLanguage('kz')">KZ</button>
+            <button class="lang-btn" data-lang="en" onclick="applyLanguage('en')">EN</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="error-page">
+            <img src="logo.png" class="error-logo" alt="Key Entertainment">
+            <span class="error-num">404</span>
+            <h1 class="error-title" data-i18n="e404_title">Страница не найдена</h1>
+            <p class="error-sub" data-i18n="e404_sub">Похоже, эта страница переехала или никогда не существовала. Но музыка — точно существует.</p>
+            <div class="error-links">
+                <a href="/" class="error-link primary" data-i18n="e404_home">← На главную</a>
+                <a href="/distribution" class="error-link">Distribution</a>
+                <a href="/label" class="error-link">Label</a>
+                <a href="/booking" class="error-link">Booking</a>
+                <a href="/contacts" class="error-link" data-i18n="e404_contacts">Контакты</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+            burger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                burger.classList.remove('open');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+        // Паттерны
+        (function() {
+            var layers = [document.getElementById('pl1'),document.getElementById('pl2'),document.getElementById('pl3'),document.getElementById('pl4')];
+            layers[0].classList.add('visible');
+        })();
+        // Защита
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['s','u','a','p'].includes(e.key.toLowerCase())) e.preventDefault();
+            if (e.key === 'F12') e.preventDefault();
+        });
+    </script>
+</body>
+</html>

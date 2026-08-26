@@ -1,0 +1,902 @@
+:root {
+    --bg: #000;
+    --accent: #D3FF33; 
+    --gray: #888;
+    --dark-card: #0d0d0d;
+    --line: rgba(211, 255, 51, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body { 
+    background: #020202; 
+    color: #fff; 
+    font-family: 'Nunito Sans', sans-serif; 
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ===================== НАВИГАЦИЯ ===================== */
+header.top-nav {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 80px;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-logo { height: 38px; width: auto; display: block; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+    color: #fff; text-decoration: none; font-size: 0.68rem;
+    font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;
+    transition: 0.3s; opacity: 0.45; white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent); opacity: 1; }
+
+/* Бургер-меню (скрыт на десктопе) */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px 8px;
+    z-index: 1100;
+    background: none;
+    border: none;
+    box-sizing: border-box;
+}
+.burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===================== СЕКЦИИ ===================== */
+section { 
+    padding: 160px 10% 100px; 
+}
+
+.spacer { height: 100px; }
+
+.slide-num { 
+    color: var(--accent); font-weight: 900; letter-spacing: 4px; 
+    font-size: 0.75rem; margin-bottom: 18px; display: block; 
+    text-transform: uppercase;
+}
+
+h1 { 
+    font-size: clamp(2.8rem, 7vw, 6.5rem); 
+    text-transform: uppercase; font-weight: 900; 
+    line-height: 0.92; margin: 0; letter-spacing: -1px; 
+}
+
+h2 { 
+    font-size: clamp(1.8rem, 4vw, 3rem); 
+    text-transform: uppercase; font-weight: 900; 
+    margin-bottom: 40px; line-height: 1.1; 
+}
+
+h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    text-transform: uppercase; font-weight: 900;
+    margin-bottom: 20px; line-height: 1.2;
+}
+
+.lead-text { 
+    font-size: clamp(1.1rem, 2vw, 1.5rem); 
+    font-weight: 300; line-height: 1.6; 
+    color: #fff; margin: 30px 0; max-width: 900px; 
+}
+
+/* ===================== СЕТКИ ===================== */
+.services-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+}
+
+.info-card {
+    border-top: 1px solid var(--line);
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+.info-card h4 { 
+    color: var(--accent); 
+    text-transform: uppercase; 
+    font-size: 1rem; 
+    margin-bottom: 18px; 
+    font-weight: 900; 
+    letter-spacing: 0.5px;
+}
+
+.info-card p, .info-card li { 
+    color: #888; 
+    font-size: 1rem; 
+    line-height: 1.7; 
+    margin-bottom: 12px;
+}
+
+/* ===================== КЕЙСЫ ===================== */
+.case-row {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--line);
+    padding: 50px 0;
+}
+
+/* ===================== ФУТЕР ===================== */
+footer { 
+    padding: 80px 10%; 
+    opacity: 0.3; 
+    font-size: 0.65rem; 
+    text-align: center; 
+    letter-spacing: 2px; 
+}
+
+/* ===================== ФОРМА ===================== */
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.form-group input, .form-group textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding: 12px 0;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+}
+
+.submit-btn {
+    grid-column: span 2;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.4s;
+    font-family: inherit;
+    font-size: 0.85rem;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.submit-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* ===================== АНИМАЦИИ ===================== */
+.reveal-img {
+    opacity: 0;
+    transform: scale(0.97) translateY(20px);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: grayscale(1) blur(4px);
+}
+
+.reveal-img.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: grayscale(0) blur(0);
+}
+
+.hero-bg-animate {
+    animation: fadeInBg 2.5s ease-out forwards;
+}
+
+@keyframes fadeInBg {
+    from { opacity: 0; transform: scale(1.05); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ===================== LEGAL SHOP ===================== */
+.legal-solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.solution-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.4s;
+}
+
+.solution-card:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.solution-card h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.solution-card p {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.price-box {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.buy-btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 14px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.buy-btn:hover { background: #ddd; }
+
+/* ===================== МОДАЛЬНОЕ ОКНО ===================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #111;
+    padding: 40px;
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* ===================== МОБИЛЬНАЯ АДАПТАЦИЯ ===================== */
+
+/* Планшеты (до 1024px) */
+
+
+/* Планшеты малые (до 860px) — бургер-меню */
+
+
+/* Мобильные (до 640px) */
+
+
+/* Маленькие мобильные (до 400px) */
+
+
+/* Изображения всегда адаптивные */
+img { max-width: 100%; height: auto; }
+
+/* ===================== ГРАДИЕНТЫ ===================== */
+
+
+
+
+
+
+
+/* ===================== AMBIENT BACKGROUND ===================== */
+
+#ambient-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#ambient-bg span {
+    position: absolute;
+    border-radius: 50%;
+    
+    animation: floatGlow linear infinite;
+}
+
+#ambient-bg span:nth-child(1) {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(211,255,51,0.08) 0%, transparent 65%);
+    top: -150px; left: -150px;
+    animation-duration: 20s;
+    animation-delay: 0s;
+}
+#ambient-bg span:nth-child(2) {
+    width: 550px; height: 550px;
+    background: radial-gradient(circle, rgba(211,255,51,0.08) 0%, transparent 65%);
+    top: 40%; right: -100px;
+    animation-duration: 26s;
+    animation-delay: -7s;
+}
+#ambient-bg span:nth-child(3) {
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(211,255,51,0.08) 0%, transparent 65%);
+    bottom: -100px; left: 25%;
+    animation-duration: 32s;
+    animation-delay: -14s;
+}
+#ambient-bg span:nth-child(4) {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(180,230,20,0.08) 0%, transparent 65%);
+    top: 55%; left: 5%;
+    animation-duration: 38s;
+    animation-delay: -4s;
+}
+#ambient-bg span:nth-child(5) {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(211,255,51,0.08) 0%, transparent 65%);
+    top: 10%; left: 45%;
+    animation-duration: 28s;
+    animation-delay: -18s;
+}
+
+@keyframes floatGlow {
+    0%   { transform: translate(0px, 0px) scale(1);    opacity: 0.4; }
+    25%  { transform: translate(60px, -80px) scale(1.15); opacity: 1; }
+    50%  { transform: translate(30px, 60px) scale(0.95);  opacity: 0.6; }
+    75%  { transform: translate(-50px, 30px) scale(1.1);  opacity: 1; }
+    100% { transform: translate(0px, 0px) scale(1);    opacity: 0.4; }
+}
+
+
+
+/* Grain */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+}
+
+
+/* ===================== ЗАЩИТА КОНТЕНТА ===================== */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Разрешаем выделение в полях форм */
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+}
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    max-width: 100%;
+}
+.nav-logo { pointer-events: auto !important; }
+/* Разрешаем pointer-events на ссылках-изображениях */
+a img { pointer-events: auto; }
+
+/* ===================== ФИНАЛЬНЫЙ АДАПТИВ ===================== */
+
+/* Навигация — сжатие при переполнении */
+
+    .nav-links { gap: 14px; }
+}
+
+/* Контакты — вертикально на мобильных */
+
+
+/* Статистика */
+
+
+
+/* Миссия */
+
+
+/* Экосистема */
+
+
+
+/* Genesis/about grid */
+
+
+/* Brand page */
+
+
+/* Изображения всегда адаптивные */
+img:not(.nav-logo):not(.mission-logo-bg) {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Секции на маленьких экранах */
+
+/* Навигация адаптив */
+
+
+
+/* ===================== ПАТТЕРНЫ ===================== */
+
+.pattern-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: center top;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    will-change: opacity;
+    /* Окрашиваем в лаймовый #D3FF33 */
+    filter: blur(8px) sepia(1) hue-rotate(35deg) saturate(4) brightness(0.6);
+    mix-blend-mode: screen;
+}
+
+.pattern-layer.visible { opacity: 0.03; }
+
+#pl1 { background-image: url('pattern1.svg'); }
+#pl2 { background-image: url('pattern2.svg'); }
+#pl3 { background-image: url('pattern3.svg'); }
+#pl4 { background-image: url('pattern4.svg'); }
+/* ============================================================
+   АДАПТИВ — mobile-first, современный подход
+   Breakpoints: 480 / 640 / 860 / 1024 / 1280
+   ============================================================ */
+
+/* ── 1280px и ниже ── */
+@media (max-width: 1280px) {
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 0.64rem; }
+}
+
+/* ── 1024px ── планшет горизонтальный ── */
+@media (max-width: 1024px) {
+    header.top-nav { padding: 0 4%; }
+    .nav-links { gap: 12px; }
+    .nav-links a { font-size: 0.58rem; letter-spacing: 0.8px; }
+    section { padding: 120px 6% 80px; }
+    .services-grid { gap: 24px; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-item.big { grid-row: span 1; }
+    .eco-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── 860px ── планшет вертикальный ── бургер ── */
+@media (max-width: 860px) {
+    /* Навигация */
+    header.top-nav { height: 64px; padding: 0 5%; }
+    .burger { display: flex; }
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px; left: 0;
+        width: 100%; height: calc(100dvh - 64px);
+        background: rgba(0,0,0,0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        z-index: 999;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1rem; letter-spacing: 3px; opacity: 0.7; }
+
+    /* Типографика */
+    h1 { font-size: clamp(2.4rem, 7vw, 3.6rem) !important; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.2rem) !important; margin-bottom: 28px; }
+    .lead-text { font-size: clamp(1rem, 2.5vw, 1.2rem) !important; }
+
+    /* Секции */
+    section { padding: 100px 5% 60px; }
+    .spacer { height: 60px; }
+
+    /* Гриды → 2 колонки */
+    .services-grid { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+    .who-body { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .who-right { border-left: none !important; padding-left: 0 !important; border-top: 1px solid rgba(211,255,51,0.1); padding-top: 20px; }
+    .genesis-grid { grid-template-columns: 1fr !important; }
+    .genesis-img { height: 280px !important; }
+    .contacts-layout { grid-template-columns: 1fr !important; gap: 50px !important; }
+    .stats-grid { grid-template-columns: 1fr 1fr !important; }
+    .eco-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .brand-actions { grid-template-columns: 1fr !important; }
+    .logo-pair { grid-template-columns: 1fr 1fr !important; }
+
+    /* Миссия */
+    .mission-section { padding: 80px 5% !important; }
+    .mission-logo-bg { display: none; }
+    .mission-quote { font-size: 1.3rem !important; }
+
+    /* Форма */
+    .contact-form { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .form-group.full { grid-column: span 1 !important; }
+    .submit-btn { grid-column: span 1 !important; padding: 18px !important; }
+
+    /* Stat big */
+    .stat-item.big { flex-direction: row !important; align-items: center !important; padding: 30px !important; }
+    .stat-item.big .stat-num { font-size: clamp(3rem, 8vw, 5rem) !important; }
+}
+
+/* ── 640px ── мобильный большой ── */
+@media (max-width: 640px) {
+    header.top-nav { height: 58px; padding: 0 4%; }
+    .nav-logo { height: 30px; }
+    .nav-links { top: 58px; height: calc(100dvh - 58px); }
+
+    section { padding: 90px 4% 50px; }
+    h1 { font-size: clamp(1.9rem, 9vw, 2.6rem) !important; letter-spacing: -0.5px; }
+    h2 { font-size: clamp(1.3rem, 6vw, 1.8rem) !important; }
+    h3 { font-size: clamp(1.1rem, 5vw, 1.4rem) !important; }
+    .slide-num { font-size: 0.62rem; letter-spacing: 2px; }
+    .lead-text { font-size: 0.95rem !important; line-height: 1.6; }
+
+    /* Гриды → 1 колонка */
+    .services-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .stats-grid { grid-template-columns: 1fr !important; }
+    .eco-grid { grid-template-columns: 1fr 1fr !important; }
+    .stat-item { padding: 24px 18px !important; }
+    .stat-num { font-size: 2.8rem !important; }
+
+    /* Карусель */
+    .case-slide { flex: 0 0 80vw !important; }
+
+    /* Hero hero-bg-animate padding */
+    .hero-bg-animate { padding: 80px 4% 50px !important; }
+
+    /* Footer */
+    footer { padding: 50px 4% !important; }
+    footer div { gap: 16px !important; flex-wrap: wrap; justify-content: center; }
+
+    /* Brand */
+    .logo-pair { grid-template-columns: 1fr !important; }
+    .color-grid { grid-template-columns: 1fr 1fr !important; }
+
+    /* Бегущие строки */
+    .dept-ticker-item { font-size: 0.58rem !important; letter-spacing: 2px !important; }
+
+    /* Stats intro */
+    .stats-intro { flex-direction: column !important; gap: 16px !important; }
+    .stats-intro h2 { font-size: 2rem !important; }
+}
+
+/* ── 480px ── мобильный стандарт ── */
+@media (max-width: 480px) {
+    .nav-logo { height: 26px; }
+    h1 { font-size: clamp(1.5rem, 7.5vw, 1.9rem) !important; }
+    h2 { font-size: clamp(1.1rem, 5vw, 1.4rem) !important; }
+    .eco-grid { grid-template-columns: 1fr !important; }
+    .eco-card { min-height: 200px !important; padding: 32px 24px !important; }
+    section { padding: 85px 4% 45px; }
+    .contact-form-container { padding: 20px 0 !important; }
+    .hero-bg-animate div[style*="padding: 60px"] { padding: 24px !important; }
+}
+
+/* ── Медиа: изображения ── */
+img { max-width: 100%; height: auto; }
+.genesis-img, .reveal-img { max-width: 100%; }
+
+/* ── Touch устройства — убираем hover-эффекты ── */
+@media (hover: none) {
+    .eco-card:hover { background: transparent !important; }
+    .eco-card:hover::before { transform: scaleX(0) !important; }
+    .h-card:hover::before { opacity: 0 !important; }
+    .info-card:hover { box-shadow: none !important; }
+}
+/* ============================================================
+   МОБИЛЬНЫЕ ИСПРАВЛЕНИЯ — inline грид сетки и фото
+   ============================================================ */
+
+/* Все двухколоночные грид → стек на мобиле */
+@media (max-width: 860px) {
+
+    /* Универсальный стек для inline-grid */
+    .mobile-stack {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+
+    /* Фото в стеке — полная ширина, разумная высота */
+    .mobile-stack img,
+    .mobile-stack .reveal-img,
+    .mobile-stack [style*="background:"][style*="url("],
+    .mobile-stack [style*="background-image"] {
+        width: 100% !important;
+        height: 260px !important;
+        max-width: 100% !important;
+        order: -1; /* фото всегда первым */
+    }
+
+    /* Картинки которые рядом с текстом — убираем float-поведение */
+    .info-grid img,
+    [style*="grid-template-columns: 1fr 1fr"] img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    /* stat-item big — горизонталь убираем */
+    .stat-item.big {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 32px 24px !important;
+    }
+    .stat-item.big .stat-num {
+        font-size: clamp(3.5rem, 14vw, 6rem) !important;
+        letter-spacing: -2px !important;
+    }
+    .stat-item.big .stat-label {
+        font-size: 0.68rem !important;
+        max-width: 100% !important;
+    }
+
+    /* Booking — двухколоночный список */
+    #booking-who,
+    [style*="grid-template-columns: 1fr 1fr"][style*="border-left"] {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Фото ещё меньше */
+    .mobile-stack img,
+    .mobile-stack .reveal-img {
+        height: 220px !important;
+    }
+
+    /* Убираем горизонтальный скролл страницы */
+    body { overflow-x: hidden !important; }
+    main { overflow-x: hidden !important; }
+
+    /* Сетки услуг → 1 колонка */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Длинные слова не вылезают */
+    p, li, h1, h2, h3, h4 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+}
+/* ===================== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ ===================== */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.lang-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 5px 8px;
+    font-family: inherit;
+    transition: 0.2s;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.lang-btn:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.12); }
+.lang-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.lang-btn.active { color: var(--accent); background: rgba(211,255,51,0.08); }
+@media (max-width: 860px) {
+    .lang-switcher { margin: 0; }
+    .lang-btn { padding: 7px 10px; font-size: 0.65rem; }
+}
+/* ===================== АДАПТИВ НАВИГАЦИИ С ТУМБЛЕРОМ ===================== */
+@media (max-width: 860px) {
+    header.top-nav {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        align-items: center;
+        gap: 12px;
+    }
+    .nav-logo { grid-column: 1; min-width: 0; }
+    .burger { grid-column: 3; }
+    .lang-switcher { grid-column: 4; margin-left: 0 !important; }
+    .nav-links { grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px) {
+    header.top-nav { gap: 8px; padding: 0 4%; }
+    .lang-btn { padding: 5px 7px !important; font-size: 0.55rem !important; }
+}
+
+/* ── 360px ── очень маленькие экраны (Galaxy A, старые Android) ── */
+@media (max-width: 360px) {
+    .eco-card { min-height: 160px !important; padding: 24px 16px !important; }
+    .lang-btn { padding: 4px 6px !important; font-size: 0.5rem !important; }
+    section { padding: 80px 3.5% 40px; }
+}
+
+/* ============================================================
+   SECURITY & UX IMPROVEMENTS
+   ============================================================ */
+
+/* 1. Focus visible — keyboard navigation accessibility */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* 2. Minimum touch target size (WCAG 2.5.5) — padding only, no forced height */
+.burger {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px 8px;
+}
+
+/* 3. prefers-reduced-motion — respect user OS setting */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .ticker-track { animation: none !important; }
+    html { scroll-behavior: auto !important; }
+}
+
+/* 4. Adaptive improvements */
+
+/* Карточки кейсов на маленьких экранах */
+@media (max-width: 640px) {
+    .case-slide { flex: 0 0 88vw !important; }
+    .carousel-track { gap: 12px !important; }
+
+    /* Убираем горизонтальный скролл от ticker */
+    .ticker-wrap { overflow: hidden !important; }
+
+    /* Уменьшаем отступы в хедере секций */
+    .slide-num { display: none; }
+
+    /* Формы — поля на 100% на мобиле */
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        font-size: 16px !important; /* prevent iOS zoom on focus */
+    }
+    input, textarea, select {
+        font-size: 16px !important;
+    }
+}
+
+/* 5. Prevent text size adjust on orientation change */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* 6. Smoother image rendering */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"] {
+    image-rendering: auto;
+}
+
+/* 7. Selection color branding */
+::selection {
+    background: var(--accent);
+    color: #000;
+}
+::-moz-selection {
+    background: var(--accent);
+    color: #000;
+}
+
+/* 8. Scrollbar styling (Webkit) */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* 9. Print styles — hide decorative elements */
+@media print {
+    header, footer, .burger, .lang-switcher,
+    .pattern-layer, #ambient-bg, .ticker-wrap,
+    .dept-ticker-wrap { display: none !important; }
+    body { background: #fff !important; color: #000 !important; }
+    a { color: #000 !important; text-decoration: underline !important; }
+}
+
+/* 10. Better form UX */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #111 inset !important;
+    -webkit-text-fill-color: #fff !important;
+    caret-color: #fff;
+}

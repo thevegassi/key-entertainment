@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="page_title_contacts">Контакты | Key Entertainment — Связаться с нами</title>
+    <meta name="description" content="Контакты Key Entertainment. Email: info@keyent.kz. WhatsApp, Telegram, Instagram, YouTube. Оставьте заявку на сотрудничество онлайн.">
+    <meta name="keywords" content="контакты Key Entertainment, info@keyent.kz, связаться музыкальное агентство, WhatsApp Telegram Key Entertainment">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.keyent.kz/contacts.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.keyent.kz/contacts.html">
+    <meta property="og:title" content="Контакты | Key Entertainment">
+    <meta property="og:description" content="Свяжитесь с нами: info@keyent.kz. WhatsApp, Telegram, Instagram.">
+    <meta property="og:image" content="https://www.keyent.kz/og-image.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        .social-icon {
+            color: #fff; font-size: 1.4rem; transition: 0.3s;
+            text-decoration: none; display: inline-flex;
+            align-items: center; justify-content: center;
+        }
+        .social-icon:hover { transform: scale(1.15); }
+        .icon-wa:hover { color: #25D366; }
+        .icon-tg:hover { color: #0088cc; }
+        .icon-vk:hover { color: #4C75A3; }
+        .icon-ig:hover { color: #E4405F; }
+        .icon-yt:hover { color: #FF0000; }
+        .yandex-link img {
+            width: 28px; height: 28px; object-fit: contain;
+            filter: brightness(0) invert(1); transition: 0.3s ease;
+        }
+        .yandex-link:hover img { filter: brightness(1) invert(0); transform: scale(1.1); }
+    </style>
+
+    <style>
+        #scroll-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 46px;
+            height: 46px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9000;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+        #scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        #scroll-top:hover {
+            background: #fff;
+        }
+        @media (max-width: 640px) {
+            #scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1rem; }
+        }
+    </style>
+    <script src="translations.js?v=3"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFJEKS7VYZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KFJEKS7VYZ');
+    </script>
+</head>
+<body>
+    <button id="scroll-top" aria-label="Наверх">↑</button>
+    <!-- ПАТТЕРНЫ -->
+    <div id="pl1" class="pattern-layer"></div>
+    <div id="pl2" class="pattern-layer"></div>
+    <div id="pl3" class="pattern-layer"></div>
+    <div id="pl4" class="pattern-layer"></div>
+    <div id="ambient-bg" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <header class="top-nav">
+        <a href="/"><img src="logo.png" class="nav-logo" alt="Key Entertainment"></a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <a href="/" data-i18n="nav_about">О нас</a>
+            <a href="/distribution">Distribution</a>
+            <a href="/legal">Legal</a>
+            <a href="/label">Label</a>
+            <a href="/pr">PR & Marketing</a>
+            <a href="/booking">Booking</a>
+            <a href="/brand" data-i18n="nav_brand_upper">БРЕНДБУК</a>
+            <a href="/contacts" class="active" data-i18n="nav_contacts">Контакты</a>
+        </nav>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru" onclick="applyLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="kz" onclick="applyLanguage('kz')">KZ</button>
+            <button class="lang-btn" data-lang="en" onclick="applyLanguage('en')">EN</button>
+        </div>
+    </header>
+
+    <main style="padding: 140px 10% 80px;">
+        <div class="reveal">
+            <span class="slide-num" data-i18n="contacts_label">GET IN TOUCH</span>
+            <h1 data-i18n="contacts_title">СВЯЖИТЕСЬ<br><span style="color: var(--accent);">С НАМИ</span></h1>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; margin-top: 70px;" class="contacts-layout">
+            <div class="reveal">
+                <div class="mobile-stack"style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px;">
+                    <div>
+                        <p style="color: var(--accent); letter-spacing: 2px; font-size: 0.62rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 900;" data-i18n="contacts_general_title">Общие вопросы</p>
+                        <p style="color: #888; font-size: 0.68rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; letter-spacing: 0.5px;" data-i18n="contacts_general_sub">Партнёрство, пресса, прочее</p>
+                        <a href="mailto:info@keyent.kz" style="color: #fff; text-decoration: none; font-weight: 300; font-size: 0.95rem;">info@keyent.kz</a>
+                    </div>
+                    <div>
+                        <p style="color: var(--accent); letter-spacing: 2px; font-size: 0.62rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 900;">Label</p>
+                        <p style="color: #888; font-size: 0.68rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; letter-spacing: 0.5px;" data-i18n="contacts_label_sub">Музыкальный и визуальный продакшн</p>
+                        <a href="mailto:music-label@keyent.kz" style="color: #fff; text-decoration: none; font-weight: 300; font-size: 0.95rem;">music-label@keyent.kz</a>
+                    </div>
+                    <div>
+                        <p style="color: var(--accent); letter-spacing: 2px; font-size: 0.62rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 900;">Distribution</p>
+                        <p style="color: #888; font-size: 0.68rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; letter-spacing: 0.5px;" data-i18n="contacts_dist_sub">Релизы, платформы, роялти</p>
+                        <a href="mailto:distribution@keyent.kz" style="color: #fff; text-decoration: none; font-weight: 300; font-size: 0.95rem;">distribution@keyent.kz</a>
+                    </div>
+                    <div>
+                        <p style="color: var(--accent); letter-spacing: 2px; font-size: 0.62rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 900;">Booking</p>
+                        <p style="color: #888; font-size: 0.68rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; letter-spacing: 0.5px;" data-i18n="contacts_book_sub">Концерты, туры, мероприятия</p>
+                        <a href="mailto:booking@keyent.kz" style="color: #fff; text-decoration: none; font-weight: 300; font-size: 0.95rem;">booking@keyent.kz</a>
+                    </div>
+                    <div>
+                        <p style="color: var(--accent); letter-spacing: 2px; font-size: 0.62rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 900;">Legal</p>
+                        <p style="color: #888; font-size: 0.68rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; letter-spacing: 0.5px;" data-i18n="contacts_legal_sub">Договоры, авторские права, лицензии</p>
+                        <a href="mailto:legal@keyent.kz" style="color: #fff; text-decoration: none; font-weight: 300; font-size: 0.95rem;">legal@keyent.kz</a>
+                    </div>
+                    <div>
+                        <p style="color: var(--accent); letter-spacing: 2px; font-size: 0.62rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 900;">PR & Marketing</p>
+                        <p style="color: #888; font-size: 0.68rem; font-weight: 700; margin-bottom: 6px; line-height: 1.5; letter-spacing: 0.5px;" data-i18n="contacts_pr_sub">Брендинг, СМИ, коллаборации</p>
+                        <a href="mailto:pr@keyent.kz" style="color: #fff; text-decoration: none; font-weight: 300; font-size: 0.95rem;">pr@keyent.kz</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 50px; padding-top: 36px; border-top: 1px solid #111;">
+                    <p style="color: #CBFF28; letter-spacing: 3px; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 22px;" data-i18n="contacts_socials">Мессенджеры и соцсети</p>
+                    <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap;">
+                        <a href="https://wa.me/77010520606" target="_blank" rel="noopener" class="social-icon icon-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://t.me/keyentkz" target="_blank" rel="noopener" class="social-icon icon-tg" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://vk.com/keyentertainment" target="_blank" rel="noopener" class="social-icon icon-vk" title="VK"><i class="fa-brands fa-vk"></i></a>
+                        <a href="https://instagram.com/keyentertainment.kz" target="_blank" rel="noopener" class="social-icon icon-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@keyentkz" target="_blank" rel="noopener" class="social-icon icon-yt" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://music.yandex.kz/label/632686" target="_blank" rel="noopener" title="Яндекс Музыка" class="yandex-link" style="display: flex; align-items: center; text-decoration: none;">
+                            <img src="yandex-music.png" alt="Yandex Music" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal" style="background: rgba(0,0,0,0.35); padding: clamp(28px, 4vw, 50px); border: 1px solid #111;">
+                <h4 style="margin-bottom: 26px; font-weight: 300; letter-spacing: 1px; color: #fff; font-size: 1rem; text-transform: uppercase;" data-i18n="contacts_form_title">ОСТАВИТЬ ЗАЯВКУ</h4>
+                <form class="contact-form" action="https://formsubmit.co/ajax/info@keyent.kz" method="POST" style="display: flex; flex-direction: column; gap: 22px;">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_source" value="contacts.html">
+            <input type="hidden" name="_subject" value="Заявка — Контакты">
+                    <input type="text" name="Имя" placeholder="Ваше имя" data-i18n-placeholder="contacts_name" required style="width: 100%; background: none; border: none; border-bottom: 1px solid #222; color: #fff; padding: 12px 0; outline: none; font-family: inherit; font-size: 0.95rem;">
+                    <input type="email" name="Email" placeholder="Email" data-i18n-placeholder="contacts_email" required style="width: 100%; background: none; border: none; border-bottom: 1px solid #222; color: #fff; padding: 12px 0; outline: none; font-family: inherit; font-size: 0.95rem;">
+                    <input type="tel" name="Телефон" placeholder="+7" data-i18n-placeholder="contacts_phone" style="width: 100%; background: none; border: none; border-bottom: 1px solid #222; color: #fff; padding: 12px 0; outline: none; font-family: inherit; font-size: 0.95rem;">
+                    <textarea name="Сообщение" rows="3" placeholder="Расскажите о вашем проекте" data-i18n-placeholder="contacts_message" style="width: 100%; background: none; border: none; border-bottom: 1px solid #222; color: #fff; padding: 12px 0; outline: none; resize: none; font-family: inherit; font-size: 0.95rem;"></textarea>
+                    <button type="submit" style="background: var(--accent); color: #000; border: none; padding: 18px; font-weight: 700; letter-spacing: 2px; cursor: pointer; margin-top: 10px; font-family: inherit; font-size: 0.82rem; text-transform: uppercase; transition: 0.3s;" data-i18n="contacts_submit">ОТПРАВИТЬ</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+            <footer style="padding: 60px 10% 40px; text-align: center; position: relative; z-index: 1;">
+        <img src="logo.png" style="width: 60px; margin-bottom: 28px;" alt="Key Entertainment">
+
+        <!-- Соцсети -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 28px; flex-wrap: wrap;">
+            <a href="https://wa.me/77010520606" target="_blank" rel="noopener" title="WhatsApp"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#25D366'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/keyentkz" target="_blank" rel="noopener" title="Telegram"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#0088cc'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+            <a href="https://instagram.com/keyentertainment.kz" target="_blank" rel="noopener" title="Instagram"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#E4405F'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@keyentkz" target="_blank" rel="noopener" title="YouTube"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#FF0000'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://vk.com/keyentertainment" target="_blank" rel="noopener" title="VK"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;"
+               onmouseover="this.style.opacity=1;this.style.color='#4C75A3'"
+               onmouseout="this.style.opacity=0.5;this.style.color='#fff'">
+                <i class="fa-brands fa-vk"></i>
+            </a>
+            <a href="https://music.yandex.kz/label/632686" target="_blank" rel="noopener" title="Яндекс Музыка"
+               style="color:#fff;font-size:1.3rem;text-decoration:none;opacity:0.5;transition:all 0.3s;display:inline-flex;align-items:center;"
+               onmouseover="this.style.opacity=1"
+               onmouseout="this.style.opacity=0.5">
+                <img src="yandex-music.png" alt="Яндекс Музыка" style="width:24px;height:24px;object-fit:contain;filter:brightness(0) invert(1);transition:0.3s;"
+                     onmouseover="this.style.filter='none'" onmouseout="this.style.filter='brightness(0) invert(1)'" loading="lazy">
+            </a>
+
+        </div>
+
+        <!-- Навигация -->
+        <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; font-size: 0.7rem; letter-spacing: 1.5px; color: rgba(211,255,51,0.9); flex-wrap: wrap; font-weight: 700;">
+            <a href="/distribution" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">DISTRIBUTION</a>
+            <a href="/legal" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">LEGAL</a>
+            <a href="/label" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">LABEL</a>
+            <a href="/pr" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">PR & MARKETING</a>
+            <a href="/booking" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'">BOOKING</a>
+            <a href="/brand" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'" data-i18n="nav_brand_upper">БРЕНДБУК</a>
+            <a href="/contacts" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#D3FF33'" onmouseout="this.style.color='rgba(211,255,51,0.7)'" data-i18n="nav_contacts_upper">КОНТАКТЫ</a>
+        </div>
+
+        <!-- Копирайт -->
+        <div style="display:flex;justify-content:center;gap:24px;margin-bottom:16px;font-size:0.58rem;letter-spacing:1px;flex-wrap:wrap;">
+            <a href="/privacy" style="color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'" data-i18n="footer_privacy">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
+            <a href="/offer" style="color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a>
+        </div>
+        <p style="font-size:0.58rem;opacity:0.45;letter-spacing:2px;margin:0;" data-i18n="footer_copy">ТОО «KEY ENTERTAINMENT» · БИН 231240023174 · © 2015–2026 ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        const burger = document.getElementById("burger");
+        const navLinks = document.getElementById("nav-links");
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("open"); navLinks.classList.toggle("open");
+            burger.setAttribute("aria-expanded", navLinks.classList.contains("open"));
+            document.body.style.overflow = navLinks.classList.contains("open") ? "hidden" : "";
+        });
+        navLinks.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => { burger.classList.remove("open"); navLinks.classList.remove("open"); document.body.style.overflow = ""; });
+        });
+        ScrollReveal().reveal('.reveal', { delay: 150, distance: '40px', duration: 1000, easing: 'ease-out', origin: 'bottom', interval: 100 });
+    </script>
+
+    <style>
+        @media (max-width: 860px) {
+            .contacts-layout { grid-template-columns: 1fr !important; gap: 50px !important; }
+        }
+    </style>
+
+    <script>
+        // Чередование паттернов при скролле
+        (function() {
+            var layers = [
+                document.getElementById('pl1'),
+                document.getElementById('pl2'),
+                document.getElementById('pl3'),
+                document.getElementById('pl4')
+            ];
+            var current = 0;
+            var pageH, segH;
+
+            function getActive(scrollY) {
+                pageH = document.body.scrollHeight - window.innerHeight;
+                if (pageH <= 0) return 0;
+                segH = pageH / layers.length;
+                return Math.min(Math.floor(scrollY / segH), layers.length - 1);
+            }
+
+            function update() {
+                var active = getActive(window.scrollY || window.pageYOffset);
+                if (active !== current) {
+                    layers[current].classList.remove('visible');
+                    layers[active].classList.add('visible');
+                    current = active;
+                }
+            }
+
+            // Показываем первый сразу
+            layers[0].classList.add('visible');
+
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update, { passive: true });
+        })();
+    </script>
+
+    <script>
+        // Защита контента
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            // Блокируем Ctrl+S, Ctrl+U, Ctrl+A, F12, Ctrl+Shift+I/J/C
+            if ((e.ctrlKey || e.metaKey) && ['s','u','a','p'].includes(e.key.toLowerCase())) e.preventDefault();
+            if (e.key === 'F12') e.preventDefault();
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase())) e.preventDefault();
+        });
+        // Блокируем drag изображений
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', e => e.preventDefault());
+        });
+    </script>
+
+    <script>
+    </script>
+
+    <script>
+    });
+    </script>
+
+    <script>
+        // Scroll to top
+        (function() {
+            var btn = document.getElementById('scroll-top');
+            if (!btn) return;
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }, { passive: true });
+            btn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+
+    <script>
+    // ===== ВАЛИДАЦИЯ + AJAX ОТПРАВКА =====
+    (function() {
+
+        function phoneMask(input) {
+            input.addEventListener('input', function() {
+                var v = this.value.replace(/[^+\d]/g, '');
+                if (!v.startsWith('+')) v = '+' + v;
+                v = '+' + v.slice(1).replace(/\+/g, '');
+                if (v.length > 13) v = v.slice(0, 13);
+                this.value = v;
+            });
+            input.addEventListener('focus', function() {
+                if (!this.value) this.value = '+';
+            });
+        }
+
+        function validateEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.trim()); }
+        function validatePhone(p) { return /^\+[\d]{10,12}$/.test(p.replace(/\s/g,'')); }
+
+        function setError(input, msg) {
+            input.style.borderColor = '#ff4444';
+            var err = input.nextElementSibling;
+            if (!err || !err.classList.contains('field-error')) {
+                err = document.createElement('span');
+                err.className = 'field-error';
+                err.style.cssText = 'color:#ff4444;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;display:block;margin-top:4px;';
+                input.parentNode.insertBefore(err, input.nextSibling);
+            }
+            err.textContent = msg;
+        }
+
+        function clearError(input) {
+            input.style.borderColor = '';
+            var err = input.nextElementSibling;
+            if (err && err.classList.contains('field-error')) err.remove();
+        }
+
+        document.querySelectorAll('form.contact-form').forEach(function(form) {
+
+            // Phone mask
+            form.querySelectorAll('input[type="tel"]').forEach(phoneMask);
+
+            // Live validation
+            form.querySelectorAll('input[type="email"]').forEach(function(input) {
+                input.addEventListener('blur', function() {
+                    var t = (window.KEY_TRANSLATIONS[window.currentLang||'ru']||{});
+                    if (this.value && !validateEmail(this.value)) setError(this, t.val_email||'Введите корректный email');
+                    else clearError(this);
+                });
+                input.addEventListener('input', function() { if (validateEmail(this.value)) clearError(this); });
+            });
+
+            form.querySelectorAll('input[type="tel"]').forEach(function(input) {
+                input.addEventListener('blur', function() {
+                    var t = (window.KEY_TRANSLATIONS[window.currentLang||'ru']||{});
+                    if (this.value && this.value !== '+' && !validatePhone(this.value)) setError(this, t.val_phone||'Формат: +7XXXXXXXXXX');
+                    else clearError(this);
+                });
+                input.addEventListener('input', function() { if (validatePhone(this.value)) clearError(this); });
+            });
+
+            // Submit — validate then AJAX
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                var t = window.KEY_TRANSLATIONS[window.currentLang||'ru'] || window.KEY_TRANSLATIONS['ru'] || {};
+                var valid = true;
+
+                form.querySelectorAll('input[required]').forEach(function(input) {
+                    if (!input.value.trim()) { setError(input, t.val_required||'Обязательное поле'); valid = false; }
+                });
+                form.querySelectorAll('input[type="email"]').forEach(function(input) {
+                    if (!validateEmail(input.value)) { setError(input, t.val_email||'Введите корректный email'); valid = false; }
+                });
+                form.querySelectorAll('input[type="tel"]').forEach(function(input) {
+                    if (input.value && input.value !== '+' && !validatePhone(input.value)) { setError(input, t.val_phone||'Формат: +7XXXXXXXXXX'); valid = false; }
+                });
+
+                if (!valid) return;
+
+                var btn = form.querySelector('button[type="submit"], .submit-btn');
+                var originalHTML = btn ? btn.innerHTML : '';
+                if (btn) { btn.textContent = t.val_sending||'ОТПРАВЛЯЕМ...'; btn.disabled = true; }
+
+                fetch('https://formsubmit.co/ajax/info@keyent.kz', {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.success === 'true' || data.success === true) {
+                        window.location.href = '/thank-you';
+                    } else {
+                        if (btn) { btn.innerHTML = originalHTML; btn.disabled = false; }
+                        alert(t.val_error||'ОШИБКА. ПОПРОБУЙТЕ ЕЩЁ РАЗ');
+                    }
+                })
+                .catch(function() {
+                    if (btn) { btn.innerHTML = originalHTML; btn.disabled = false; }
+                    alert(t.val_error||'ОШИБКА. ПОПРОБУЙТЕ ЕЩЁ РАЗ');
+                });
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

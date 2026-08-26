@@ -1,0 +1,29 @@
+# ── Медиафайлы (хранятся только на сервере) ──
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.mp4
+*.mp3
+*.wav
+*.pdf
+*.zip
+*.svg
+
+# Исключения — коммитим только логотип и OG-image
+!logo.png
+!og-image.jpg
+
+# ── Системные ──
+.DS_Store
+Thumbs.db
+desktop.ini
+cgi-bin/
+
+# ── Временные ──
+*.bak
+*.log
+*.tmp
+*.swp
+*~
