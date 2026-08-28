@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 — Страница не найдена | Key Entertainment</title>
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="translations.js?v=3"></script>
@@ -43,6 +43,7 @@
             margin-bottom: 16px;
         }
         .error-sub {
+            font-family: var(--font-body);
             font-size: 0.95rem;
             color: #555;
             line-height: 1.7;
@@ -58,6 +59,7 @@
         }
         .error-link {
             padding: 14px 28px;
+            border-radius: 999px;
             font-size: 0.7rem;
             font-weight: 900;
             letter-spacing: 2px;
@@ -105,7 +107,7 @@
     </div>
 
     <header class="top-nav">
-        <a href="/"><img src="logo.png" class="nav-logo" alt="Key Entertainment"></a>
+        <a href="/"><img src="logo.svg" class="nav-logo" alt="Key Entertainment"></a>
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -128,7 +130,7 @@
 
     <main>
         <div class="error-page">
-            <img src="logo.png" class="error-logo" alt="Key Entertainment">
+            <img src="logo.svg" class="error-logo" alt="Key Entertainment">
             <span class="error-num">404</span>
             <h1 class="error-title" data-i18n="e404_title">Страница не найдена</h1>
             <p class="error-sub" data-i18n="e404_sub">Похоже, эта страница переехала или никогда не существовала. Но музыка — точно существует.</p>

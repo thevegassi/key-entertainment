@@ -17,10 +17,10 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
-body { 
-    background: #020202; 
-    color: #fff; 
-    font-family: 'Nunito Sans', sans-serif; 
+body {
+    background: #020202;
+    color: #fff;
+    font-family: 'Nunito Sans', sans-serif;
     margin: 0;
     overflow-x: hidden;
 }
@@ -114,6 +114,10 @@ h3 {
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     gap: 40px;
+}
+
+.contact-form button[type="submit"] {
+    border-radius: var(--radius-pill);
 }
 
 .info-card {
