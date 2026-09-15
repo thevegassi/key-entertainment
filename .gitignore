@@ -11,9 +11,15 @@
 *.zip
 *.svg
 
-# Исключения — коммитим только логотип и OG-image
+# Исключения — коммитим только логотип, OG-image и брендовые ассеты
+# дизайн-системы (не хранятся на сервере отдельно, живут в репозитории)
 !logo.png
 !og-image.jpg
+!logo.svg
+!logo-mark.svg
+!pattern1.svg
+!pattern2.svg
+!main_hero.jpg
 
 # ── Системные ──
 .DS_Store
