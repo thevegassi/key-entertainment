@@ -947,13 +947,15 @@ input:-webkit-autofill:focus {
     display: flex; align-items: center; justify-content: center;
     font-size: 9px; font-weight: 900; letter-spacing: 1px;
     color: #000;
-    transition: width 0.25s cubic-bezier(.2,0,.2,1), height 0.25s cubic-bezier(.2,0,.2,1);
+    transition: width 0.25s cubic-bezier(.2,0,.2,1), height 0.25s cubic-bezier(.2,0,.2,1), opacity 0.15s ease;
     will-change: transform;
 }
 .cursor-dot--hover {
     width: 56px; height: 56px;
     background: var(--accent);
 }
+/* Over a text field: hide our dot, the field's own text-beam cursor takes over. */
+.cursor-dot--text { opacity: 0; }
 
 .cursor-ring {
     width: 34px; height: 34px;
@@ -962,7 +964,7 @@ input:-webkit-autofill:focus {
     transition: opacity 0.25s ease, width 0.25s ease, height 0.25s ease;
     will-change: transform;
 }
-.cursor-ring--hover { opacity: 0; }
+.cursor-ring--hover, .cursor-ring--text { opacity: 0; }
 
 [data-magnetic] {
     display: inline-block;

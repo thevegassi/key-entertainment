@@ -49,7 +49,17 @@
     }
     requestAnimationFrame(raf);
 
+    /* Text fields already show the browser's own text-beam cursor (see
+       `cursor: none` scoping below) — our floating dot/ring would just sit
+       duplicated on top of it, so hide our cursor there instead of fighting it. */
+    var editableSelector = 'input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):not([type="range"]), textarea, [contenteditable]';
+
     document.addEventListener('mouseover', function (e) {
+        if (e.target.closest && e.target.closest(editableSelector)) {
+            dot.classList.add('cursor-dot--text');
+            ring.classList.add('cursor-ring--text');
+            return;
+        }
         var el = e.target.closest && e.target.closest('[data-cursor]');
         if (el) {
             var label = el.getAttribute('data-cursor');
@@ -60,6 +70,9 @@
     });
     document.addEventListener('mouseout', function (e) {
         var related = e.relatedTarget;
+        if (related && related.closest && related.closest(editableSelector)) return;
+        dot.classList.remove('cursor-dot--text');
+        ring.classList.remove('cursor-ring--text');
         if (related && related.closest && related.closest('[data-cursor]')) return;
         dot.textContent = '';
         dot.classList.remove('cursor-dot--hover');
