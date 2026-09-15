@@ -66,8 +66,18 @@
         ring.classList.remove('cursor-ring--hover');
     });
 
-    /* ---- Magnetic buttons: [data-magnetic] pulls toward the cursor within its bounds ---- */
-    document.querySelectorAll('[data-magnetic]').forEach(function (el) {
+    /* ---- Magnetic buttons: pulls toward the cursor within its bounds ----
+       Explicit [data-magnetic] opt-in, plus the site's own recurring pill/CTA
+       classes so pages don't need per-element markup changes. */
+    var magneticSelectors = [
+        '[data-magnetic]',
+        '.mission-cta',
+        '.back-btn',
+        '.error-link.primary',
+        '.contact-form button[type="submit"]',
+        '.logo-dl'
+    ];
+    document.querySelectorAll(magneticSelectors.join(',')).forEach(function (el) {
         el.addEventListener('mousemove', function (e) {
             var rect = el.getBoundingClientRect();
             var cx = rect.left + rect.width / 2;
@@ -79,5 +89,12 @@
         el.addEventListener('mouseleave', function () {
             el.style.transform = 'translate(0,0)';
         });
+    });
+
+    /* ---- Cursor label on the site's other recurring CTA elements, without
+       requiring a data-cursor attribute on every one of them ---- */
+    var clickCursorSelectors = magneticSelectors.concat(['.brand-action-card']);
+    document.querySelectorAll(clickCursorSelectors.join(',')).forEach(function (el) {
+        if (!el.hasAttribute('data-cursor')) el.setAttribute('data-cursor', 'click');
     });
 })();
