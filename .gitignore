@@ -21,6 +21,11 @@
 !pattern2.svg
 !main_hero.jpg
 
+# ── Секреты ──
+# Логин/пароль редакторской админки блога — генерируется setup.php прямо
+# на сервере, никогда не коммитится. См. blog/admin/config.sample.php.
+blog/admin/config.php
+
 # ── Системные ──
 .DS_Store
 Thumbs.db

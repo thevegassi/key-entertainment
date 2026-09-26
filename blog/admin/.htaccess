@@ -1,0 +1,13 @@
+# Админка блога: не индексировать поисковикам, не листать директорию.
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# Доп. защита config.php — на случай если PHP по какой-то причине
+# перестанет исполняться для этого файла, запрос всё равно будет отклонён.
+<FilesMatch "^config\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
