@@ -485,6 +485,7 @@ $csrf = csrf_token();
 <meta name="robots" content="noindex, nofollow">
 <title><?= $showForm ? ($editingPost ? 'Редактирование статьи' : 'Новая статья') : 'Блог — админка' ?></title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;900&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{--accent:#D3FF33;--indigo:#9F96FF;}
   *{box-sizing:border-box;}
@@ -492,7 +493,7 @@ $csrf = csrf_token();
   .wrap{max-width:820px;margin:0 auto;}
   h1{font-family:'Nunito Sans',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.4rem;margin:0;}
   .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:12px;}
-  .btn{display:inline-block;background:var(--accent);color:#000;border:none;padding:11px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:0.85rem;cursor:pointer;}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;border:none;padding:11px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:0.85rem;cursor:pointer;}
   .btn.ghost{background:transparent;color:#aaa;border:1px solid #333;}
   .btn.danger{background:#3a1414;color:#ff8080;border:1px solid #5a2020;}
   .flash{padding:14px 18px;border-radius:8px;margin-bottom:24px;font-size:0.9rem;}
@@ -502,9 +503,15 @@ $csrf = csrf_token();
   th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #1a1a1a;}
   th{color:#666;font-weight:600;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}
   td.actions{white-space:nowrap;text-align:right;}
-  td.actions a, td.actions button{margin-left:10px;font-size:0.82rem;background:none;border:none;color:#888;cursor:pointer;text-decoration:none;font-family:inherit;}
-  td.actions a:hover{color:var(--accent);}
-  td.actions button.del:hover{color:#ff6b6b;}
+  td.actions form{display:inline;}
+  .icon-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;margin-left:8px;border-radius:8px;
+    background:#141414;border:1px solid #262626;color:#999;
+    cursor:pointer;text-decoration:none;font-size:0.9rem;transition:0.2s;
+  }
+  .icon-btn:hover{color:var(--accent);border-color:var(--accent);background:rgba(211,255,51,0.06);}
+  .icon-btn.danger:hover{color:#ff6b6b;border-color:#ff6b6b;background:rgba(255,107,107,0.08);}
   label{display:block;font-size:0.8rem;color:#aaa;margin:16px 0 6px;}
   input,textarea{width:100%;box-sizing:border-box;background:#111;border:1px solid #333;color:#fff;padding:12px 14px;border-radius:8px;font-size:0.92rem;font-family:inherit;}
   input:focus,textarea:focus{outline:none;border-color:var(--accent);}
@@ -512,6 +519,21 @@ $csrf = csrf_token();
   .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .hint{color:#666;font-size:0.78rem;margin-top:6px;line-height:1.5;}
   .form-actions{margin-top:28px;display:flex;gap:12px;}
+
+  .md-toolbar{
+    display:flex;flex-wrap:wrap;gap:6px;
+    background:#141414;border:1px solid #333;border-bottom:none;
+    border-radius:8px 8px 0 0;padding:8px;
+  }
+  .md-btn{
+    display:inline-flex;align-items:center;gap:7px;
+    background:#1c1c1c;border:1px solid #333;color:#ccc;
+    padding:7px 12px;border-radius:6px;font-size:0.78rem;font-family:inherit;
+    cursor:pointer;transition:0.2s;
+  }
+  .md-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .md-btn i{font-size:0.82rem;width:14px;text-align:center;}
+  #body{border-radius:0 0 8px 8px;}
 </style>
 </head>
 <body>
@@ -520,10 +542,10 @@ $csrf = csrf_token();
     <h1>Блог — админка</h1>
     <div>
       <?php if ($showForm): ?>
-        <a href="/blog/admin/" class="btn ghost">← К списку</a>
+        <a href="/blog/admin/" class="btn ghost"><i class="fa-solid fa-arrow-left"></i> К списку</a>
       <?php else: ?>
-        <a href="/blog/admin/?action=new" class="btn">+ Новая статья</a>
-        <a href="/blog/admin/?action=logout" class="btn ghost">Выйти</a>
+        <a href="/blog/admin/?action=new" class="btn"><i class="fa-solid fa-plus"></i> Новая статья</a>
+        <a href="/blog/admin/?action=logout" class="btn ghost"><i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти</a>
       <?php endif; ?>
     </div>
   </div>
@@ -563,12 +585,16 @@ $csrf = csrf_token();
       <p class="hint">Определяет порядок на /blog — новее дата, выше в списке.</p>
 
       <label for="body">Текст статьи</label>
+      <div class="md-toolbar">
+        <button type="button" class="md-btn" data-cmd="h2" title="Подзаголовок раздела"><i class="fa-solid fa-heading"></i>Заголовок</button>
+        <button type="button" class="md-btn" data-cmd="bold" title="Жирный текст"><i class="fa-solid fa-bold"></i>Жирный</button>
+        <button type="button" class="md-btn" data-cmd="list" title="Маркированный список"><i class="fa-solid fa-list-ul"></i>Список</button>
+        <button type="button" class="md-btn" data-cmd="quote" title="Цитата-врезка"><i class="fa-solid fa-quote-left"></i>Цитата</button>
+        <button type="button" class="md-btn" data-cmd="link" title="Ссылка"><i class="fa-solid fa-link"></i>Ссылка</button>
+        <button type="button" class="md-btn" data-cmd="para" title="Новый абзац"><i class="fa-solid fa-paragraph"></i>Абзац</button>
+      </div>
       <textarea id="body" name="body" required><?= htmlspecialchars($editingPost['body'] ?? '', ENT_QUOTES) ?></textarea>
-      <p class="hint">
-        Пустая строка = новый абзац · <code>## Заголовок</code> = подзаголовок ·
-        <code>- пункт</code> (несколько строк подряд) = список · <code>&gt; текст</code> = цитата-врезка ·
-        <code>**жирный**</code> · <code>[текст](/contacts)</code> = ссылка.
-      </p>
+      <p class="hint">Кнопки выше сами расставят разметку — печатать <code>##</code>, <code>**</code> и подобное вручную не нужно.</p>
 
       <div class="form-actions">
         <button type="submit" class="btn">Сохранить и опубликовать</button>
@@ -588,6 +614,121 @@ $csrf = csrf_token();
         var t = transliterate(document.getElementById('title').value);
         document.getElementById('slug').value = t.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
       }
+
+      // Панель форматирования: кнопки сами вставляют/оборачивают текст нужной
+      // markdown-разметкой в textarea — редактору не нужно печатать её руками.
+      //
+      // Когда в textarea нет явного выделения (обычный случай при линейном
+      // написании статьи сверху вниз), новый блок всегда дописывается в
+      // САМЫЙ конец текста, а не в текущую позицию курсора. Иначе после
+      // печати поверх плейсхолдера курсор остаётся ПЕРЕД закрывающей
+      // разметкой (например, перед закрывающими **), и следующая кнопка
+      // вставляет контент внутрь уже закрытого блока, ломая разметку.
+      // Явное выделение (пользователь сам протянул мышью по готовому
+      // тексту) по-прежнему оборачивается/помечается на месте.
+      (function () {
+        var textarea = document.getElementById('body');
+
+        function leadingGap(value) {
+          if (value.length === 0) return '';
+          if (/\n\n$/.test(value)) return '';
+          if (/\n$/.test(value)) return '\n';
+          return '\n\n';
+        }
+
+        // Дописывает text в конец документа и выделяет часть text, начиная
+        // с символа selStart и длиной selLen (для замены плейсхолдера).
+        function appendAtEnd(text, selStart, selLen) {
+          var value = textarea.value;
+          var lead = leadingGap(value);
+          var insertPos = value.length + lead.length;
+          textarea.value = value + lead + text;
+          textarea.focus();
+          textarea.selectionStart = insertPos + selStart;
+          textarea.selectionEnd = insertPos + selStart + selLen;
+        }
+
+        function wrapSelection(before, after, placeholder) {
+          var start = textarea.selectionStart, end = textarea.selectionEnd;
+          if (start === end) {
+            appendAtEnd(before + placeholder + after, before.length, placeholder.length);
+            return;
+          }
+          var value = textarea.value;
+          var selected = value.slice(start, end);
+          textarea.value = value.slice(0, start) + before + selected + after + value.slice(end);
+          textarea.focus();
+          textarea.selectionStart = start + before.length;
+          textarea.selectionEnd = start + before.length + selected.length;
+        }
+
+        function prefixLines(prefix, placeholder) {
+          var start = textarea.selectionStart, end = textarea.selectionEnd;
+          if (start === end) {
+            var value = textarea.value;
+            // Парсер разбивает статью на блоки по пустой строке (\n{2,}),
+            // а внутри блока подряд идущие "- " строки — один список. Если
+            // редактор дописывает пункт за пунктом кнопкой «Список», нужно
+            // продолжать ТОТ ЖЕ список одной пустой строкой, а не начинать
+            // новый <ul> — иначе каждый клик создаёт отдельный список.
+            var trimmed = value.replace(/\n+$/, '');
+            var lastLine = trimmed.slice(trimmed.lastIndexOf('\n') + 1);
+            var continuingList = prefix === '- ' && lastLine.indexOf('- ') === 0;
+            // placeholder уже содержит префикс (например "## Заголовок") —
+            // выделяем только текст после префикса, чтобы печатать поверх.
+            if (continuingList) {
+              var pos = trimmed.length + 1;
+              textarea.value = trimmed + '\n' + placeholder;
+              textarea.focus();
+              textarea.selectionStart = pos + prefix.length;
+              textarea.selectionEnd = pos + placeholder.length;
+              return;
+            }
+            appendAtEnd(placeholder, prefix.length, placeholder.length - prefix.length);
+            return;
+          }
+          var value2 = textarea.value;
+          var lineStart = value2.lastIndexOf('\n', start - 1) + 1;
+          var lineEnd = value2.indexOf('\n', end);
+          if (lineEnd === -1) lineEnd = value2.length;
+          var block = value2.slice(lineStart, lineEnd);
+          var prefixed = block.split('\n').map(function (l) { return l ? prefix + l : l; }).join('\n');
+          textarea.value = value2.slice(0, lineStart) + prefixed + value2.slice(lineEnd);
+          textarea.focus();
+          textarea.selectionStart = lineStart;
+          textarea.selectionEnd = lineStart + prefixed.length;
+        }
+
+        function insertParagraphBreak() {
+          var start = textarea.selectionStart, end = textarea.selectionEnd;
+          if (start === end) {
+            var value = textarea.value;
+            var lead = leadingGap(value);
+            textarea.value = value + lead;
+            textarea.focus();
+            textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
+            return;
+          }
+          var value2 = textarea.value;
+          textarea.value = value2.slice(0, end) + '\n\n' + value2.slice(end);
+          textarea.focus();
+          textarea.selectionStart = textarea.selectionEnd = end + 2;
+        }
+
+        document.querySelectorAll('.md-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var cmd = btn.getAttribute('data-cmd');
+            if (cmd === 'h2') prefixLines('## ', '## Заголовок раздела');
+            else if (cmd === 'bold') wrapSelection('**', '**', 'жирный текст');
+            else if (cmd === 'list') prefixLines('- ', '- пункт списка');
+            else if (cmd === 'quote') prefixLines('> ', '> текст цитаты');
+            else if (cmd === 'link') {
+              var url = prompt('Куда ведёт ссылка? Например: /contacts', '/contacts');
+              if (url) wrapSelection('[', '](' + url + ')', 'текст ссылки');
+            } else if (cmd === 'para') insertParagraphBreak();
+          });
+        });
+      })();
     </script>
   <?php else: ?>
     <table>
@@ -601,12 +742,12 @@ $csrf = csrf_token();
           <td><?= htmlspecialchars($p['date'], ENT_QUOTES) ?></td>
           <td><?= htmlspecialchars($p['tag'], ENT_QUOTES) ?></td>
           <td class="actions">
-            <a href="/blog/<?= urlencode($p['slug']) ?>" target="_blank">Открыть</a>
-            <a href="/blog/admin/?action=edit&slug=<?= urlencode($p['slug']) ?>">Править</a>
-            <form method="post" action="/blog/admin/?action=delete" style="display:inline;" onsubmit="return confirm('Удалить статью «<?= htmlspecialchars(addslashes($p['title']), ENT_QUOTES) ?>»?');">
+            <a href="/blog/<?= urlencode($p['slug']) ?>" target="_blank" class="icon-btn" title="Открыть на сайте"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="/blog/admin/?action=edit&slug=<?= urlencode($p['slug']) ?>" class="icon-btn" title="Редактировать"><i class="fa-solid fa-pen"></i></a>
+            <form method="post" action="/blog/admin/?action=delete" onsubmit="return confirm('Удалить статью «<?= htmlspecialchars(addslashes($p['title']), ENT_QUOTES) ?>»?');">
               <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES) ?>">
               <input type="hidden" name="slug" value="<?= htmlspecialchars($p['slug'], ENT_QUOTES) ?>">
-              <button type="submit" class="del">Удалить</button>
+              <button type="submit" class="icon-btn danger" title="Удалить"><i class="fa-solid fa-trash"></i></button>
             </form>
           </td>
         </tr>
