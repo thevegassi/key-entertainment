@@ -975,3 +975,159 @@ input:-webkit-autofill:focus {
 @media (max-width: 860px) {
     .scroll-progress, .cursor-dot, .cursor-ring { display: none !important; }
 }
+
+/* ===================== BLOG (listing + shared post-card) ===================== */
+
+.blog-hero { padding: 160px 10% 60px; }
+.blog-hero .lead-text { max-width: 640px; }
+
+.post-grid {
+    padding: 20px 10% 120px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--line);
+    margin: 0 10% 0;
+    width: 80%;
+}
+.post-card {
+    background: #020202;
+    padding: 40px 36px 36px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+    transition: background 0.35s;
+}
+.post-card:hover { background: rgba(211,255,51,0.04); }
+.post-tag {
+    align-self: flex-start;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 22px;
+}
+.post-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+.post-excerpt {
+    font-family: var(--font-body);
+    color: #888;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 24px;
+}
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: #555;
+}
+.post-more { color: var(--accent); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+.blog-empty { padding: 40px 10% 120px; color: #666; font-family: var(--font-body); }
+
+@media (max-width: 860px) {
+    .post-grid { grid-template-columns: 1fr; width: 90%; margin: 0 5%; }
+}
+@media (max-width: 640px) {
+    .post-grid { width: 100%; margin: 0; }
+}
+
+/* ===================== BLOG ARTICLE ===================== */
+
+.article-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.article-back:hover { color: var(--accent); }
+
+.article-hero { padding: 140px 10% 0; max-width: 760px; margin: 0 auto; }
+.article-hero .post-tag { margin-top: 32px; }
+.article-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.02;
+    margin: 20px 0 24px;
+}
+.article-meta {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #555;
+    padding-bottom: 36px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.article-body { padding: 0 10% 80px; max-width: 760px; margin: 0 auto; }
+.article-body h2 {
+    font-size: 0.95rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin: 48px 0 18px;
+}
+.article-body p {
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    color: #ccc;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body ul { padding-left: 20px; margin-bottom: 20px; }
+.article-body ul li {
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    color: #ccc;
+    line-height: 1.75;
+    margin-bottom: 10px;
+}
+.article-body strong { color: #fff; font-weight: 700; }
+.article-body .pull-quote {
+    background: rgba(211,255,51,0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 36px 0;
+}
+.article-body .pull-quote p {
+    font-size: 1.1rem;
+    color: #eee;
+    margin: 0;
+    font-style: italic;
+}
+
+.article-related { padding: 20px 10% 100px; max-width: 900px; margin: 0 auto; }
+.article-related .section-label {
+    font-size: 0.68rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase;
+    color: #444; margin-bottom: 20px; display: block;
+}
+.article-related .post-grid {
+    padding: 0; width: 100%; margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (max-width: 640px) {
+    .article-hero, .article-body, .article-related { padding-left: 6%; padding-right: 6%; }
+}
