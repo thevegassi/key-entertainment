@@ -10,9 +10,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function OfferPage() {
   const t = await getTranslations();
   return (
-    <section style={{ padding: '160px 10% 100px', background: '#000', maxWidth: '860px' }}>
-      <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, marginBottom: '48px' }}>{t('offer_title')}</h1>
-      <p style={{ color: '#888', lineHeight: 1.8 }}>ТОО «KEY ENTERTAINMENT» (БИН 231240023174)</p>
-    </section>
+    <>
+      <section style={{ padding: '160px 10% 60px', background: 'var(--oxford)' }}>
+        <h1
+          style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, color: '#fff', maxWidth: '860px' }}
+          dangerouslySetInnerHTML={{ __html: t('offer_title') }}
+        />
+      </section>
+      <section style={{ padding: '60px 10% 100px', background: '#fff', maxWidth: '860px' }}>
+        <p style={{ color: 'var(--gray)', lineHeight: 1.8 }}>ТОО «KEY ENTERTAINMENT» (БИН 231240023174)</p>
+      </section>
+    </>
   );
 }

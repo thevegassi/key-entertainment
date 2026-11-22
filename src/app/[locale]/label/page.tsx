@@ -13,39 +13,40 @@ export default async function LabelPage() {
   const locale = await getLocale();
   return (
     <>
-      <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', backgroundImage: 'url(/label_hero.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85))' }} />
+      <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--accent)', fontWeight: 800, marginBottom: '16px' }}>LABEL</p>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05 }}>KEY MUSIC<br /><span style={{ color: 'var(--accent)' }}>LABEL</span></h1>
+          <p className="slide-num">LABEL</p>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff' }}>KEY MUSIC<br /><span style={{ color: 'var(--accent)' }}>LABEL</span></h1>
         </div>
       </section>
 
-      <section style={{ padding: '100px 10%', background: '#000' }}>
+      <section style={{ padding: '100px 10%', background: '#fff' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '24px' }}>{t('label_phil_title')}</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginTop: '48px' }}>
           {['s1','s2'].map((s) => (
-            <div key={s} style={{ background: 'var(--dark-card)', borderRadius: 'var(--radius-card)', padding: '32px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h3 style={{ fontWeight: 800, marginBottom: '12px' }}>{t(`label_${s}_title`)}</h3>
-              <p style={{ color: '#888', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`label_${s}_desc`)}</p>
+            <div key={s} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px', border: '1px solid var(--hairline)' }}>
+              <h3 style={{ fontWeight: 800, marginBottom: '12px', color: 'var(--navy-deep)' }}>{t(`label_${s}_title`)}</h3>
+              <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`label_${s}_desc`)}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section style={{ padding: '100px 10%', background: '#020202' }}>
+      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
           {['video','design'].map((s) => (
-            <div key={s} style={{ background: 'var(--dark-card)', borderRadius: 'var(--radius-card)', padding: '32px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h3 style={{ fontWeight: 800, marginBottom: '12px' }}>{t(`label_${s}_title`)}</h3>
-              <p style={{ color: '#888', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`label_${s}_desc`)}</p>
+            <div key={s} style={{ background: '#fff', borderRadius: 'var(--radius-card)', padding: '32px', border: '1px solid var(--hairline)' }}>
+              <h3 style={{ fontWeight: 800, marginBottom: '12px', color: 'var(--navy-deep)' }}>{t(`label_${s}_title`)}</h3>
+              <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`label_${s}_desc`)}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section style={{ padding: '100px 10%', background: '#000', textAlign: 'center' }}>
-        <Link href={`/${locale}/contacts`} style={{ display: 'inline-block', background: 'var(--accent)', color: '#000', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: '2px' }}>
+      <section style={{ padding: '100px 10%', background: 'var(--oxford)', textAlign: 'center' }}>
+        <Link href={`/${locale}/contacts`} style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--accent-ink)', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 'var(--radius-pill)' }}>
           {t('label_form_title')}
         </Link>
       </section>
