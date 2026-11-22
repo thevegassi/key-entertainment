@@ -71,7 +71,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        style={{ background: 'var(--accent)', color: '#000', border: 'none', padding: '16px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer', borderRadius: '2px' }}
+        style={{ background: 'var(--accent)', color: 'var(--accent-ink)', border: 'none', padding: '16px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer', borderRadius: 'var(--radius-pill)' }}
       >
         {status === 'sending' ? t('val_sending') : t('contacts_form_submit')}
       </button>

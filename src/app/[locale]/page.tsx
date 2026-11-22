@@ -32,18 +32,18 @@ export default async function HomePage() {
           justifyContent: 'center',
           textAlign: 'center',
           padding: '160px 10% 100px',
-          backgroundImage: 'url(/main.png)',
+          backgroundImage: 'url(/concert-crowd.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative',
         }}
       >
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.55)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(12,35,80,0.55)' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ fontSize: '0.7rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '24px', fontWeight: 800 }}>
             {t('index_hero_sub')}
           </p>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', fontWeight: 900, lineHeight: 1.05, marginBottom: '32px' }}>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', fontWeight: 900, lineHeight: 1.05, marginBottom: '32px', color: '#fff' }}>
             KEY<br /><span style={{ color: 'var(--accent)' }}>ENTERTAINMENT</span>
           </h1>
           <Link
@@ -51,14 +51,14 @@ export default async function HomePage() {
             style={{
               display: 'inline-block',
               background: 'var(--accent)',
-              color: '#000',
+              color: 'var(--accent-ink)',
               padding: '14px 32px',
               fontWeight: 800,
               fontSize: '0.75rem',
               letterSpacing: '2px',
               textTransform: 'uppercase',
               textDecoration: 'none',
-              borderRadius: '2px',
+              borderRadius: 'var(--radius-pill)',
             }}
           >
             {t('more')}
@@ -67,9 +67,9 @@ export default async function HomePage() {
       </section>
 
       {/* Ecosystem */}
-      <section style={{ padding: '120px 10%', background: '#000' }}>
+      <section style={{ padding: '120px 10%', background: '#fff' }}>
         <div style={{ marginBottom: '64px' }}>
-          <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--accent)', fontWeight: 800, marginBottom: '12px' }}>
+          <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
             {t('index_eco_label')}
           </p>
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}>
@@ -89,32 +89,32 @@ export default async function HomePage() {
               href={`/${locale}${href}`}
               style={{
                 display: 'block',
-                background: 'var(--dark-card)',
-                border: '1px solid rgba(211,255,51,0.1)',
+                background: 'var(--off-white)',
+                border: '1px solid var(--hairline)',
                 borderRadius: 'var(--radius-card)',
                 padding: '32px',
                 textDecoration: 'none',
-                color: '#fff',
+                color: 'var(--ink)',
                 transition: 'border-color 0.3s',
               }}
             >
-              <h3 style={{ fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, marginBottom: '12px' }}>
+              <h3 style={{ fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
                 {label}
               </h3>
-              <p style={{ color: '#888', lineHeight: 1.7, fontSize: '0.9rem' }}>{desc}</p>
+              <p style={{ color: 'var(--gray)', lineHeight: 1.7, fontSize: '0.9rem' }}>{desc}</p>
             </Link>
           ))}
         </div>
       </section>
 
       {/* Stats */}
-      <section style={{ padding: '120px 10%', background: '#020202' }}>
+      <section style={{ padding: '120px 10%', background: 'var(--periwinkle)' }}>
         <div style={{ marginBottom: '64px' }}>
           <h2
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}
             dangerouslySetInnerHTML={{ __html: t('index_stats_title') }}
           />
-          <p style={{ color: '#888', marginTop: '16px', maxWidth: '560px' }}>{t('index_stats_sub')}</p>
+          <p style={{ color: 'var(--indigo-ink)', marginTop: '16px', maxWidth: '560px' }}>{t('index_stats_sub')}</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px' }}>
           {[
@@ -124,9 +124,9 @@ export default async function HomePage() {
             { num: '150+', label: t('index_stat4_label') },
           ].map(({ num, label }) => (
             <div key={num}>
-              <p style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900, color: 'var(--accent)', lineHeight: 1 }}>{num}</p>
+              <p style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900, color: 'var(--oxford)', lineHeight: 1 }}>{num}</p>
               <p
-                style={{ color: '#888', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.5 }}
+                style={{ color: 'var(--indigo-ink)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.5 }}
                 dangerouslySetInnerHTML={{ __html: label }}
               />
             </div>
@@ -135,10 +135,10 @@ export default async function HomePage() {
       </section>
 
       {/* Goal */}
-      <section style={{ padding: '120px 10%', background: '#000' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+      <section style={{ padding: '120px 10%', background: '#fff' }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
           <div>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--accent)', fontWeight: 800, marginBottom: '12px' }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
               {t('index_goal_label')}
             </p>
             <h2
@@ -147,30 +147,31 @@ export default async function HomePage() {
             />
           </div>
           <div>
-            <p style={{ color: '#888', lineHeight: 1.8, marginBottom: '20px' }}>{t('index_goal_p1')}</p>
-            <p style={{ color: '#888', lineHeight: 1.8 }}>{t('index_goal_p2')}</p>
+            <p style={{ color: 'var(--gray)', lineHeight: 1.8, marginBottom: '20px' }}>{t('index_goal_p1')}</p>
+            <p style={{ color: 'var(--gray)', lineHeight: 1.8 }}>{t('index_goal_p2')}</p>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: '120px 10%', textAlign: 'center', background: '#020202' }}>
-        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: '32px' }}>
-          {t('contacts_title')}
-        </h2>
+      {/* CTA — lime highlight-on-dark, per brandbook ("section titles on dark") */}
+      <section style={{ padding: '120px 10%', textAlign: 'center', background: 'var(--oxford)' }}>
+        <h2
+          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: '32px', color: '#fff' }}
+          dangerouslySetInnerHTML={{ __html: t('contacts_title') }}
+        />
         <Link
           href={`/${locale}/contacts`}
           style={{
             display: 'inline-block',
             background: 'var(--accent)',
-            color: '#000',
+            color: 'var(--accent-ink)',
             padding: '16px 40px',
             fontWeight: 800,
             fontSize: '0.8rem',
             letterSpacing: '2px',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            borderRadius: '2px',
+            borderRadius: 'var(--radius-pill)',
           }}
         >
           {t('nav_contacts')}
