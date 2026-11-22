@@ -12,10 +12,11 @@ export default async function ContactsPage() {
   const t = await getTranslations();
   return (
     <>
-      <section style={{ padding: '160px 10% 80px', background: '#000' }}>
-        <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, marginBottom: '60px' }}>
-          {t('contacts_title')}
-        </h1>
+      <section style={{ padding: '160px 10% 80px', background: 'var(--oxford)' }}>
+        <h1
+          style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, marginBottom: '60px', color: '#fff' }}
+          dangerouslySetInnerHTML={{ __html: t('contacts_title') }}
+        />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
           <div>
             <h2 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '32px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase' }}>
