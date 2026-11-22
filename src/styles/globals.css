@@ -29,6 +29,21 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
+/* ===================== ЮРИДИЧЕСКИЕ ДОКУМЕНТЫ (оферта, политика) ===================== */
+.legal-doc { padding: 60px 10% 100px; max-width: 900px; margin: 0 auto; background: #fff; }
+.legal-doc .doc-meta { font-size: 0.72rem; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid var(--hairline); }
+.legal-doc h2 { font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: var(--navy-deep); margin: 50px 0 16px; }
+.legal-doc p { font-size: 0.92rem; color: var(--gray); line-height: 1.8; margin-bottom: 14px; }
+.legal-doc ul, .legal-doc ol { padding-left: 20px; margin-bottom: 14px; }
+.legal-doc ul li, .legal-doc ol li { font-size: 0.92rem; color: var(--gray); line-height: 1.8; margin-bottom: 6px; }
+.legal-doc strong { color: var(--ink); font-weight: 700; }
+.legal-doc .highlight { background: rgba(211,255,51,0.15); border-left: 3px solid var(--accent-press); padding: 20px 24px; margin: 24px 0; border-radius: 0 var(--radius-card) var(--radius-card) 0; }
+.legal-doc .highlight p { color: var(--ink); margin: 0; }
+.legal-doc table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.legal-doc table td, .legal-doc table th { padding: 12px 16px; border: 1px solid var(--hairline); font-size: 0.85rem; color: var(--gray); text-align: left; }
+.legal-doc table th { color: var(--navy-deep); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.72rem; background: var(--off-white); }
+.legal-doc a { color: var(--navy-deep); }
+
 body {
     background: #FFFFFF;
     color: var(--ink);
