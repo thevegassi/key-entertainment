@@ -209,7 +209,7 @@ export default async function DistributionPage() {
         <p style={{ color: 'var(--indigo-ink)', marginBottom: '48px', maxWidth: '600px', lineHeight: 1.7 }}>
           {t('dist_partner_sub')}
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', maxWidth: '600px' }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', maxWidth: '600px' }}>
           <div style={{ borderLeft: '2px solid var(--oxford)', paddingLeft: '18px' }}>
             <h3 style={{ fontWeight: 800, marginBottom: '8px' }}>{t('dist_artists_title')}</h3>
             <p style={{ color: 'var(--indigo-ink)', fontSize: '0.9rem', lineHeight: 1.6 }}>{t('dist_artists_desc')}</p>

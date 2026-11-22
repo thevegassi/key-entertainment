@@ -136,7 +136,7 @@ export default async function HomePage() {
 
       {/* Goal */}
       <section style={{ padding: '120px 10%', background: '#fff' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
           <div>
             <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
               {t('index_goal_label')}

@@ -17,7 +17,7 @@ export default async function ContactsPage() {
           style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, marginBottom: '60px', color: '#fff' }}
           dangerouslySetInnerHTML={{ __html: t('contacts_title') }}
         />
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
           <div>
             <h2 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '32px', color: '#888', letterSpacing: '2px', textTransform: 'uppercase' }}>
               {t('contacts_general_title')}
