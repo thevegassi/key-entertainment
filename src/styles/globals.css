@@ -286,11 +286,6 @@ footer {
     width: 100%;
 }
 
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-bottom-color: var(--navy-deep);
-}
-
 .submit-btn {
     grid-column: span 2;
     background: var(--accent);
@@ -302,7 +297,7 @@ footer {
     letter-spacing: 3px;
     cursor: pointer;
     margin-top: 20px;
-    transition: 0.4s;
+    transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
     font-family: inherit;
     font-size: 0.85rem;
     display: inline-block;
@@ -313,7 +308,6 @@ footer {
 
 .submit-btn:hover {
     background: var(--accent-hover);
-    transform: translateY(-3px);
 }
 
 /* ===================== АНИМАЦИИ ===================== */
@@ -866,19 +860,24 @@ img { max-width: 100%; height: auto; }
    SECURITY & UX IMPROVEMENTS
    ============================================================ */
 
-/* 1. Focus visible — keyboard navigation accessibility */
+/* 1. Focus visible — keyboard navigation accessibility.
+   Brandbook rule: lime outline on dark grounds, oxford blue on light grounds, 2px offset. */
 :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
+    outline: 2px solid var(--oxford);
+    outline-offset: 2px;
 }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
+    outline: 2px solid var(--oxford);
+    outline-offset: 2px;
     border-radius: 2px;
+}
+footer :focus-visible,
+.contact-form--dark :focus-visible {
+    outline-color: var(--accent);
 }
 
 /* 2. Minimum touch target size (WCAG 2.5.5) — padding only, no forced height */
