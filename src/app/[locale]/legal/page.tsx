@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import LegalShop from '@/components/LegalShop';
 import LegalInquiryForm from '@/components/LegalInquiryForm';
+import SectionHeading from '@/components/SectionHeading';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -27,22 +28,21 @@ export default async function LegalPage() {
 
       {/* Disclaimer */}
       <section style={{ padding: '60px 10% 40px', background: '#fff' }}>
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--hairline)', borderLeft: '4px solid var(--accent)', borderRadius: 'var(--radius-card)', padding: '24px 32px', maxWidth: '900px' }}>
+        <div style={{ background: 'var(--off-white)', borderLeft: '4px solid var(--accent)', borderRadius: 'var(--radius-card)', padding: '24px 32px', maxWidth: '900px' }}>
           <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>{t('legal_disclaimer')}</p>
         </div>
       </section>
 
       {/* Document solutions / shop */}
       <section style={{ padding: '80px 10% 100px', background: 'var(--periwinkle)' }}>
-        <p className="slide-num">{t('legal_docs_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '16px' }}>{t('legal_docs_title')}</h2>
+        <SectionHeading eyebrow={t('legal_docs_label')} on="periwinkle">{t('legal_docs_title')}</SectionHeading>
         <p style={{ color: 'var(--indigo-ink)', maxWidth: '600px', marginBottom: '8px', lineHeight: 1.7 }}>{t('legal_docs_sub')}</p>
         <LegalShop />
       </section>
 
       {/* Custom request banner */}
       <section style={{ padding: '80px 10%', background: '#fff' }}>
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--hairline)', borderRadius: 'var(--radius-card)', padding: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
+        <div style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
           <div style={{ maxWidth: '500px' }}>
             <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--navy-deep)', marginBottom: '10px' }}>{t('legal_custom_title')}</h3>
             <p style={{ color: 'var(--gray)', fontSize: '0.9rem', lineHeight: 1.7 }}>{t('legal_custom_desc')}</p>
@@ -54,12 +54,11 @@ export default async function LegalPage() {
       </section>
 
       {/* Areas of protection */}
-      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
-        <p className="slide-num">{t('legal_areas_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '60px' }}>{t('legal_areas_title')}</h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
+        <SectionHeading eyebrow={t('legal_areas_label')} on="periwinkle">{t('legal_areas_title')}</SectionHeading>
         <div className="services-grid">
           {services.map((s) => (
-            <div key={s} className="info-card" style={{ background: 'var(--off-white)', border: '1px solid var(--hairline)' }}>
+            <div key={s} className="info-card" style={{ background: 'var(--off-white)' }}>
               <h4>{t(`legal_${s}_title`)}</h4>
               <p>{t(`legal_${s}_desc`)}</p>
             </div>
@@ -68,11 +67,10 @@ export default async function LegalPage() {
       </section>
 
       {/* Brands & Finance */}
-      <section style={{ padding: '100px 10%', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
           <div>
-            <p className="slide-num">{t('legal_finance_label')}</p>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '24px' }}>{t('legal_finance_title')}</h2>
+            <SectionHeading eyebrow={t('legal_finance_label')} on="light">{t('legal_finance_title')}</SectionHeading>
             <h4 style={{ color: 'var(--navy-deep)', fontSize: '0.95rem', fontWeight: 800, marginBottom: '10px', textTransform: 'uppercase' }}>{t('legal_tm_title')}</h4>
             <p style={{ color: 'var(--gray)', marginBottom: '28px', lineHeight: 1.7 }}>{t('legal_tm_desc')}</p>
             <h4 style={{ color: 'var(--navy-deep)', fontSize: '0.95rem', fontWeight: 800, marginBottom: '10px', textTransform: 'uppercase' }}>{t('legal_fin_title')}</h4>
@@ -86,11 +84,10 @@ export default async function LegalPage() {
       </section>
 
       {/* Inquiry */}
-      <section id="contact-section" style={{ padding: '100px 10%', background: 'var(--oxford)' }}>
+      <section id="contact-section" style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
           <div>
-            <p className="slide-num">{t('legal_form_label')}</p>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, color: '#fff' }}>{t('legal_form_title')}</h2>
+            <SectionHeading eyebrow={t('legal_form_label')} on="dark">{t('legal_form_title')}</SectionHeading>
           </div>
           <LegalInquiryForm />
         </div>

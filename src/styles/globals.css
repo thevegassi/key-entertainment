@@ -22,6 +22,21 @@
     --radius-card: 12px;        /* brandbook service card */
     --radius-row: 16px;         /* deck list row */
     --radius-pill: 999px;
+
+    /* Spacing scale, transcribed from the brandbook (tokens/spacing.css) */
+    --space-2: 8px;
+    --space-3: 10px;
+    --space-4: 12px;
+    --space-6: 24px;
+    --space-7: 30px;
+    --space-8: 32px;
+    --space-9: 40px;
+    --space-10: 48px;
+    --space-12: 60px;
+    --space-14: 72px;
+    --space-16: 96px;
+    --space-18: 108px;
+    --space-20: 128px;
     --font-display: 'Nunito Sans', sans-serif;
     --font-body: 'Manrope', sans-serif;
 }
