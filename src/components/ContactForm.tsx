@@ -1,7 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { useTranslations } from 'next-intl';
+
+const lightInput: CSSProperties = {
+  background: 'var(--off-white)',
+  border: '1px solid var(--hairline)',
+  borderRadius: '8px',
+  padding: '14px 16px',
+  color: 'var(--ink)',
+  fontSize: '0.9rem',
+  outline: 'none',
+  fontFamily: 'inherit',
+  width: '100%',
+};
 
 export default function ContactForm() {
   const t = useTranslations();
@@ -16,6 +28,7 @@ export default function ContactForm() {
       const res = await fetch('https://formsubmit.co/ajax/info@keyent.kz', {
         method: 'POST',
         body: data,
+        headers: { Accept: 'application/json' },
       });
       if (res.ok) {
         setStatus('done');
@@ -30,9 +43,9 @@ export default function ContactForm() {
 
   if (status === 'done') {
     return (
-      <div style={{ textAlign: 'center', padding: '40px' }}>
-        <p style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--accent)' }}>✓</p>
-        <p style={{ marginTop: '12px', color: '#888' }}>{t('val_sending')}</p>
+      <div style={{ textAlign: 'center', padding: '40px', background: 'var(--off-white)', borderRadius: 'var(--radius-card)' }}>
+        <p style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--navy-deep)' }}>✓</p>
+        <p style={{ marginTop: '12px', color: 'var(--gray)' }}>{t('val_sending')}</p>
       </div>
     );
   }
@@ -41,38 +54,13 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <input type="hidden" name="_autoresponse" value="Спасибо за обращение! Мы получили вашу заявку и свяжемся с вами в течение 24 часов. — Key Entertainment" />
       <input type="hidden" name="_captcha" value="false" />
-      <input
-        type="text"
-        name="name"
-        placeholder={t('contacts_form_name_ph')}
-        required
-        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', padding: '14px 16px', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder={t('contacts_form_email_ph')}
-        required
-        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', padding: '14px 16px', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
-      />
-      <input
-        type="tel"
-        name="phone"
-        placeholder="+7"
-        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', padding: '14px 16px', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
-      />
-      <textarea
-        name="message"
-        placeholder={t('contacts_form_msg_ph')}
-        rows={5}
-        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', padding: '14px 16px', color: '#fff', fontSize: '0.9rem', resize: 'vertical', outline: 'none' }}
-      />
-      {status === 'error' && <p style={{ color: '#ff4444', fontSize: '0.85rem' }}>{t('val_error')}</p>}
-      <button
-        type="submit"
-        disabled={status === 'sending'}
-        style={{ background: 'var(--accent)', color: 'var(--accent-ink)', border: 'none', padding: '16px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer', borderRadius: 'var(--radius-pill)' }}
-      >
+      <input type="hidden" name="_subject" value="Заявка — Контакты" />
+      <input type="text" name="Имя" placeholder={t('contacts_form_name_ph')} required style={lightInput} />
+      <input type="email" name="Email" placeholder={t('contacts_form_email_ph')} required style={lightInput} />
+      <input type="tel" name="Телефон" placeholder="+7" style={lightInput} />
+      <textarea name="Сообщение" placeholder={t('contacts_form_msg_ph')} rows={5} style={lightInput} />
+      {status === 'error' && <p style={{ color: '#c0392b', fontSize: '0.85rem' }}>{t('val_error')}</p>}
+      <button type="submit" disabled={status === 'sending'} className="submit-btn" style={{ gridColumn: 'auto' }}>
         {status === 'sending' ? t('val_sending') : t('contacts_form_submit')}
       </button>
     </form>
