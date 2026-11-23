@@ -40,6 +40,9 @@ export default async function HomePage() {
       >
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(12,35,80,0.55)' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ display: 'inline-block', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, border: '2px solid var(--accent)', borderRadius: 'var(--radius-pill)', padding: '6px 20px', marginBottom: '28px' }}>
+            ESTABLISHED 2015
+          </p>
           <p style={{ fontSize: '0.7rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '24px', fontWeight: 800 }}>
             {t('index_hero_sub')}
           </p>
@@ -66,8 +69,26 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Ecosystem */}
+      {/* Who we are */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
+        <p
+          style={{ fontSize: 'clamp(1.6rem, 4vw, 2.75rem)', fontWeight: 300, lineHeight: 1.15, marginBottom: 'var(--space-10)', color: 'var(--oxford)' }}
+          dangerouslySetInnerHTML={{ __html: t('index_tagline') }}
+        />
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
+          <p
+            style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.4rem)', fontWeight: 300, color: 'var(--ink)', lineHeight: 1.5 }}
+            dangerouslySetInnerHTML={{ __html: t('index_who_left') }}
+          />
+          <p
+            style={{ color: 'var(--gray)', lineHeight: 1.8 }}
+            dangerouslySetInnerHTML={{ __html: t('index_who_right') }}
+          />
+        </div>
+      </section>
+
+      {/* Ecosystem */}
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <div style={{ marginBottom: '64px' }}>
           <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
             {t('index_eco_label')}
@@ -75,6 +96,9 @@ export default async function HomePage() {
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}>
             {t('index_eco_title')}
           </h2>
+          <p style={{ color: 'var(--gray)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: '520px', marginTop: '16px' }}>
+            {t('index_eco_sub')}
+          </p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
           {[
@@ -89,12 +113,12 @@ export default async function HomePage() {
               href={`/${locale}${href}`}
               style={{
                 display: 'block',
-                background: 'var(--off-white)',
+                background: '#fff',
                 borderRadius: 'var(--radius-card)',
                 padding: '32px',
                 textDecoration: 'none',
                 color: 'var(--ink)',
-                transition: 'border-color 0.3s',
+                transition: '0.3s',
               }}
             >
               <h3 style={{ fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
@@ -107,25 +131,26 @@ export default async function HomePage() {
       </section>
 
       {/* Stats */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div style={{ marginBottom: '64px' }}>
           <h2
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}
             dangerouslySetInnerHTML={{ __html: t('index_stats_title') }}
           />
-          <p style={{ color: 'var(--indigo-ink)', marginTop: '16px', maxWidth: '560px' }}>{t('index_stats_sub')}</p>
+          <p style={{ color: 'var(--gray)', marginTop: '16px', maxWidth: '560px' }}>{t('index_stats_sub')}</p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '40px' }}>
           {[
             { num: '10+', label: t('index_stat1_label') },
-            { num: '500M+', label: t('index_stat2_label') },
-            { num: '50+', label: t('index_stat3_label') },
+            { num: '30M+', label: t('index_stat2_label') },
+            { num: '1000+', label: t('index_stat3_label') },
             { num: '150+', label: t('index_stat4_label') },
+            { num: '20+', label: t('index_stat5_label') },
           ].map(({ num, label }) => (
             <div key={num}>
-              <p style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900, color: 'var(--oxford)', lineHeight: 1 }}>{num}</p>
+              <p style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: 'var(--oxford)', lineHeight: 1 }}>{num}</p>
               <p
-                style={{ color: 'var(--indigo-ink)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.5 }}
+                style={{ color: 'var(--gray)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.5 }}
                 dangerouslySetInnerHTML={{ __html: label }}
               />
             </div>
@@ -133,31 +158,18 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Goal */}
-      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
-        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
-          <div>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
-              {t('index_goal_label')}
-            </p>
-            <h2
-              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, lineHeight: 1.1 }}
-              dangerouslySetInnerHTML={{ __html: t('index_goal_title') }}
-            />
-          </div>
-          <div>
-            <p style={{ color: 'var(--gray)', lineHeight: 1.8, marginBottom: '20px' }}>{t('index_goal_p1')}</p>
-            <p style={{ color: 'var(--gray)', lineHeight: 1.8 }}>{t('index_goal_p2')}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA — lime highlight-on-dark, per brandbook ("section titles on dark") */}
+      {/* Mission — lime highlight-on-dark, per brandbook ("section titles on dark") */}
       <section style={{ padding: 'var(--space-16) 10%', textAlign: 'center', background: 'var(--oxford)' }}>
-        <h2
-          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: '32px', color: '#fff' }}
-          dangerouslySetInnerHTML={{ __html: t('contacts_title') }}
+        <p style={{ fontSize: '0.65rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)' }}>
+          {t('index_mission_label')}
+        </p>
+        <p
+          style={{ fontSize: 'clamp(1.3rem, 3vw, 2.2rem)', fontWeight: 300, color: '#fff', lineHeight: 1.3, maxWidth: '820px', margin: '0 auto var(--space-8)' }}
+          dangerouslySetInnerHTML={{ __html: t('index_mission_quote') }}
         />
+        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '640px', margin: '0 auto var(--space-9)', lineHeight: 1.7 }}>
+          {t('index_mission_sub')}
+        </p>
         <Link
           href={`/${locale}/contacts`}
           style={{
@@ -173,7 +185,7 @@ export default async function HomePage() {
             borderRadius: 'var(--radius-pill)',
           }}
         >
-          {t('nav_contacts')}
+          {t('index_mission_cta')}
         </Link>
       </section>
     </>
