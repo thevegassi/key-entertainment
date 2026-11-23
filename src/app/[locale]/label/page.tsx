@@ -37,8 +37,14 @@ export default async function LabelPage() {
       </section>
 
       {/* Stage 01 — Music Production */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'start' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)', position: 'relative', overflow: 'hidden' }}>
+        <span
+          aria-hidden="true"
+          style={{ position: 'absolute', top: '-0.15em', right: '4%', fontSize: 'clamp(8rem, 22vw, 16rem)', fontWeight: 900, color: 'rgba(255,255,255,0.5)', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}
+        >
+          01
+        </span>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'start', position: 'relative' }}>
           <div>
             <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--indigo-ink)', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase' }}>STAGE 01</p>
             <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: 900, marginBottom: '16px' }}>{t('label_s1_title')}</h3>
@@ -70,11 +76,17 @@ export default async function LabelPage() {
       </section>
 
       {/* Stage 02 — Visual Production */}
-      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
-        <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase' }}>STAGE 02</p>
-        <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: 900, marginBottom: '16px' }}>{t('label_s2_title')}</h3>
-        <p style={{ color: 'var(--gray)', maxWidth: '680px', lineHeight: 1.7, marginBottom: '48px', fontSize: '1rem' }}>{t('label_s2_desc')}</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff', position: 'relative', overflow: 'hidden' }}>
+        <span
+          aria-hidden="true"
+          style={{ position: 'absolute', top: '-0.15em', right: '4%', fontSize: 'clamp(8rem, 22vw, 16rem)', fontWeight: 900, color: 'var(--off-white)', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}
+        >
+          02
+        </span>
+        <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase', position: 'relative' }}>STAGE 02</p>
+        <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: 900, marginBottom: '16px', position: 'relative' }}>{t('label_s2_title')}</h3>
+        <p style={{ color: 'var(--gray)', maxWidth: '680px', lineHeight: 1.7, marginBottom: '48px', fontSize: '1rem', position: 'relative' }}>{t('label_s2_desc')}</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', position: 'relative' }}>
           {['video', 'design'].map((s) => (
             <ServiceCard key={s} icon={VISUAL_ICONS[s]} label={t(`label_${s}_title`)}>
               {t(`label_${s}_desc`)}

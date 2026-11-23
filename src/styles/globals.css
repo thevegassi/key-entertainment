@@ -173,6 +173,35 @@ h3 {
     border-radius: var(--radius-card);
 }
 
+/* Homepage ecosystem bento: Label + Distribution featured on row one,
+   Booking / PR / Legal share row two — breaks the uniform-grid monotony. */
+.eco-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+.eco-grid > a:nth-child(1),
+.eco-grid > a:nth-child(2) { grid-column: span 3; }
+.eco-grid > a:nth-child(3),
+.eco-grid > a:nth-child(4),
+.eco-grid > a:nth-child(5) { grid-column: span 2; }
+@media (max-width: 860px) {
+    .eco-grid { grid-template-columns: 1fr; }
+    .eco-grid > a { grid-column: span 1 !important; }
+}
+
+/* Booking cases: flagship case featured wide, rest fall in behind it */
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.cases-grid > div:nth-child(1) { grid-column: span 2; }
+@media (max-width: 860px) {
+    .cases-grid { grid-template-columns: 1fr; }
+    .cases-grid > div { grid-column: span 1 !important; }
+}
+
 /* House hover default (no shadow, no transform — ground shifts one step) */
 .service-card, .eco-card-link, .solution-card {
     transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
