@@ -4,6 +4,7 @@ import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
 import DistributionInquiryForm from '@/components/DistributionInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
+import SectionDivider from '@/components/SectionDivider';
 
 export async function generateMetadata({
   params,
@@ -181,6 +182,7 @@ export default async function DistributionPage() {
           <p style={{ letterSpacing: '10px', textTransform: 'uppercase', marginTop: '28px', opacity: 0.8, fontSize: '0.75rem', color: '#fff' }}>MUSIC • STRATEGY • GROWTH</p>
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* S1 — Full Cycle */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -201,6 +203,7 @@ export default async function DistributionPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Who we work with */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -219,6 +222,7 @@ export default async function DistributionPage() {
           </div>
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* YouTube Management */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -235,6 +239,7 @@ export default async function DistributionPage() {
 
         <ArtistStrip items={ytChannels} visitLabel={t('yt_visit_channel')} />
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* TikTok for Artists */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -251,14 +256,21 @@ export default async function DistributionPage() {
 
         <ArtistStrip items={ttProfiles} visitLabel={t('tt_visit_profile')} />
       </section>
+      <SectionDivider from="var(--periwinkle)" to="var(--oxford)" />
 
       {/* CTA Form */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+        />
+        <div style={{ position: 'relative' }}>
         <SectionHeading eyebrow={t('contacts_label')} on="dark" center>{t('contacts_form_title')}</SectionHeading>
         <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
           {t('dist_form_intro')}
         </p>
         <DistributionInquiryForm />
+        </div>
       </section>
     </>
   );

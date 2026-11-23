@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
+import SectionDivider from '@/components/SectionDivider';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -31,6 +32,7 @@ export default async function AboutPage() {
           />
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Who we are */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -45,6 +47,7 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Goal / capitalization */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -75,6 +78,7 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* Genesis */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -109,6 +113,7 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Mission */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)', textAlign: 'center' }}>
@@ -123,10 +128,15 @@ export default async function AboutPage() {
           </p>
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="var(--oxford)" />
 
       {/* CTA */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center' }}>
-        <Link href={`/${locale}/contacts`} style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--accent-ink)', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 'var(--radius-pill)' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+        />
+        <Link href={`/${locale}/contacts`} style={{ position: 'relative', display: 'inline-block', background: 'var(--accent)', color: 'var(--accent-ink)', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 'var(--radius-pill)' }}>
           {t('nav_contacts')}
         </Link>
       </section>

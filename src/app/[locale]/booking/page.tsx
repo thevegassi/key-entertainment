@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import BookingInquiryForm from '@/components/BookingInquiryForm';
 import SectionHeading from '@/components/SectionHeading';
 import ServiceCard from '@/components/ServiceCard';
+import SectionDivider from '@/components/SectionDivider';
 
 const SERVICE_ICONS: Record<string, string> = {
   s1: 'TablerIconUsers',
@@ -41,12 +42,14 @@ export default async function BookingPage() {
           <p style={{ letterSpacing: '10px', textTransform: 'uppercase', marginTop: '28px', opacity: 0.8, fontSize: '0.75rem', color: '#fff' }}>TOURS • MANAGEMENT • STRATEGY</p>
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Intro */}
       <section style={{ padding: '100px 10% 80px', background: '#fff' }}>
         <SectionHeading eyebrow={t('book_intro_label')} on="light">{t('book_intro_title')}</SectionHeading>
         <p className="lead-text">{t('book_intro_text')}</p>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Services */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -59,6 +62,7 @@ export default async function BookingPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* For artists / for organizers */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -87,6 +91,7 @@ export default async function BookingPage() {
           </div>
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Cases */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -103,10 +108,15 @@ export default async function BookingPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="var(--oxford)" />
 
       {/* Contact */}
-      <section id="contact-section" style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)' }}>
-        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
+      <section id="contact-section" style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+        />
+        <div className="mobile-stack" style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
           <div>
             <SectionHeading eyebrow={t('book_form_label')} on="dark">{t('book_form_title')}</SectionHeading>
           </div>

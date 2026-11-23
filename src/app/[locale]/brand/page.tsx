@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
+import SectionDivider from '@/components/SectionDivider';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -41,12 +42,14 @@ export default async function BrandPage() {
           />
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Intro */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <p style={{ color: 'var(--gray)', maxWidth: '720px', lineHeight: 1.8, marginBottom: 'var(--space-4)' }}>{t('brand_intro1')}</p>
         <p style={{ color: 'var(--gray)', maxWidth: '720px', lineHeight: 1.8 }}>{t('brand_intro2')}</p>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* 01 / COLORS */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -70,6 +73,7 @@ export default async function BrandPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* 02 / LOGOS */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -104,6 +108,7 @@ export default async function BrandPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* 05 / DOWNLOAD */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>

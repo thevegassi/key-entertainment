@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import SectionDivider from '@/components/SectionDivider';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -18,6 +19,7 @@ export default async function PrivacyPage() {
           dangerouslySetInnerHTML={{ __html: t('privacy_title') }}
         />
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       <div className="legal-doc">
         <p className="doc-meta">{t('privacy_meta')}</p>

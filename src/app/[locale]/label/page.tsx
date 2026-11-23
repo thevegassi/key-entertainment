@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import LabelInquiryForm from '@/components/LabelInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
+import SectionDivider from '@/components/SectionDivider';
 
 const VISUAL_ICONS: Record<string, string> = { video: 'TablerIconPlayerTrackNext', design: 'TablerIconVinyl' };
 
@@ -27,6 +28,7 @@ export default async function LabelPage() {
           <p style={{ letterSpacing: '10px', textTransform: 'uppercase', marginTop: '28px', opacity: 0.8, fontSize: '0.75rem', color: '#fff' }}>SOUND • IDENTITY • VISION</p>
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Philosophy */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -35,6 +37,7 @@ export default async function LabelPage() {
           {t('label_phil_text')}
         </p>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Stage 01 — Music Production */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)', position: 'relative', overflow: 'hidden' }}>
@@ -74,6 +77,7 @@ export default async function LabelPage() {
           </ul>
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* Stage 02 — Visual Production */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff', position: 'relative', overflow: 'hidden' }}>
@@ -94,14 +98,21 @@ export default async function LabelPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--oxford)" flip />
 
       {/* CTA — Send Demo */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+        />
+        <div style={{ position: 'relative' }}>
         <SectionHeading eyebrow={t('label_form_label')} on="dark" center>{t('label_form_title')}</SectionHeading>
         <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
           {t('label_form_sub')}
         </p>
         <LabelInquiryForm />
+        </div>
       </section>
     </>
   );

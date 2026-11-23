@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import Icon from '@/components/icons/Icon';
+import SectionDivider from '@/components/SectionDivider';
 
 export async function generateMetadata({
   params,
@@ -23,32 +24,34 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — asymmetric, bottom-left anchored (matches every interior page's hero convention) */}
       <section
         className="hero-section"
         style={{
           minHeight: '100dvh',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          padding: '160px 10% 100px',
+          alignItems: 'flex-end',
+          padding: '160px 8% 120px',
           backgroundImage: 'url(/concert-crowd.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(12,35,80,0.55)' }} />
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <p style={{ display: 'inline-block', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, border: '2px solid var(--accent)', borderRadius: 'var(--radius-pill)', padding: '6px 20px', marginBottom: '28px' }}>
-            ESTABLISHED 2015
-          </p>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '24px', fontWeight: 800 }}>
-            {t('index_hero_sub')}
-          </p>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', fontWeight: 900, lineHeight: 1.05, marginBottom: '32px', color: '#fff' }}>
-            KEY<br /><span style={{ color: 'var(--accent)' }}>ENTERTAINMENT</span>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '28px', flexWrap: 'wrap' }}>
+            <p style={{ display: 'inline-block', fontSize: '0.65rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, border: '2px solid var(--accent)', borderRadius: 'var(--radius-pill)', padding: '6px 20px', margin: 0 }}>
+              ESTABLISHED 2015
+            </p>
+            <p style={{ fontSize: '0.7rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, margin: 0 }}>
+              {t('index_hero_sub')}
+            </p>
+          </div>
+          <h1 style={{ fontSize: 'clamp(3rem, 11vw, 9rem)', fontWeight: 900, lineHeight: 0.92, marginBottom: '40px', color: '#fff', letterSpacing: '-0.01em' }}>
+            <span style={{ WebkitTextStroke: '2px #fff', color: 'transparent', display: 'block' }}>KEY</span>
+            <span style={{ color: 'var(--accent)', display: 'block' }}>ENTERTAINMENT</span>
           </h1>
           <Link
             href={`/${locale}/distribution`}
@@ -69,13 +72,18 @@ export default async function HomePage() {
           </Link>
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
-      {/* Who we are */}
-      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
+      {/* Statement — the tagline gets its own full-bleed typographic moment */}
+      <section style={{ padding: 'var(--space-14) 8% var(--space-10)', background: '#fff' }}>
         <p
-          style={{ fontSize: 'clamp(1.6rem, 4vw, 2.75rem)', fontWeight: 300, lineHeight: 1.15, marginBottom: 'var(--space-10)', color: 'var(--oxford)' }}
+          style={{ fontSize: 'clamp(2.2rem, 7vw, 5.5rem)', fontWeight: 900, lineHeight: 0.95, color: 'var(--oxford)', margin: 0, letterSpacing: '-0.01em' }}
           dangerouslySetInnerHTML={{ __html: t('index_tagline') }}
         />
+      </section>
+
+      {/* Who we are */}
+      <section style={{ padding: '0 10% var(--space-16)', background: '#fff' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
           <p
             style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.4rem)', fontWeight: 300, color: 'var(--ink)', lineHeight: 1.5 }}
@@ -87,6 +95,7 @@ export default async function HomePage() {
           />
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Ecosystem */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -133,6 +142,7 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* Stats */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -161,36 +171,50 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--oxford)" flip />
 
       {/* Mission — lime highlight-on-dark, per brandbook ("section titles on dark") */}
-      <section style={{ padding: 'var(--space-16) 10%', textAlign: 'center', background: 'var(--oxford)' }}>
-        <p style={{ fontSize: '0.65rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)' }}>
-          {t('index_mission_label')}
-        </p>
-        <p
-          style={{ fontSize: 'clamp(1.3rem, 3vw, 2.2rem)', fontWeight: 300, color: '#fff', lineHeight: 1.3, maxWidth: '820px', margin: '0 auto var(--space-8)' }}
-          dangerouslySetInnerHTML={{ __html: t('index_mission_quote') }}
-        />
-        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '640px', margin: '0 auto var(--space-9)', lineHeight: 1.7 }}>
-          {t('index_mission_sub')}
-        </p>
-        <Link
-          href={`/${locale}/contacts`}
+      <section style={{ padding: 'var(--space-16) 10%', textAlign: 'center', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
+        <div
+          aria-hidden="true"
           style={{
-            display: 'inline-block',
-            background: 'var(--accent)',
-            color: 'var(--accent-ink)',
-            padding: '16px 40px',
-            fontWeight: 800,
-            fontSize: '0.8rem',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            borderRadius: 'var(--radius-pill)',
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'url(/pattern-4-navy.svg)',
+            backgroundSize: '420px',
+            opacity: 0.12,
+            pointerEvents: 'none',
           }}
-        >
-          {t('index_mission_cta')}
-        </Link>
+        />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontSize: '0.65rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)' }}>
+            {t('index_mission_label')}
+          </p>
+          <p
+            style={{ fontSize: 'clamp(1.3rem, 3vw, 2.2rem)', fontWeight: 300, color: '#fff', lineHeight: 1.3, maxWidth: '820px', margin: '0 auto var(--space-8)' }}
+            dangerouslySetInnerHTML={{ __html: t('index_mission_quote') }}
+          />
+          <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '640px', margin: '0 auto var(--space-9)', lineHeight: 1.7 }}>
+            {t('index_mission_sub')}
+          </p>
+          <Link
+            href={`/${locale}/contacts`}
+            style={{
+              display: 'inline-block',
+              background: 'var(--accent)',
+              color: 'var(--accent-ink)',
+              padding: '16px 40px',
+              fontWeight: 800,
+              fontSize: '0.8rem',
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              borderRadius: 'var(--radius-pill)',
+            }}
+          >
+            {t('index_mission_cta')}
+          </Link>
+        </div>
       </section>
     </>
   );
