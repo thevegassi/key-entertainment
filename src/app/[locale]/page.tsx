@@ -1,22 +1,11 @@
-import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import Icon from '@/components/icons/Icon';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return {
-    title: t('page_title_index'),
-    description: t('page_desc_index'),
-    alternates: { canonical: `https://www.keyent.kz/${locale}` },
-  };
-}
+export const generateMetadata = pageMetadata('');
 
 export default async function HomePage() {
   const t = await getTranslations();
@@ -24,6 +13,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <PageJsonLd path="" />
       {/* Hero — asymmetric, bottom-left anchored (matches every interior page's hero convention) */}
       <section
         className="hero-section"

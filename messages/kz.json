@@ -409,5 +409,13 @@
   "contacts_form_name_ph": "Атыңыз",
   "contacts_form_email_ph": "Email",
   "contacts_form_msg_ph": "Сұрағыңыз...",
-  "contacts_form_submit": "ЖІБЕРУ —>"
+  "contacts_form_submit": "ЖІБЕРУ —>",
+  "page_desc_privacy": "Key Entertainment құпиялылық саясаты: қандай деректерді жинаймыз, қалай пайдаланамыз және қорғаймыз, сайт пайдаланушысының құқықтары.",
+  "page_desc_offer": "«KEY ENTERTAINMENT» ЖШС жария офертасы: дистрибуция, лейбл, PR, букинг және артистерге заңгерлік қолдау қызметтерінің шарттары.",
+  "cta_contact": "Байланысу",
+  "cta_distribution": "Релиз шығару",
+  "cta_label": "Ынтымақтастықты талқылау",
+  "cta_booking": "Артистті тапсырыс беру",
+  "cta_pr": "Кеңес алу",
+  "cta_legal": "Заңгер кеңесін алу"
 }

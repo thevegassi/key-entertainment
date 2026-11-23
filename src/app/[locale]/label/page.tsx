@@ -1,23 +1,21 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import LabelInquiryForm from '@/components/LabelInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
 const VISUAL_ICONS: Record<string, string> = { video: 'TablerIconPlayerTrackNext', design: 'TablerIconVinyl' };
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_label'), description: t('page_desc_label'), alternates: { canonical: `https://www.keyent.kz/${locale}/label` } };
-}
+export const generateMetadata = pageMetadata('label');
 
 export default async function LabelPage() {
   const t = await getTranslations();
 
   return (
     <>
+      <PageJsonLd path="label" />
       {/* Hero */}
       <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}

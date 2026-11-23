@@ -3,6 +3,34 @@
 
 ---
 
+## ⚠️ Актуальный стек (приоритетнее разделов ниже)
+
+Сайт переехал на **Next.js 15 + next-intl**, деплой на **Vercel**, основной хост **`https://keyent.kz`** (без www).
+Описание статического HTML/Plesk ниже относится к `legacy/` и устарело. Языки в URL: `/ru`, `/kz`, `/en`
+(в `hreflang` и `html lang` казахский — `kk`).
+
+### SEO-система (не ломать)
+| Что | Где |
+|---|---|
+| Реестр страниц (источник для sitemap, фида, JSON-LD, проверок) | `src/content/pages.ts` |
+| Статьи (раздел `/blog` появляется при первой статье) | `src/content/articles.ts` |
+| Рекламные лендинги `/lp/<slug>` (noindex, одна форма, цели Метрики) | `src/content/landings.ts` |
+| metadata: title/description/canonical/hreflang/OG | `src/lib/seo/metadata.ts` → `export const generateMetadata = pageMetadata('<path>')` |
+| JSON-LD (Organization, Service, Article, BreadcrumbList) | `src/lib/seo/schema.ts`, `<PageJsonLd path="..." />` |
+| robots / sitemap / фид | `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/ads-feed.csv/route.ts` |
+| Цели Метрики/GA4 | `src/lib/analytics.ts` (`trackGoal`) |
+| Проверка перед публикацией | `npm run build && npm start`, затем `npm run seo:check` (CI: `.github/workflows/seo-check.yml`) |
+| После публикации | `.github/workflows/post-deploy.yml` → `scripts/indexnow.mjs`, `scripts/gsc-submit.mjs` |
+
+**Новая страница:** 1) файл `src/app/[locale]/<path>/page.tsx` с `generateMetadata = pageMetadata('<path>')` и `<PageJsonLd path="<path>" />`;
+2) запись в `PAGES`; 3) ключи `page_title_*` (≤60 симв.) и `page_desc_*` (70–160) во все три `messages/*.json`.
+Без этого `seo:check` блокирует публикацию. Ровно один `<h1>`, у каждого `<img>` есть `alt`.
+
+**Env (Vercel):** `NEXT_PUBLIC_YM_ID` (счётчик Метрики), `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, `NEXT_PUBLIC_YANDEX_VERIFICATION`.
+**Secrets (GitHub):** `GSC_SERVICE_ACCOUNT_JSON`.
+
+---
+
 ## Проект
 
 **Компания:** ТОО «KEY ENTERTAINMENT» (БИН 231240023174)  

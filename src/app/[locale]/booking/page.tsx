@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import BookingInquiryForm from '@/components/BookingInquiryForm';
 import SectionHeading from '@/components/SectionHeading';
 import ServiceCard from '@/components/ServiceCard';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
 const SERVICE_ICONS: Record<string, string> = {
   s1: 'TablerIconUsers',
@@ -12,11 +13,7 @@ const SERVICE_ICONS: Record<string, string> = {
   s4: 'TablerIconAddressBook',
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_booking'), description: t('page_desc_booking'), alternates: { canonical: `https://www.keyent.kz/${locale}/booking` } };
-}
+export const generateMetadata = pageMetadata('booking');
 
 const CASES = [
   { key: 'book_case1', title: 'BASQOSU FEST' },
@@ -32,6 +29,7 @@ export default async function BookingPage() {
 
   return (
     <>
+      <PageJsonLd path="booking" />
       {/* Hero */}
       <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}

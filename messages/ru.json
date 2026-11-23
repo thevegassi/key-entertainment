@@ -409,5 +409,13 @@
   "contacts_form_name_ph": "Ваше имя",
   "contacts_form_email_ph": "Email",
   "contacts_form_msg_ph": "Ваш вопрос или запрос...",
-  "contacts_form_submit": "ОТПРАВИТЬ —>"
+  "contacts_form_submit": "ОТПРАВИТЬ —>",
+  "page_desc_privacy": "Политика конфиденциальности Key Entertainment: какие данные мы собираем, как используем и защищаем, ваши права как пользователя сайта.",
+  "page_desc_offer": "Публичная оферта ТОО «KEY ENTERTAINMENT»: условия оказания услуг дистрибуции, лейбла, PR, букинга и юридической поддержки артистов.",
+  "cta_contact": "Связаться",
+  "cta_distribution": "Выпустить релиз",
+  "cta_label": "Обсудить сотрудничество",
+  "cta_booking": "Заказать артиста",
+  "cta_pr": "Получить консультацию",
+  "cta_legal": "Получить консультацию юриста"
 }

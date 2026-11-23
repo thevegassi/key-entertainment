@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type CSSProperties } from 'react';
+import { trackGoal } from '@/lib/analytics';
 import { useTranslations } from 'next-intl';
 
 const darkInput: CSSProperties = {
@@ -32,6 +33,8 @@ export default function DistributionInquiryForm() {
       });
       if (res.ok) {
         setStatus('done');
+        trackGoal('lead_form_submit');
+        trackGoal('lead_distribution');
         form.reset();
       } else {
         setStatus('error');

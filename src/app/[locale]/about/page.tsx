@@ -1,18 +1,11 @@
-import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return {
-    title: t('page_title_about'),
-    description: t('page_desc_about'),
-    alternates: { canonical: `https://www.keyent.kz/${locale}/about` },
-  };
-}
+export const generateMetadata = pageMetadata('about');
 
 export default async function AboutPage() {
   const t = await getTranslations();
@@ -20,6 +13,7 @@ export default async function AboutPage() {
 
   return (
     <>
+      <PageJsonLd path="about" />
       {/* Hero */}
       <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}

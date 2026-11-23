@@ -409,5 +409,13 @@
   "contacts_form_name_ph": "Your name",
   "contacts_form_email_ph": "Email",
   "contacts_form_msg_ph": "Your question or request...",
-  "contacts_form_submit": "SEND —>"
+  "contacts_form_submit": "SEND —>",
+  "page_desc_privacy": "Key Entertainment privacy policy: what data we collect, how we use and protect it, and your rights as a website user.",
+  "page_desc_offer": "Public offer of KEY ENTERTAINMENT LLP: terms for distribution, label, PR, booking and legal support services for artists.",
+  "cta_contact": "Get in touch",
+  "cta_distribution": "Release your music",
+  "cta_label": "Discuss cooperation",
+  "cta_booking": "Book an artist",
+  "cta_pr": "Get a consultation",
+  "cta_legal": "Get legal advice"
 }
