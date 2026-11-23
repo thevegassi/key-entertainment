@@ -110,7 +110,7 @@ export default async function BrandPage() {
       </section>
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
-      {/* 05 / DOWNLOAD */}
+      {/* 03 / DOWNLOAD */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <SectionHeading eyebrow={t('brand_download_label')} on="periwinkle">{t('brand_download_title')}</SectionHeading>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-6)' }}>

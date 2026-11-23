@@ -136,9 +136,15 @@ export default async function AboutPage() {
           aria-hidden="true"
           style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.3, mixBlendMode: 'overlay', pointerEvents: 'none' }}
         />
-        <Link href={`/${locale}/contacts`} style={{ position: 'relative', display: 'inline-block', background: 'var(--accent)', color: 'var(--accent-ink)', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 'var(--radius-pill)' }}>
-          {t('nav_contacts')}
-        </Link>
+        <div style={{ position: 'relative' }}>
+          <SectionHeading eyebrow={t('about_cta_label')} on="dark" center>{t('about_cta_title')}</SectionHeading>
+          <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
+            {t('about_cta_sub')}
+          </p>
+          <Link href={`/${locale}/contacts`} style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--accent-ink)', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 'var(--radius-pill)' }}>
+            {t('nav_contacts')}
+          </Link>
+        </div>
       </section>
     </>
   );
