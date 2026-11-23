@@ -17,7 +17,6 @@ const inputStyle: CSSProperties = {
   color: 'var(--ink)',
   fontFamily: 'inherit',
   fontSize: '0.9rem',
-  outline: 'none',
 };
 
 const errorStyle: CSSProperties = {

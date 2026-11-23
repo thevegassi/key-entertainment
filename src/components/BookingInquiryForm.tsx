@@ -10,7 +10,6 @@ const darkInput: CSSProperties = {
   padding: '14px 16px',
   color: '#fff',
   fontSize: '0.9rem',
-  outline: 'none',
   fontFamily: 'inherit',
   width: '100%',
 };
@@ -51,7 +50,7 @@ export default function BookingInquiryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <form onSubmit={handleSubmit} className="contact-form contact-form--dark" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <input type="hidden" name="_subject" value="Заявка — Booking" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="text" name="Имя" placeholder={t('book_form_name')} required style={darkInput} />
