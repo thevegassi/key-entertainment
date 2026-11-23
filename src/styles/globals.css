@@ -85,7 +85,7 @@ header.top-nav {
     border-bottom: 1px solid var(--hairline);
 }
 
-.nav-logo { height: 32px; width: auto; display: block; }
+.nav-logo { height: 32px; width: auto; display: block; flex-shrink: 0; }
 .nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a {
     color: var(--oxford); text-decoration: none; font-size: 0.68rem;
@@ -530,11 +530,6 @@ a img { pointer-events: auto; }
 
 /* ===================== ФИНАЛЬНЫЙ АДАПТИВ ===================== */
 
-/* Навигация — сжатие при переполнении */
-@media (max-width: 1100px) {
-    .nav-links { gap: 14px; }
-}
-
 /* Контакты — вертикально на мобильных */
 
 
@@ -595,27 +590,8 @@ img:not(.nav-logo):not(.mission-logo-bg) {
    Breakpoints: 480 / 640 / 860 / 1024 / 1280
    ============================================================ */
 
-/* ── 1280px и ниже ── */
-@media (max-width: 1280px) {
-    .nav-links { gap: 18px; }
-    .nav-links a { font-size: 0.64rem; }
-}
-
-/* ── 1024px ── планшет горизонтальный ── */
+/* ── 1024px ── планшет горизонтальный ── нав переходит в бургер раньше, чем начнёт давить лого ── */
 @media (max-width: 1024px) {
-    header.top-nav { padding: 0 4%; }
-    .nav-links { gap: 12px; }
-    .nav-links a { font-size: 0.58rem; letter-spacing: 0.8px; }
-    section { padding: 120px 6% 80px; }
-    .services-grid { gap: 24px; }
-    .stats-grid { grid-template-columns: repeat(3, 1fr); }
-    .stat-item.big { grid-row: span 1; }
-    .eco-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* ── 860px ── планшет вертикальный ── бургер ── */
-@media (max-width: 860px) {
-    /* Навигация */
     header.top-nav { height: 64px; padding: 0 5%; }
     .burger { display: flex; }
     .nav-links {
@@ -634,6 +610,15 @@ img:not(.nav-logo):not(.mission-logo-bg) {
     .nav-links.open { display: flex; }
     .nav-links a { font-size: 1rem; letter-spacing: 3px; opacity: 0.7; }
 
+    section { padding: 120px 6% 80px; }
+    .services-grid { gap: 24px; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-item.big { grid-row: span 1; }
+    .eco-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── 860px ── планшет вертикальный ── */
+@media (max-width: 860px) {
     /* Типографика */
     h1 { font-size: clamp(2.4rem, 7vw, 3.6rem) !important; }
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem) !important; margin-bottom: 28px; }
@@ -846,12 +831,12 @@ img { max-width: 100%; height: auto; }
 .lang-btn:not(:last-child) { border-right: 1px solid var(--hairline); }
 .lang-btn:hover { color: var(--oxford); background: var(--off-white); }
 .lang-btn.active { color: var(--navy-deep); background: rgba(211,255,51,0.25); }
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
     .lang-switcher { margin: 0; }
     .lang-btn { padding: 7px 10px; font-size: 0.65rem; }
 }
 /* ===================== АДАПТИВ НАВИГАЦИИ С ТУМБЛЕРОМ ===================== */
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
     header.top-nav {
         display: grid;
         grid-template-columns: auto 1fr auto auto;

@@ -44,7 +44,7 @@ export default function Header() {
     <header className="top-nav">
       <Link href={`/${locale}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-navy.svg" className="nav-logo" alt="Key Entertainment" />
+        <img src="/logo-mark-navy.svg" className="nav-logo" alt="Key Entertainment" />
       </Link>
       <button
         className={`burger${open ? ' open' : ''}`}
