@@ -202,6 +202,9 @@ h3 {
     .cases-grid > div { grid-column: span 1 !important; }
 }
 
+.footer-social-icon:hover { background: var(--accent); border-color: var(--accent) !important; color: var(--accent-ink) !important; }
+.footer-nav-link:hover { color: #fff !important; }
+
 /* House hover default (no shadow, no transform — ground shifts one step) */
 .service-card, .eco-card-link, .solution-card {
     transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
