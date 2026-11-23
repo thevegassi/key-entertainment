@@ -11,7 +11,6 @@ const darkInput: CSSProperties = {
   padding: '14px 16px',
   color: '#fff',
   fontSize: '0.9rem',
-  outline: 'none',
   fontFamily: 'inherit',
   width: '100%',
 };
@@ -56,7 +55,7 @@ export default function PrInquiryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="contact-form"
+      className="contact-form contact-form--dark"
       style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '480px', margin: '0 auto', textAlign: 'left' }}
     >
       <input type="hidden" name="_subject" value="Заявка — PR & Marketing" />

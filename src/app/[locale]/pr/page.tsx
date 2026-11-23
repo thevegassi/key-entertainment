@@ -36,7 +36,7 @@ export default async function PrPage() {
   return (
     <>
       <PageJsonLd path="pr" />
-      <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
+      <section className="on-dark" style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
@@ -103,10 +103,10 @@ export default async function PrPage() {
       <SectionDivider from="#fff" to="var(--oxford)" flip />
 
       {/* CTA — inquiry form */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section className="on-dark" style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div
           aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.3, mixBlendMode: 'overlay', pointerEvents: 'none' }}
         />
         <div style={{ position: 'relative' }}>
         <SectionHeading eyebrow={t('pr_form_label')} on="dark" center>{t('pr_form_title')}</SectionHeading>

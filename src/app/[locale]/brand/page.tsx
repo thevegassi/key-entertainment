@@ -29,7 +29,7 @@ export default async function BrandPage() {
   return (
     <>
       <PageJsonLd path="brand" />
-      <section style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
+      <section className="on-dark" style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
@@ -108,7 +108,7 @@ export default async function BrandPage() {
       </section>
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
-      {/* 05 / DOWNLOAD */}
+      {/* 03 / DOWNLOAD */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <SectionHeading eyebrow={t('brand_download_label')} on="periwinkle">{t('brand_download_title')}</SectionHeading>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-6)' }}>

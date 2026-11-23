@@ -85,7 +85,7 @@ header.top-nav {
     border-bottom: 1px solid var(--hairline);
 }
 
-.nav-logo { height: 32px; width: auto; display: block; }
+.nav-logo { height: 44px; width: auto; display: block; flex-shrink: 0; }
 .nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a {
     color: var(--oxford); text-decoration: none; font-size: 0.68rem;
@@ -202,6 +202,9 @@ h3 {
     .cases-grid > div { grid-column: span 1 !important; }
 }
 
+.footer-social-icon:hover { background: var(--accent); border-color: var(--accent) !important; color: var(--accent-ink) !important; }
+.footer-nav-link:hover { color: #fff !important; }
+
 /* House hover default (no shadow, no transform — ground shifts one step) */
 .service-card, .eco-card-link, .solution-card {
     transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
@@ -237,10 +240,7 @@ h3 {
 
 /* ===================== ФУТЕР ===================== */
 footer {
-    padding: 80px 10%;
-    font-size: 0.65rem;
-    text-align: center;
-    letter-spacing: 2px;
+    text-align: left;
 }
 
 /* ===================== ФОРМА ===================== */
@@ -286,11 +286,6 @@ footer {
     width: 100%;
 }
 
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-bottom-color: var(--navy-deep);
-}
-
 .submit-btn {
     grid-column: span 2;
     background: var(--accent);
@@ -302,7 +297,7 @@ footer {
     letter-spacing: 3px;
     cursor: pointer;
     margin-top: 20px;
-    transition: 0.4s;
+    transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
     font-family: inherit;
     font-size: 0.85rem;
     display: inline-block;
@@ -313,7 +308,6 @@ footer {
 
 .submit-btn:hover {
     background: var(--accent-hover);
-    transform: translateY(-3px);
 }
 
 /* ===================== АНИМАЦИИ ===================== */
@@ -530,11 +524,6 @@ a img { pointer-events: auto; }
 
 /* ===================== ФИНАЛЬНЫЙ АДАПТИВ ===================== */
 
-/* Навигация — сжатие при переполнении */
-@media (max-width: 1100px) {
-    .nav-links { gap: 14px; }
-}
-
 /* Контакты — вертикально на мобильных */
 
 
@@ -595,28 +584,10 @@ img:not(.nav-logo):not(.mission-logo-bg) {
    Breakpoints: 480 / 640 / 860 / 1024 / 1280
    ============================================================ */
 
-/* ── 1280px и ниже ── */
-@media (max-width: 1280px) {
-    .nav-links { gap: 18px; }
-    .nav-links a { font-size: 0.64rem; }
-}
-
-/* ── 1024px ── планшет горизонтальный ── */
+/* ── 1024px ── планшет горизонтальный ── нав переходит в бургер раньше, чем начнёт давить лого ── */
 @media (max-width: 1024px) {
-    header.top-nav { padding: 0 4%; }
-    .nav-links { gap: 12px; }
-    .nav-links a { font-size: 0.58rem; letter-spacing: 0.8px; }
-    section { padding: 120px 6% 80px; }
-    .services-grid { gap: 24px; }
-    .stats-grid { grid-template-columns: repeat(3, 1fr); }
-    .stat-item.big { grid-row: span 1; }
-    .eco-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* ── 860px ── планшет вертикальный ── бургер ── */
-@media (max-width: 860px) {
-    /* Навигация */
     header.top-nav { height: 64px; padding: 0 5%; }
+    .nav-logo { height: 38px; }
     .burger { display: flex; }
     .nav-links {
         display: none;
@@ -634,6 +605,15 @@ img:not(.nav-logo):not(.mission-logo-bg) {
     .nav-links.open { display: flex; }
     .nav-links a { font-size: 1rem; letter-spacing: 3px; opacity: 0.7; }
 
+    section { padding: 120px 6% 80px; }
+    .services-grid { gap: 24px; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-item.big { grid-row: span 1; }
+    .eco-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── 860px ── планшет вертикальный ── */
+@media (max-width: 860px) {
     /* Типографика */
     h1 { font-size: clamp(2.4rem, 7vw, 3.6rem) !important; }
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem) !important; margin-bottom: 28px; }
@@ -673,7 +653,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
 /* ── 640px ── мобильный большой ── */
 @media (max-width: 640px) {
     header.top-nav { height: 58px; padding: 0 4%; }
-    .nav-logo { height: 30px; }
+    .nav-logo { height: 34px; }
     .nav-links { top: 58px; height: calc(100dvh - 58px); }
 
     section { padding: 90px 4% 50px; }
@@ -697,8 +677,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
     .hero-bg-animate { padding: 80px 4% 50px !important; }
 
     /* Footer */
-    footer { padding: 50px 4% !important; }
-    footer div { gap: 16px !important; flex-wrap: wrap; justify-content: center; }
+    footer { padding: var(--space-10) 5% var(--space-8) !important; }
 
     /* Brand */
     .logo-pair { grid-template-columns: 1fr !important; }
@@ -714,7 +693,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
 
 /* ── 480px ── мобильный стандарт ── */
 @media (max-width: 480px) {
-    .nav-logo { height: 26px; }
+    .nav-logo { height: 30px; }
     h1 { font-size: clamp(1.5rem, 7.5vw, 1.9rem) !important; }
     h2 { font-size: clamp(1.1rem, 5vw, 1.4rem) !important; }
     .eco-grid { grid-template-columns: 1fr !important; }
@@ -746,6 +725,12 @@ img { max-width: 100%; height: auto; }
     .mobile-stack {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
+    }
+
+    /* Футер — колонки в столбец, лого не трогаем общими правилами картинок */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-9) !important;
     }
 
     /* Фото в стеке — полная ширина, разумная высота */
@@ -816,15 +801,52 @@ img { max-width: 100%; height: auto; }
 }
 /* ===================== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ ===================== */
 .lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0;
+    position: relative;
     margin-left: 8px;
-    border: 1px solid var(--hairline);
-    overflow: hidden;
     flex-shrink: 0;
 }
-.lang-btn {
+.lang-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--hairline);
+    color: var(--ink-muted);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-family: inherit;
+    transition: 0.2s;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.lang-trigger:hover, .lang-trigger[aria-expanded="true"] { color: var(--oxford); background: var(--off-white); }
+.lang-chevron {
+    width: 0; height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid currentColor;
+    transition: transform 0.2s;
+}
+.lang-trigger[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
+.lang-dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 100%;
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(12,35,80,0.12);
+    z-index: 1100;
+}
+.lang-dropdown.open { display: flex; }
+.lang-option {
     background: none;
     border: none;
     color: var(--ink-muted);
@@ -832,21 +854,21 @@ img { max-width: 100%; height: auto; }
     font-weight: 900;
     letter-spacing: 1px;
     cursor: pointer;
-    padding: 5px 8px;
+    padding: 8px 14px;
     font-family: inherit;
     transition: 0.2s;
     text-transform: uppercase;
     line-height: 1;
+    text-align: left;
+    white-space: nowrap;
 }
-.lang-btn:not(:last-child) { border-right: 1px solid var(--hairline); }
-.lang-btn:hover { color: var(--oxford); background: var(--off-white); }
-.lang-btn.active { color: var(--navy-deep); background: rgba(211,255,51,0.25); }
-@media (max-width: 860px) {
+.lang-option:hover { color: var(--oxford); background: var(--off-white); }
+@media (max-width: 1024px) {
     .lang-switcher { margin: 0; }
-    .lang-btn { padding: 7px 10px; font-size: 0.65rem; }
+    .lang-trigger { padding: 7px 12px; font-size: 0.65rem; }
 }
 /* ===================== АДАПТИВ НАВИГАЦИИ С ТУМБЛЕРОМ ===================== */
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
     header.top-nav {
         display: grid;
         grid-template-columns: auto 1fr auto auto;
@@ -861,13 +883,13 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 480px) {
     header.top-nav { gap: 8px; padding: 0 4%; }
-    .lang-btn { padding: 5px 7px !important; font-size: 0.55rem !important; }
+    .lang-trigger { padding: 5px 9px !important; font-size: 0.55rem !important; }
 }
 
 /* ── 360px ── очень маленькие экраны (Galaxy A, старые Android) ── */
 @media (max-width: 360px) {
     .eco-card { min-height: 160px !important; padding: 24px 16px !important; }
-    .lang-btn { padding: 4px 6px !important; font-size: 0.5rem !important; }
+    .lang-trigger { padding: 4px 8px !important; font-size: 0.5rem !important; }
     section { padding: 80px 3.5% 40px; }
 }
 
@@ -875,19 +897,25 @@ img { max-width: 100%; height: auto; }
    SECURITY & UX IMPROVEMENTS
    ============================================================ */
 
-/* 1. Focus visible — keyboard navigation accessibility */
+/* 1. Focus visible — keyboard navigation accessibility.
+   Brandbook rule: lime outline on dark grounds, oxford blue on light grounds, 2px offset. */
 :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
+    outline: 2px solid var(--oxford);
+    outline-offset: 2px;
 }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
+    outline: 2px solid var(--oxford);
+    outline-offset: 2px;
     border-radius: 2px;
+}
+footer :focus-visible,
+.contact-form--dark :focus-visible,
+.on-dark :focus-visible {
+    outline-color: var(--accent);
 }
 
 /* 2. Minimum touch target size (WCAG 2.5.5) — padding only, no forced height */

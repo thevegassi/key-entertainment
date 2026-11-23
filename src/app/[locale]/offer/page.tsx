@@ -10,7 +10,7 @@ export default async function OfferPage() {
   return (
     <>
       <PageJsonLd path="offer" />
-      <section style={{ padding: '160px 10% 60px', background: 'var(--oxford)' }}>
+      <section className="on-dark" style={{ padding: '160px 10% 60px', background: 'var(--oxford)' }}>
         <p className="slide-num">LEGAL DOCUMENT</p>
         <h1
           style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 900, color: '#fff', maxWidth: '860px' }}

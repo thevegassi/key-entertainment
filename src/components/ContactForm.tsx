@@ -11,7 +11,6 @@ const lightInput: CSSProperties = {
   padding: '14px 16px',
   color: 'var(--ink)',
   fontSize: '0.9rem',
-  outline: 'none',
   fontFamily: 'inherit',
   width: '100%',
 };

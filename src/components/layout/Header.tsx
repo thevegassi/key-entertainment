@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -25,14 +25,27 @@ export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); setLangOpen(false); }, [pathname]);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   function switchLocale(lang: string) {
     // Replace current locale prefix with new one
     const segments = pathname.split('/');
     segments[1] = lang;
     router.push(segments.join('/'));
+    setLangOpen(false);
   }
 
   function isActive(href: string) {
@@ -44,7 +57,7 @@ export default function Header() {
     <header className="top-nav">
       <Link href={`/${locale}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-navy.svg" className="nav-logo" alt="Key Entertainment" />
+        <img src="/logo-mark-navy.svg" className="nav-logo" alt="Key Entertainment" />
       </Link>
       <button
         className={`burger${open ? ' open' : ''}`}
@@ -66,16 +79,30 @@ export default function Header() {
           </Link>
         ))}
       </nav>
-      <div className="lang-switcher">
-        {LOCALES.map((lang) => (
-          <button
-            key={lang}
-            className={`lang-btn${locale === lang ? ' active' : ''}`}
-            onClick={() => switchLocale(lang)}
-          >
-            {lang.toUpperCase()}
-          </button>
-        ))}
+      <div className="lang-switcher" ref={langRef}>
+        <button
+          className="lang-trigger"
+          aria-label="Язык"
+          aria-haspopup="listbox"
+          aria-expanded={langOpen}
+          onClick={() => setLangOpen(!langOpen)}
+        >
+          {locale.toUpperCase()}
+          <span className="lang-chevron" aria-hidden="true" />
+        </button>
+        <div className={`lang-dropdown${langOpen ? ' open' : ''}`} role="listbox">
+          {LOCALES.filter((lang) => lang !== locale).map((lang) => (
+            <button
+              key={lang}
+              className="lang-option"
+              role="option"
+              aria-selected={false}
+              onClick={() => switchLocale(lang)}
+            >
+              {lang.toUpperCase()}
+            </button>
+          ))}
+        </div>
       </div>
     </header>
   );
