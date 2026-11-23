@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
+import SectionDivider from '@/components/SectionDivider';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -38,6 +39,7 @@ export default async function ContactsPage() {
           dangerouslySetInnerHTML={{ __html: t('contacts_title') }}
         />
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Departments + socials + form */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>

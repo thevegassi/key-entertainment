@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import PrInquiryForm from '@/components/PrInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
+import SectionDivider from '@/components/SectionDivider';
 
 const SERVICE_ICONS: Record<string, string> = {
   s1: 'TablerIconNews',
@@ -46,12 +47,14 @@ export default async function PrPage() {
           <p style={{ letterSpacing: '10px', textTransform: 'uppercase', marginTop: '28px', opacity: 0.8, fontSize: '0.75rem', color: '#fff' }}>IMAGE • REPUTATION • GROWTH</p>
         </div>
       </section>
+      <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Mission */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <SectionHeading eyebrow={t('pr_mission_label')} on="light">{t('pr_mission_title')}</SectionHeading>
         <p style={{ color: 'var(--gray)', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', lineHeight: 1.8, maxWidth: '760px' }}>{t('pr_mission_text')}</p>
       </section>
+      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Services */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
@@ -64,6 +67,7 @@ export default async function PrPage() {
           ))}
         </div>
       </section>
+      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* Cases / brands */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
@@ -98,11 +102,18 @@ export default async function PrPage() {
           </div>
         </div>
       </section>
+      <SectionDivider from="#fff" to="var(--oxford)" flip />
 
       {/* CTA — inquiry form */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+        />
+        <div style={{ position: 'relative' }}>
         <SectionHeading eyebrow={t('pr_form_label')} on="dark" center>{t('pr_form_title')}</SectionHeading>
         <PrInquiryForm />
+        </div>
       </section>
     </>
   );
