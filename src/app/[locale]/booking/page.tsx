@@ -2,6 +2,14 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import BookingInquiryForm from '@/components/BookingInquiryForm';
 import SectionHeading from '@/components/SectionHeading';
+import ServiceCard from '@/components/ServiceCard';
+
+const SERVICE_ICONS: Record<string, string> = {
+  s1: 'TablerIconUsers',
+  s2: 'TablerIconFlame',
+  s3: 'TablerIconPlayerTrackNext',
+  s4: 'TablerIconAddressBook',
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -45,10 +53,9 @@ export default async function BookingPage() {
         <SectionHeading eyebrow={t('book_services_label')} on="periwinkle">{t('book_services_title')}</SectionHeading>
         <div className="services-grid">
           {['s1', 's2', 's3', 's4'].map((s) => (
-            <div key={s} className="info-card" style={{ background: 'var(--off-white)' }}>
-              <h4>{t(`book_${s}_title`)}</h4>
-              <p>{t(`book_${s}_desc`)}</p>
-            </div>
+            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`book_${s}_title`)} on="periwinkle">
+              {t(`book_${s}_desc`)}
+            </ServiceCard>
           ))}
         </div>
       </section>
