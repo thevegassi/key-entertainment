@@ -32,7 +32,7 @@ export default async function ContactsPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ padding: '160px 10% 80px', background: 'var(--oxford)' }}>
+      <section className="on-dark" style={{ padding: '160px 10% 80px', background: 'var(--oxford)' }}>
         <p className="slide-num">{t('contacts_label')}</p>
         <h1
           style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff' }}

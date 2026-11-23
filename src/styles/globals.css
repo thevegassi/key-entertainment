@@ -876,7 +876,8 @@ select:focus-visible {
     border-radius: 2px;
 }
 footer :focus-visible,
-.contact-form--dark :focus-visible {
+.contact-form--dark :focus-visible,
+.on-dark :focus-visible {
     outline-color: var(--accent);
 }
 
