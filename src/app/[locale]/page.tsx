@@ -182,7 +182,8 @@ export default async function HomePage() {
             inset: 0,
             backgroundImage: 'url(/pattern-4-navy.svg)',
             backgroundSize: '420px',
-            opacity: 0.12,
+            opacity: 0.3,
+            mixBlendMode: 'overlay',
             pointerEvents: 'none',
           }}
         />

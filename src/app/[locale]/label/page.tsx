@@ -104,7 +104,7 @@ export default async function LabelPage() {
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div
           aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.12, pointerEvents: 'none' }}
+          style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.3, mixBlendMode: 'overlay', pointerEvents: 'none' }}
         />
         <div style={{ position: 'relative' }}>
         <SectionHeading eyebrow={t('label_form_label')} on="dark" center>{t('label_form_title')}</SectionHeading>
