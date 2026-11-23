@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import LegalShop from '@/components/LegalShop';
 import LegalInquiryForm from '@/components/LegalInquiryForm';
 import SectionHeading from '@/components/SectionHeading';
 import ServiceCard from '@/components/ServiceCard';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
 const AREA_ICONS: Record<string, string> = {
   s1: 'TablerIconMusic',
@@ -13,11 +14,7 @@ const AREA_ICONS: Record<string, string> = {
   s4: 'TablerIconFlame',
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_legal'), description: t('page_desc_legal'), alternates: { canonical: `https://www.keyent.kz/${locale}/legal` } };
-}
+export const generateMetadata = pageMetadata('legal');
 
 export default async function LegalPage() {
   const t = await getTranslations();
@@ -25,6 +22,7 @@ export default async function LegalPage() {
 
   return (
     <>
+      <PageJsonLd path="legal" />
       {/* Hero */}
       <section className="on-dark" style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}

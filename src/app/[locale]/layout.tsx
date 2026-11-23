@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { HREFLANG, SITE_NAME, SITE_URL, isLocale } from '@/lib/seo/site';
+import Metrika from '@/components/analytics/Metrika';
 import '@/styles/globals.css';
 
 type Props = {
@@ -12,18 +14,16 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: undefined });
+export async function generateMetadata(): Promise<Metadata> {
+  // Всё страничное (title/description/canonical/hreflang/OG) — в lib/seo/metadata.ts.
+  // Здесь только то, что общее для сайта. Коды верификации — из env (Vercel → Settings → Environment Variables).
   return {
-    metadataBase: new URL('https://www.keyent.kz'),
-    title: t('page_title_index'),
-    description: t('page_desc_index'),
-    openGraph: {
-      siteName: 'Key Entertainment',
-      images: [{ url: '/og-image.jpg' }],
+    metadataBase: new URL(SITE_URL),
+    applicationName: SITE_NAME,
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+      yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined,
     },
-    twitter: { card: 'summary_large_image' },
   };
 }
 
@@ -33,14 +33,13 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-  if (!routing.locales.includes(locale as 'ru' | 'kz' | 'en')) {
+  if (!isLocale(locale)) {
     notFound();
   }
   const messages = await getMessages();
   return (
-    <html lang={locale}>
+    <html lang={HREFLANG[locale]}>
       <head>
-        <meta name="google-site-verification" content="" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-KFJEKS7VYZ"
@@ -52,6 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body>
+        <Metrika />
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main>{children}</main>

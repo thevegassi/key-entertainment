@@ -1,17 +1,15 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_privacy'), alternates: { canonical: `https://www.keyent.kz/${locale}/privacy` } };
-}
+export const generateMetadata = pageMetadata('privacy');
 
 export default async function PrivacyPage() {
   const t = await getTranslations();
   return (
     <>
+      <PageJsonLd path="privacy" />
       <section className="on-dark" style={{ padding: '160px 10% 60px', background: 'var(--oxford)' }}>
         <p className="slide-num">LEGAL DOCUMENT</p>
         <h1

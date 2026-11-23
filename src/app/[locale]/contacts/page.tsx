@@ -1,13 +1,10 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_contacts'), description: t('page_desc_contacts'), alternates: { canonical: `https://www.keyent.kz/${locale}/contacts` } };
-}
+export const generateMetadata = pageMetadata('contacts');
 
 const DEPARTMENTS = [
   { label: null, labelKey: 'contacts_general_title' as const, subKey: 'contacts_general_sub' as const, email: 'info@keyent.kz' },
@@ -31,6 +28,7 @@ export default async function ContactsPage() {
   const t = await getTranslations();
   return (
     <>
+      <PageJsonLd path="contacts" />
       {/* Hero */}
       <section className="on-dark" style={{ padding: '160px 10% 80px', background: 'var(--oxford)' }}>
         <p className="slide-num">{t('contacts_label')}</p>
