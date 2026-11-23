@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 
+const SOCIALS = [
+  { href: 'https://wa.me/77010520606', label: 'WhatsApp' },
+  { href: 'https://t.me/keyentkz', label: 'Telegram' },
+  { href: 'https://vk.com/keyentertainment', label: 'VK' },
+  { href: 'https://instagram.com/keyentertainment.kz', label: 'Instagram' },
+  { href: 'https://www.youtube.com/@keyentkz', label: 'YouTube' },
+  { href: 'https://music.yandex.kz/label/632686', label: 'Яндекс Музыка' },
+];
+
 export default async function Footer() {
   const t = await getTranslations();
   const locale = await getLocale();
@@ -11,11 +20,25 @@ export default async function Footer() {
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo-white.svg" alt="Key Entertainment" style={{ height: '28px', marginBottom: '16px' }} />
-          <p style={{ lineHeight: 1.7 }}>ТОО «KEY ENTERTAINMENT»<br />БИН 231240023174</p>
+          <p style={{ lineHeight: 1.7, marginBottom: '16px' }}>ТОО «KEY ENTERTAINMENT»<br />БИН 231240023174</p>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+            {SOCIALS.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={label}
+                style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', fontSize: '0.68rem', letterSpacing: '0.5px' }}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
         <div>
           <p style={{ color: '#fff', fontWeight: 700, marginBottom: '16px', fontSize: '0.7rem', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
-            {t('nav_contacts')}
+            {t('nav_contacts_upper')}
           </p>
           <p><a href="mailto:info@keyent.kz" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>info@keyent.kz</a></p>
           <p style={{ marginTop: '6px' }}><a href="tel:+77783520000" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>+7 778 352 00 00</a></p>

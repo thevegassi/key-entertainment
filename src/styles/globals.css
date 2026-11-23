@@ -307,7 +307,6 @@ footer {
 
 .solution-card {
     background: var(--off-white);
-    border: 1px solid var(--hairline);
     padding: 36px;
     display: flex;
     flex-direction: column;
@@ -317,7 +316,6 @@ footer {
 }
 
 .solution-card:hover {
-    border-color: var(--navy-deep);
     background: #fff;
 }
 
@@ -374,7 +372,6 @@ footer {
 .modal-content {
     background: #fff;
     padding: 40px;
-    border: 1px solid var(--hairline);
     width: 90%;
     max-width: 420px;
     text-align: center;
