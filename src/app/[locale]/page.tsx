@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
+import Icon from '@/components/icons/Icon';
 
 export async function generateMetadata({
   params,
@@ -102,15 +103,16 @@ export default async function HomePage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
           {[
-            { href: '/distribution', label: 'Distribution', desc: t('eco_dist_desc') },
-            { href: '/label', label: 'Label', desc: t('eco_label_desc') },
-            { href: '/booking', label: 'Booking', desc: t('eco_book_desc') },
-            { href: '/pr', label: 'PR & Marketing', desc: t('eco_pr_desc') },
-            { href: '/legal', label: 'Legal', desc: t('eco_legal_desc') },
-          ].map(({ href, label, desc }) => (
+            { href: '/distribution', label: 'Distribution', desc: t('eco_dist_desc'), icon: 'TablerIconPlaylist' },
+            { href: '/label', label: 'Label', desc: t('eco_label_desc'), icon: 'TablerIconVinyl' },
+            { href: '/booking', label: 'Booking', desc: t('eco_book_desc'), icon: 'TablerIconFlame' },
+            { href: '/pr', label: 'PR & Marketing', desc: t('eco_pr_desc'), icon: 'TablerIconNews' },
+            { href: '/legal', label: 'Legal', desc: t('eco_legal_desc'), icon: 'TablerIconAddressBook' },
+          ].map(({ href, label, desc, icon }) => (
             <Link
               key={href}
               href={`/${locale}${href}`}
+              className="eco-card-link"
               style={{
                 display: 'block',
                 background: '#fff',
@@ -118,12 +120,14 @@ export default async function HomePage() {
                 padding: '32px',
                 textDecoration: 'none',
                 color: 'var(--ink)',
-                transition: '0.3s',
               }}
             >
-              <h3 style={{ fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
-                {label}
-              </h3>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                <Icon name={icon} size={26} style={{ color: 'var(--navy-deep)', flexShrink: 0 }} />
+                <h3 style={{ fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, margin: 0 }}>
+                  {label}
+                </h3>
+              </div>
               <p style={{ color: 'var(--gray)', lineHeight: 1.7, fontSize: '0.9rem' }}>{desc}</p>
             </Link>
           ))}

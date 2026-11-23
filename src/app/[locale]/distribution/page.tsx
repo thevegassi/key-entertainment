@@ -3,6 +3,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
 import DistributionInquiryForm from '@/components/DistributionInquiryForm';
+import ServiceCard from '@/components/ServiceCard';
 
 export async function generateMetadata({
   params,
@@ -188,11 +189,15 @@ export default async function DistributionPage() {
           {t('dist_s1_sub')}
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
-          {['1', '2', '3', '4'].map((n) => (
-            <div key={n} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px' }}>
-              <h3 style={{ fontSize: '0.9rem', fontWeight: 800, marginBottom: '12px', color: 'var(--navy-deep)' }}>{t(`dist_card${n}_title`)}</h3>
-              <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`dist_card${n}_desc`)}</p>
-            </div>
+          {[
+            { n: '1', icon: 'TablerIconPlaylist' },
+            { n: '2', icon: 'TablerIconPlayerTrackNext' },
+            { n: '3', icon: 'TablerIconAddressBook' },
+            { n: '4', icon: 'TablerIconFlame' },
+          ].map(({ n, icon }) => (
+            <ServiceCard key={n} icon={icon} label={t(`dist_card${n}_title`)}>
+              {t(`dist_card${n}_desc`)}
+            </ServiceCard>
           ))}
         </div>
       </section>

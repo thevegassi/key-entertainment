@@ -3,6 +3,14 @@ import { getTranslations } from 'next-intl/server';
 import LegalShop from '@/components/LegalShop';
 import LegalInquiryForm from '@/components/LegalInquiryForm';
 import SectionHeading from '@/components/SectionHeading';
+import ServiceCard from '@/components/ServiceCard';
+
+const AREA_ICONS: Record<string, string> = {
+  s1: 'TablerIconMusic',
+  s2: 'TablerIconAddressBook',
+  s3: 'TablerIconPlaylist',
+  s4: 'TablerIconFlame',
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -59,10 +67,9 @@ export default async function LegalPage() {
         <SectionHeading eyebrow={t('legal_areas_label')} on="periwinkle">{t('legal_areas_title')}</SectionHeading>
         <div className="services-grid">
           {services.map((s) => (
-            <div key={s} className="info-card" style={{ background: 'var(--off-white)' }}>
-              <h4>{t(`legal_${s}_title`)}</h4>
-              <p>{t(`legal_${s}_desc`)}</p>
-            </div>
+            <ServiceCard key={s} icon={AREA_ICONS[s]} label={t(`legal_${s}_title`)} on="periwinkle">
+              {t(`legal_${s}_desc`)}
+            </ServiceCard>
           ))}
         </div>
       </section>

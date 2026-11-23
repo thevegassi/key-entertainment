@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import LabelInquiryForm from '@/components/LabelInquiryForm';
+import ServiceCard from '@/components/ServiceCard';
+
+const VISUAL_ICONS: Record<string, string> = { video: 'TablerIconPlayerTrackNext', design: 'TablerIconVinyl' };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -73,10 +76,9 @@ export default async function LabelPage() {
         <p style={{ color: 'var(--gray)', maxWidth: '680px', lineHeight: 1.7, marginBottom: '48px', fontSize: '1rem' }}>{t('label_s2_desc')}</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
           {['video', 'design'].map((s) => (
-            <div key={s} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px' }}>
-              <h4 style={{ fontWeight: 800, marginBottom: '12px', color: 'var(--navy-deep)' }}>{t(`label_${s}_title`)}</h4>
-              <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`label_${s}_desc`)}</p>
-            </div>
+            <ServiceCard key={s} icon={VISUAL_ICONS[s]} label={t(`label_${s}_title`)}>
+              {t(`label_${s}_desc`)}
+            </ServiceCard>
           ))}
         </div>
       </section>

@@ -2,6 +2,16 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import PrInquiryForm from '@/components/PrInquiryForm';
+import ServiceCard from '@/components/ServiceCard';
+
+const SERVICE_ICONS: Record<string, string> = {
+  s1: 'TablerIconNews',
+  s2: 'TablerIconMailForward',
+  s3: 'TablerIconFlame',
+  s4: 'TablerIconUsers',
+  s5: 'TablerIconPlayerTrackNext',
+  s6: 'TablerIconUser',
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -48,10 +58,9 @@ export default async function PrPage() {
         <SectionHeading eyebrow={t('pr_services_label')} on="periwinkle">{t('pr_services_title')}</SectionHeading>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
           {['s1','s2','s3','s4','s5','s6'].map((s) => (
-            <div key={s} style={{ background: '#fff', borderRadius: 'var(--radius-card)', padding: '28px' }}>
-              <h3 style={{ fontWeight: 800, marginBottom: '10px', fontSize: '0.9rem', color: 'var(--navy-deep)' }}>{t(`pr_${s}_title`)}</h3>
-              <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`pr_${s}_desc`)}</p>
-            </div>
+            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`pr_${s}_title`)} on="periwinkle">
+              {t(`pr_${s}_desc`)}
+            </ServiceCard>
           ))}
         </div>
       </section>
