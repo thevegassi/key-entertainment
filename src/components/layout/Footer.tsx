@@ -18,7 +18,7 @@ export default async function Footer() {
             {t('nav_contacts')}
           </p>
           <p><a href="mailto:info@keyent.kz" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>info@keyent.kz</a></p>
-          <p style={{ marginTop: '6px' }}><a href="https://wa.me/77783520000" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }} rel="noopener noreferrer">+7 778 352 00 00</a></p>
+          <p style={{ marginTop: '6px' }}><a href="tel:+77783520000" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>+7 778 352 00 00</a></p>
         </div>
         <div>
           <p style={{ color: '#fff', fontWeight: 700, marginBottom: '16px', fontSize: '0.7rem', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
