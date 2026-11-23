@@ -85,7 +85,7 @@ header.top-nav {
     border-bottom: 1px solid var(--hairline);
 }
 
-.nav-logo { height: 32px; width: auto; display: block; flex-shrink: 0; }
+.nav-logo { height: 44px; width: auto; display: block; flex-shrink: 0; }
 .nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a {
     color: var(--oxford); text-decoration: none; font-size: 0.68rem;
@@ -593,6 +593,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
 /* ── 1024px ── планшет горизонтальный ── нав переходит в бургер раньше, чем начнёт давить лого ── */
 @media (max-width: 1024px) {
     header.top-nav { height: 64px; padding: 0 5%; }
+    .nav-logo { height: 38px; }
     .burger { display: flex; }
     .nav-links {
         display: none;
@@ -658,7 +659,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
 /* ── 640px ── мобильный большой ── */
 @media (max-width: 640px) {
     header.top-nav { height: 58px; padding: 0 4%; }
-    .nav-logo { height: 30px; }
+    .nav-logo { height: 34px; }
     .nav-links { top: 58px; height: calc(100dvh - 58px); }
 
     section { padding: 90px 4% 50px; }
@@ -698,7 +699,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
 
 /* ── 480px ── мобильный стандарт ── */
 @media (max-width: 480px) {
-    .nav-logo { height: 26px; }
+    .nav-logo { height: 30px; }
     h1 { font-size: clamp(1.5rem, 7.5vw, 1.9rem) !important; }
     h2 { font-size: clamp(1.1rem, 5vw, 1.4rem) !important; }
     .eco-grid { grid-template-columns: 1fr !important; }
