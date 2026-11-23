@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale });
-  return { title: t('page_title_offer'), description: t('page_desc_offer'), alternates: { canonical: `https://www.keyent.kz/${locale}/offer` } };
+  return { title: t('page_title_offer'), alternates: { canonical: `https://www.keyent.kz/${locale}/offer` } };
 }
 
 export default async function OfferPage() {

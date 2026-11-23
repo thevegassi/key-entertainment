@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale });
-  return { title: t('page_title_privacy'), description: t('page_desc_privacy'), alternates: { canonical: `https://www.keyent.kz/${locale}/privacy` } };
+  return { title: t('page_title_privacy'), alternates: { canonical: `https://www.keyent.kz/${locale}/privacy` } };
 }
 
 export default async function PrivacyPage() {
