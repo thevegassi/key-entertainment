@@ -27,7 +27,7 @@ export default async function Footer() {
     <footer style={{ background: 'var(--oxford)', position: 'relative', overflow: 'hidden', padding: 'var(--space-16) 5% var(--space-10)', color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>
       <div
         aria-hidden="true"
-        style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.1, pointerEvents: 'none' }}
+        style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.3, mixBlendMode: 'overlay', pointerEvents: 'none' }}
       />
       <div style={{ position: 'relative' }}>
         <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 0.8fr 0.8fr', gap: 'var(--space-14)', marginBottom: 'var(--space-14)' }}>
