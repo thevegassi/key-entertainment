@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
+import DistributionInquiryForm from '@/components/DistributionInquiryForm';
 
 export async function generateMetadata({
   params,
@@ -172,10 +173,11 @@ export default async function DistributionPage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p className="slide-num">DISTRIBUTION</p>
+          <p className="slide-num">01 / DISTRIBUTION</p>
           <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff' }}>
             KEY <span style={{ color: 'var(--accent)' }}>DISTRIBUTION</span><br />SERVICES
           </h1>
+          <p style={{ letterSpacing: '10px', textTransform: 'uppercase', marginTop: '28px', opacity: 0.8, fontSize: '0.75rem', color: '#fff' }}>MUSIC • STRATEGY • GROWTH</p>
         </div>
       </section>
 
@@ -251,23 +253,7 @@ export default async function DistributionPage() {
         <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
           {t('dist_form_intro')}
         </p>
-        <Link
-          href={`/${locale}/contacts`}
-          style={{
-            display: 'inline-block',
-            background: 'var(--accent)',
-            color: 'var(--accent-ink)',
-            padding: '16px 40px',
-            fontWeight: 800,
-            fontSize: '0.8rem',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            borderRadius: 'var(--radius-pill)',
-          }}
-        >
-          {t('dist_form_submit')}
-        </Link>
+        <DistributionInquiryForm />
       </section>
     </>
   );

@@ -34,8 +34,11 @@ export default async function BrandPage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p className="slide-num">BRAND IDENTITY</p>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff' }}>KEY<br /><span style={{ color: 'var(--accent)' }}>BRANDBOOK</span></h1>
+          <p className="slide-num">{t('brand_hero_label')}</p>
+          <h1
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff' }}
+            dangerouslySetInnerHTML={{ __html: t('brand_hero_title') }}
+          />
         </div>
       </section>
 

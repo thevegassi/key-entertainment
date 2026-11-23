@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { getTranslations, getLocale } from 'next-intl/server';
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
+import LabelInquiryForm from '@/components/LabelInquiryForm';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -11,7 +11,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function LabelPage() {
   const t = await getTranslations();
-  const locale = await getLocale();
 
   return (
     <>
@@ -20,8 +19,9 @@ export default async function LabelPage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p className="slide-num">LABEL</p>
+          <p className="slide-num">03 / CREATIVE HEART</p>
           <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff' }}>KEY MUSIC<br /><span style={{ color: 'var(--accent)' }}>LABEL</span></h1>
+          <p style={{ letterSpacing: '10px', textTransform: 'uppercase', marginTop: '28px', opacity: 0.8, fontSize: '0.75rem', color: '#fff' }}>SOUND • IDENTITY • VISION</p>
         </div>
       </section>
 
@@ -87,9 +87,7 @@ export default async function LabelPage() {
         <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
           {t('label_form_sub')}
         </p>
-        <Link href={`/${locale}/contacts`} style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--accent-ink)', padding: '16px 40px', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 'var(--radius-pill)' }}>
-          {t('label_form_submit')}
-        </Link>
+        <LabelInquiryForm />
       </section>
     </>
   );
