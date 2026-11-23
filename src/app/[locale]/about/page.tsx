@@ -49,9 +49,19 @@ export default async function AboutPage() {
       {/* Goal / capitalization */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '60px', alignItems: 'center' }}>
-          <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', height: 'clamp(280px, 36vw, 420px)' }}>
+          <div
+            style={{
+              borderRadius: 'var(--radius-card)',
+              overflow: 'hidden',
+              height: 'clamp(280px, 36vw, 420px)',
+              background: 'linear-gradient(135deg, var(--oxford), var(--navy-deep))',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/mission-portrait.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src="/logo-mark-lime.svg" alt="" style={{ width: '42%', opacity: 0.6 }} />
           </div>
           <div>
             <SectionHeading eyebrow={t('index_goal_label')} on="periwinkle">

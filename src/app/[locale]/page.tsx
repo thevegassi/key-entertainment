@@ -101,14 +101,14 @@ export default async function HomePage() {
             {t('index_eco_sub')}
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+        <div className="eco-grid">
           {[
-            { href: '/distribution', label: 'Distribution', desc: t('eco_dist_desc'), icon: 'TablerIconPlaylist' },
-            { href: '/label', label: 'Label', desc: t('eco_label_desc'), icon: 'TablerIconVinyl' },
-            { href: '/booking', label: 'Booking', desc: t('eco_book_desc'), icon: 'TablerIconFlame' },
-            { href: '/pr', label: 'PR & Marketing', desc: t('eco_pr_desc'), icon: 'TablerIconNews' },
-            { href: '/legal', label: 'Legal', desc: t('eco_legal_desc'), icon: 'TablerIconAddressBook' },
-          ].map(({ href, label, desc, icon }) => (
+            { href: '/label', label: 'Label', desc: t('eco_label_desc'), icon: 'TablerIconVinyl', featured: true },
+            { href: '/distribution', label: 'Distribution', desc: t('eco_dist_desc'), icon: 'TablerIconPlaylist', featured: true },
+            { href: '/booking', label: 'Booking', desc: t('eco_book_desc'), icon: 'TablerIconFlame', featured: false },
+            { href: '/pr', label: 'PR & Marketing', desc: t('eco_pr_desc'), icon: 'TablerIconNews', featured: false },
+            { href: '/legal', label: 'Legal', desc: t('eco_legal_desc'), icon: 'TablerIconAddressBook', featured: false },
+          ].map(({ href, label, desc, icon, featured }) => (
             <Link
               key={href}
               href={`/${locale}${href}`}
@@ -117,18 +117,18 @@ export default async function HomePage() {
                 display: 'block',
                 background: '#fff',
                 borderRadius: 'var(--radius-card)',
-                padding: '32px',
+                padding: featured ? '40px' : '32px',
                 textDecoration: 'none',
                 color: 'var(--ink)',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <Icon name={icon} size={26} style={{ color: 'var(--navy-deep)', flexShrink: 0 }} />
-                <h3 style={{ fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, margin: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: featured ? '20px' : '16px' }}>
+                <Icon name={icon} size={featured ? 32 : 26} style={{ color: 'var(--navy-deep)', flexShrink: 0 }} />
+                <h3 style={{ fontSize: featured ? '0.85rem' : '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, margin: 0 }}>
                   {label}
                 </h3>
               </div>
-              <p style={{ color: 'var(--gray)', lineHeight: 1.7, fontSize: '0.9rem' }}>{desc}</p>
+              <p style={{ color: 'var(--gray)', lineHeight: 1.7, fontSize: featured ? '0.95rem' : '0.9rem' }}>{desc}</p>
             </Link>
           ))}
         </div>
