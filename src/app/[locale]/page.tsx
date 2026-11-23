@@ -26,7 +26,7 @@ export default async function HomePage() {
     <>
       {/* Hero — asymmetric, bottom-left anchored (matches every interior page's hero convention) */}
       <section
-        className="hero-section"
+        className="hero-section on-dark"
         style={{
           minHeight: '100dvh',
           display: 'flex',
@@ -174,7 +174,7 @@ export default async function HomePage() {
       <SectionDivider from="#fff" to="var(--oxford)" flip />
 
       {/* Mission — lime highlight-on-dark, per brandbook ("section titles on dark") */}
-      <section style={{ padding: 'var(--space-16) 10%', textAlign: 'center', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
+      <section className="on-dark" style={{ padding: 'var(--space-16) 10%', textAlign: 'center', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         <div
           aria-hidden="true"
           style={{

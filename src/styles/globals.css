@@ -801,15 +801,52 @@ img { max-width: 100%; height: auto; }
 }
 /* ===================== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ ===================== */
 .lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0;
+    position: relative;
     margin-left: 8px;
-    border: 1px solid var(--hairline);
-    overflow: hidden;
     flex-shrink: 0;
 }
-.lang-btn {
+.lang-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--hairline);
+    color: var(--ink-muted);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-family: inherit;
+    transition: 0.2s;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.lang-trigger:hover, .lang-trigger[aria-expanded="true"] { color: var(--oxford); background: var(--off-white); }
+.lang-chevron {
+    width: 0; height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid currentColor;
+    transition: transform 0.2s;
+}
+.lang-trigger[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
+.lang-dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 100%;
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(12,35,80,0.12);
+    z-index: 1100;
+}
+.lang-dropdown.open { display: flex; }
+.lang-option {
     background: none;
     border: none;
     color: var(--ink-muted);
@@ -817,18 +854,18 @@ img { max-width: 100%; height: auto; }
     font-weight: 900;
     letter-spacing: 1px;
     cursor: pointer;
-    padding: 5px 8px;
+    padding: 8px 14px;
     font-family: inherit;
     transition: 0.2s;
     text-transform: uppercase;
     line-height: 1;
+    text-align: left;
+    white-space: nowrap;
 }
-.lang-btn:not(:last-child) { border-right: 1px solid var(--hairline); }
-.lang-btn:hover { color: var(--oxford); background: var(--off-white); }
-.lang-btn.active { color: var(--navy-deep); background: rgba(211,255,51,0.25); }
+.lang-option:hover { color: var(--oxford); background: var(--off-white); }
 @media (max-width: 1024px) {
     .lang-switcher { margin: 0; }
-    .lang-btn { padding: 7px 10px; font-size: 0.65rem; }
+    .lang-trigger { padding: 7px 12px; font-size: 0.65rem; }
 }
 /* ===================== АДАПТИВ НАВИГАЦИИ С ТУМБЛЕРОМ ===================== */
 @media (max-width: 1024px) {
@@ -846,13 +883,13 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 480px) {
     header.top-nav { gap: 8px; padding: 0 4%; }
-    .lang-btn { padding: 5px 7px !important; font-size: 0.55rem !important; }
+    .lang-trigger { padding: 5px 9px !important; font-size: 0.55rem !important; }
 }
 
 /* ── 360px ── очень маленькие экраны (Galaxy A, старые Android) ── */
 @media (max-width: 360px) {
     .eco-card { min-height: 160px !important; padding: 24px 16px !important; }
-    .lang-btn { padding: 4px 6px !important; font-size: 0.5rem !important; }
+    .lang-trigger { padding: 4px 8px !important; font-size: 0.5rem !important; }
     section { padding: 80px 3.5% 40px; }
 }
 
@@ -876,7 +913,8 @@ select:focus-visible {
     border-radius: 2px;
 }
 footer :focus-visible,
-.contact-form--dark :focus-visible {
+.contact-form--dark :focus-visible,
+.on-dark :focus-visible {
     outline-color: var(--accent);
 }
 
