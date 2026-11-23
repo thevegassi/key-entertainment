@@ -240,10 +240,7 @@ h3 {
 
 /* ===================== ФУТЕР ===================== */
 footer {
-    padding: 80px 10%;
-    font-size: 0.65rem;
-    text-align: center;
-    letter-spacing: 2px;
+    text-align: left;
 }
 
 /* ===================== ФОРМА ===================== */
@@ -700,8 +697,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
     .hero-bg-animate { padding: 80px 4% 50px !important; }
 
     /* Footer */
-    footer { padding: 50px 4% !important; }
-    footer div { gap: 16px !important; flex-wrap: wrap; justify-content: center; }
+    footer { padding: var(--space-10) 5% var(--space-8) !important; }
 
     /* Brand */
     .logo-pair { grid-template-columns: 1fr !important; }
@@ -749,6 +745,12 @@ img { max-width: 100%; height: auto; }
     .mobile-stack {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
+    }
+
+    /* Футер — колонки в столбец, лого не трогаем общими правилами картинок */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-9) !important;
     }
 
     /* Фото в стеке — полная ширина, разумная высота */
