@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import BookingInquiryForm from '@/components/BookingInquiryForm';
+import SectionHeading from '@/components/SectionHeading';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -34,18 +35,16 @@ export default async function BookingPage() {
 
       {/* Intro */}
       <section style={{ padding: '100px 10% 80px', background: '#fff' }}>
-        <p className="slide-num">{t('book_intro_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '24px' }}>{t('book_intro_title')}</h2>
+        <SectionHeading eyebrow={t('book_intro_label')} on="light">{t('book_intro_title')}</SectionHeading>
         <p className="lead-text">{t('book_intro_text')}</p>
       </section>
 
       {/* Services */}
-      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
-        <p className="slide-num">{t('book_services_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '60px' }}>{t('book_services_title')}</h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
+        <SectionHeading eyebrow={t('book_services_label')} on="periwinkle">{t('book_services_title')}</SectionHeading>
         <div className="services-grid">
           {['s1', 's2', 's3', 's4'].map((s) => (
-            <div key={s} className="info-card" style={{ background: 'var(--off-white)', border: '1px solid var(--hairline)' }}>
+            <div key={s} className="info-card" style={{ background: 'var(--off-white)' }}>
               <h4>{t(`book_${s}_title`)}</h4>
               <p>{t(`book_${s}_desc`)}</p>
             </div>
@@ -54,7 +53,7 @@ export default async function BookingPage() {
       </section>
 
       {/* For artists / for organizers */}
-      <section style={{ padding: '100px 10%', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
           <div style={{ padding: '36px', borderLeft: '3px solid var(--accent)', background: 'var(--off-white)', borderRadius: 'var(--radius-card)' }}>
             <p className="slide-num">FOR TALENTS</p>
@@ -82,12 +81,11 @@ export default async function BookingPage() {
       </section>
 
       {/* Cases */}
-      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
-        <p className="slide-num">{t('book_cases_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '60px' }}>{t('book_cases_title')}</h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
+        <SectionHeading eyebrow={t('book_cases_label')} on="periwinkle">{t('book_cases_title')}</SectionHeading>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
           {CASES.map((c) => (
-            <div key={c.key} style={{ background: 'var(--off-white)', border: '1px solid var(--hairline)', borderRadius: 'var(--radius-card)', overflow: 'hidden' }}>
+            <div key={c.key} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', overflow: 'hidden' }}>
               <div style={{ height: '6px', background: 'var(--accent)' }} />
               <div style={{ padding: '26px' }}>
                 <h4 style={{ color: 'var(--navy-deep)', marginBottom: '8px', fontSize: '0.95rem', textTransform: 'uppercase', fontWeight: 800 }}>{c.title}</h4>
@@ -99,11 +97,10 @@ export default async function BookingPage() {
       </section>
 
       {/* Contact */}
-      <section id="contact-section" style={{ padding: '100px 10%', background: 'var(--oxford)' }}>
+      <section id="contact-section" style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
           <div>
-            <p className="slide-num">{t('book_form_label')}</p>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, color: '#fff' }}>{t('book_form_title')}</h2>
+            <SectionHeading eyebrow={t('book_form_label')} on="dark">{t('book_form_title')}</SectionHeading>
           </div>
           <BookingInquiryForm />
         </div>

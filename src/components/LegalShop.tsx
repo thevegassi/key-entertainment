@@ -12,7 +12,6 @@ type Errors = { name?: string; email?: string; phone?: string };
 const inputStyle: CSSProperties = {
   width: '100%',
   background: 'transparent',
-  border: '1px solid var(--hairline)',
   borderRadius: '8px',
   padding: '14px',
   color: 'var(--ink)',

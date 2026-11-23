@@ -67,7 +67,7 @@ export default async function HomePage() {
       </section>
 
       {/* Ecosystem */}
-      <section style={{ padding: '120px 10%', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div style={{ marginBottom: '64px' }}>
           <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
             {t('index_eco_label')}
@@ -90,7 +90,6 @@ export default async function HomePage() {
               style={{
                 display: 'block',
                 background: 'var(--off-white)',
-                border: '1px solid var(--hairline)',
                 borderRadius: 'var(--radius-card)',
                 padding: '32px',
                 textDecoration: 'none',
@@ -108,7 +107,7 @@ export default async function HomePage() {
       </section>
 
       {/* Stats */}
-      <section style={{ padding: '120px 10%', background: 'var(--periwinkle)' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <div style={{ marginBottom: '64px' }}>
           <h2
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}
@@ -135,7 +134,7 @@ export default async function HomePage() {
       </section>
 
       {/* Goal */}
-      <section style={{ padding: '120px 10%', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
           <div>
             <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
@@ -154,7 +153,7 @@ export default async function HomePage() {
       </section>
 
       {/* CTA — lime highlight-on-dark, per brandbook ("section titles on dark") */}
-      <section style={{ padding: '120px 10%', textAlign: 'center', background: 'var(--oxford)' }}>
+      <section style={{ padding: 'var(--space-16) 10%', textAlign: 'center', background: 'var(--oxford)' }}>
         <h2
           style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: '32px', color: '#fff' }}
           dangerouslySetInnerHTML={{ __html: t('contacts_title') }}

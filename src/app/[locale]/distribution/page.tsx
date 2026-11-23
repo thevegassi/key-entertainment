@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
+import SectionHeading from '@/components/SectionHeading';
 
 export async function generateMetadata({
   params,
@@ -69,7 +70,6 @@ export default async function DistributionPage() {
         marginTop: '36px',
         padding: '32px',
         background: 'var(--off-white)',
-        border: '1px solid var(--hairline)',
         borderRadius: 'var(--radius-card)',
       }}
     >
@@ -113,7 +113,6 @@ export default async function DistributionPage() {
               flex: '0 0 200px',
               scrollSnapAlign: 'start',
               background: 'var(--off-white)',
-              border: '1px solid var(--hairline)',
               borderRadius: 'var(--radius-card)',
               padding: '20px',
               textDecoration: 'none',
@@ -135,7 +134,6 @@ export default async function DistributionPage() {
             flex: '0 0 200px',
             scrollSnapAlign: 'start',
             background: 'var(--periwinkle)',
-            border: '1px solid var(--hairline)',
             borderRadius: 'var(--radius-card)',
             padding: '20px',
             textDecoration: 'none',
@@ -182,17 +180,14 @@ export default async function DistributionPage() {
       </section>
 
       {/* S1 — Full Cycle */}
-      <section style={{ padding: '100px 10%', background: '#fff' }}>
-        <p className="slide-num" style={{ marginBottom: '20px' }}>{t('dist_s1_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '24px' }}>
-          {t('dist_s1_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
+        <SectionHeading eyebrow={t('dist_s1_label')} on="light">{t('dist_s1_title')}</SectionHeading>
         <p style={{ color: 'var(--gray)', maxWidth: '720px', lineHeight: 1.8, marginBottom: '60px', fontSize: '1.05rem' }}>
           {t('dist_s1_sub')}
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
           {['1', '2', '3', '4'].map((n) => (
-            <div key={n} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px', border: '1px solid var(--hairline)' }}>
+            <div key={n} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px' }}>
               <h3 style={{ fontSize: '0.9rem', fontWeight: 800, marginBottom: '12px', color: 'var(--navy-deep)' }}>{t(`dist_card${n}_title`)}</h3>
               <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`dist_card${n}_desc`)}</p>
             </div>
@@ -201,11 +196,8 @@ export default async function DistributionPage() {
       </section>
 
       {/* Who we work with */}
-      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
-        <p className="slide-num" style={{ marginBottom: '20px' }}>{t('dist_partner_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '16px' }}>
-          {t('dist_partner_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
+        <SectionHeading eyebrow={t('dist_partner_label')} on="periwinkle">{t('dist_partner_title')}</SectionHeading>
         <p style={{ color: 'var(--indigo-ink)', marginBottom: '48px', maxWidth: '600px', lineHeight: 1.7 }}>
           {t('dist_partner_sub')}
         </p>
@@ -222,11 +214,8 @@ export default async function DistributionPage() {
       </section>
 
       {/* YouTube Management */}
-      <section style={{ padding: '100px 10%', background: '#fff' }}>
-        <p className="slide-num" style={{ marginBottom: '20px' }}>{t('dist_yt_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '16px' }}>
-          {t('dist_yt_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
+        <SectionHeading eyebrow={t('dist_yt_label')} on="light">{t('dist_yt_title')}</SectionHeading>
         <p style={{ color: 'var(--gray)', maxWidth: '680px', lineHeight: 1.7, fontSize: '1.05rem' }}>
           {t('dist_yt_sub')}
         </p>
@@ -241,11 +230,8 @@ export default async function DistributionPage() {
       </section>
 
       {/* TikTok for Artists */}
-      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
-        <p className="slide-num" style={{ marginBottom: '20px' }}>{t('dist_tt_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '16px' }}>
-          {t('dist_tt_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
+        <SectionHeading eyebrow={t('dist_tt_label')} on="periwinkle">{t('dist_tt_title')}</SectionHeading>
         <p style={{ color: 'var(--indigo-ink)', maxWidth: '680px', lineHeight: 1.7, fontSize: '1.05rem' }}>
           {t('dist_tt_sub')}
         </p>
@@ -260,11 +246,8 @@ export default async function DistributionPage() {
       </section>
 
       {/* CTA Form */}
-      <section style={{ padding: '100px 10%', background: 'var(--oxford)', textAlign: 'center' }}>
-        <p className="slide-num" style={{ margin: '0 auto 20px' }}>{t('contacts_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '20px', color: '#fff' }}>
-          {t('contacts_form_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center' }}>
+        <SectionHeading eyebrow={t('contacts_label')} on="dark" center>{t('contacts_form_title')}</SectionHeading>
         <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
           {t('dist_form_intro')}
         </p>

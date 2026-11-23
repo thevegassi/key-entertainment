@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
+import SectionHeading from '@/components/SectionHeading';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -25,18 +26,15 @@ export default async function LabelPage() {
       </section>
 
       {/* Philosophy */}
-      <section style={{ padding: '100px 10%', background: '#fff' }}>
-        <p className="slide-num" style={{ marginBottom: '20px' }}>{t('label_phil_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '24px', maxWidth: '860px' }}>
-          {t('label_phil_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
+        <SectionHeading eyebrow={t('label_phil_label')} on="light">{t('label_phil_title')}</SectionHeading>
         <p style={{ color: 'var(--gray)', maxWidth: '720px', lineHeight: 1.8, fontSize: '1.05rem' }}>
           {t('label_phil_text')}
         </p>
       </section>
 
       {/* Stage 01 — Music Production */}
-      <section style={{ padding: '100px 10%', background: 'var(--periwinkle)' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'start' }}>
           <div>
             <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--indigo-ink)', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase' }}>STAGE 01</p>
@@ -52,7 +50,6 @@ export default async function LabelPage() {
                   alignItems: 'flex-start',
                   gap: '14px',
                   background: '#fff',
-                  border: '1px solid var(--hairline)',
                   borderRadius: 'var(--radius-card)',
                   padding: '18px 20px',
                   fontSize: '0.95rem',
@@ -70,13 +67,13 @@ export default async function LabelPage() {
       </section>
 
       {/* Stage 02 — Visual Production */}
-      <section style={{ padding: '100px 10%', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase' }}>STAGE 02</p>
         <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: 900, marginBottom: '16px' }}>{t('label_s2_title')}</h3>
         <p style={{ color: 'var(--gray)', maxWidth: '680px', lineHeight: 1.7, marginBottom: '48px', fontSize: '1rem' }}>{t('label_s2_desc')}</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
           {['video', 'design'].map((s) => (
-            <div key={s} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px', border: '1px solid var(--hairline)' }}>
+            <div key={s} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', padding: '32px' }}>
               <h4 style={{ fontWeight: 800, marginBottom: '12px', color: 'var(--navy-deep)' }}>{t(`label_${s}_title`)}</h4>
               <p style={{ color: 'var(--gray)', fontSize: '0.85rem', lineHeight: 1.7 }}>{t(`label_${s}_desc`)}</p>
             </div>
@@ -85,11 +82,8 @@ export default async function LabelPage() {
       </section>
 
       {/* CTA — Send Demo */}
-      <section style={{ padding: '100px 10%', background: 'var(--oxford)', textAlign: 'center' }}>
-        <p className="slide-num" style={{ margin: '0 auto 20px' }}>{t('label_form_label')}</p>
-        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: '20px', color: '#fff' }}>
-          {t('label_form_title')}
-        </h2>
+      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', textAlign: 'center' }}>
+        <SectionHeading eyebrow={t('label_form_label')} on="dark" center>{t('label_form_title')}</SectionHeading>
         <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '40px', maxWidth: '560px', margin: '0 auto 40px' }}>
           {t('label_form_sub')}
         </p>
