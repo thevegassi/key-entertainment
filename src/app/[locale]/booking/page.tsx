@@ -91,13 +91,13 @@ export default async function BookingPage() {
       {/* Cases */}
       <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
         <SectionHeading eyebrow={t('book_cases_label')} on="periwinkle">{t('book_cases_title')}</SectionHeading>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
-          {CASES.map((c) => (
-            <div key={c.key} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', overflow: 'hidden' }}>
+        <div className="cases-grid">
+          {CASES.map((c, i) => (
+            <div key={c.key} style={{ background: i === 0 ? 'var(--oxford)' : 'var(--off-white)', borderRadius: 'var(--radius-card)', overflow: 'hidden' }}>
               <div style={{ height: '6px', background: 'var(--accent)' }} />
-              <div style={{ padding: '26px' }}>
-                <h4 style={{ color: 'var(--navy-deep)', marginBottom: '8px', fontSize: '0.95rem', textTransform: 'uppercase', fontWeight: 800 }}>{c.title}</h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--gray)', lineHeight: 1.6 }}>{t(c.key)}</p>
+              <div style={{ padding: i === 0 ? '32px' : '26px' }}>
+                <h4 style={{ color: i === 0 ? '#fff' : 'var(--navy-deep)', marginBottom: '8px', fontSize: i === 0 ? '1.15rem' : '0.95rem', textTransform: 'uppercase', fontWeight: 800 }}>{c.title}</h4>
+                <p style={{ fontSize: i === 0 ? '0.92rem' : '0.85rem', color: i === 0 ? 'rgba(255,255,255,0.7)' : 'var(--gray)', lineHeight: 1.6, maxWidth: i === 0 ? '480px' : undefined }}>{t(c.key)}</p>
               </div>
             </div>
           ))}

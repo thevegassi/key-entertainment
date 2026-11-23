@@ -72,16 +72,27 @@ export default async function PrPage() {
           <p style={{ color: 'var(--gray)', maxWidth: '680px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.6 }}>{t('pr_cases_sub')}</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
-          {CASES.map((c) => (
-            <div key={c.name} style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', textAlign: 'center', padding: '36px 24px' }}>
-              <h4 style={{ fontSize: '0.78rem', letterSpacing: '1px', fontWeight: 800, color: 'var(--navy-deep)', marginBottom: '10px' }}>{c.name}</h4>
+          {CASES.map((c, i) => {
+            const inverted = i % 4 === 0;
+            return (
+            <div
+              key={c.name}
+              style={{
+                background: inverted ? 'var(--oxford)' : 'var(--off-white)',
+                borderRadius: 'var(--radius-card)',
+                textAlign: 'center',
+                padding: '36px 24px',
+              }}
+            >
+              <h4 style={{ fontSize: '0.78rem', letterSpacing: '1px', fontWeight: 800, color: inverted ? 'var(--accent)' : 'var(--navy-deep)', marginBottom: '10px' }}>{c.name}</h4>
               {c.key ? (
-                <p style={{ fontSize: '0.82rem', color: 'var(--gray)', lineHeight: 1.5 }}>{t(c.key)}</p>
+                <p style={{ fontSize: '0.82rem', color: inverted ? 'rgba(255,255,255,0.7)' : 'var(--gray)', lineHeight: 1.5 }}>{t(c.key)}</p>
               ) : (
-                <p style={{ fontSize: '0.82rem', color: 'var(--gray)', lineHeight: 1.5 }}>Branding.</p>
+                <p style={{ fontSize: '0.82rem', color: inverted ? 'rgba(255,255,255,0.7)' : 'var(--gray)', lineHeight: 1.5 }}>Branding.</p>
               )}
             </div>
-          ))}
+            );
+          })}
           <div style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '36px 24px' }}>
             <p style={{ fontSize: '0.95rem', color: 'var(--gray)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>{t('pr_and_more')}</p>
           </div>
