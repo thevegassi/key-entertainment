@@ -1,0 +1,21 @@
+name: Post-deploy indexing
+# Vercel присылает deployment_status после деплоя. На production: проверка боевого сайта → IndexNow → Search Console.
+on:
+  deployment_status:
+jobs:
+  index:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: SEO-проверка боевого сайта
+        run: BASE_URL=https://keyent.kz node scripts/seo-check.mjs
+      - name: IndexNow (Яндекс, Bing)
+        run: node scripts/indexnow.mjs
+      - name: Google Search Console (sitemap)
+        run: node scripts/gsc-submit.mjs
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}

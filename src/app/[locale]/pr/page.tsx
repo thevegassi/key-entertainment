@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import PrInquiryForm from '@/components/PrInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
 const SERVICE_ICONS: Record<string, string> = {
   s1: 'TablerIconNews',
@@ -14,11 +15,7 @@ const SERVICE_ICONS: Record<string, string> = {
   s6: 'TablerIconUser',
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_pr'), description: t('page_desc_pr'), alternates: { canonical: `https://www.keyent.kz/${locale}/pr` } };
-}
+export const generateMetadata = pageMetadata('pr');
 
 const CASES = [
   { name: 'DODO PIZZA', key: 'pr_case1' as const },
@@ -38,6 +35,7 @@ export default async function PrPage() {
   const t = await getTranslations();
   return (
     <>
+      <PageJsonLd path="pr" />
       <section className="on-dark" style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />

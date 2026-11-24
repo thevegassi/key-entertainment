@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seo:check": "node scripts/seo-check.mjs",
+    "seo:check:local": "next build && (next start -p 3000 & sleep 6; node scripts/seo-check.mjs; code=$?; kill %1; exit $code)",
+    "seo:indexnow": "node scripts/indexnow.mjs",
+    "seo:gsc": "node scripts/gsc-submit.mjs"
   },
   "dependencies": {
     "next": "15.5.29",
@@ -18,6 +22,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "cheerio": "^1.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "15.5.29",
     "typescript": "^5.9.3"

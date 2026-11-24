@@ -1,13 +1,10 @@
-import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/SectionHeading';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return { title: t('page_title_brand'), description: t('page_desc_brand'), alternates: { canonical: `https://www.keyent.kz/${locale}/brand` } };
-}
+export const generateMetadata = pageMetadata('brand');
 
 const COLORS = [
   { name: 'Accent — Lime', hex: '#D3FF33', meta: '#D3FF33 · RGB 211 255 51 · CMYK 17 0 80 0', dark: true },
@@ -31,6 +28,7 @@ export default async function BrandPage() {
   const t = await getTranslations();
   return (
     <>
+      <PageJsonLd path="brand" />
       <section className="on-dark" style={{ minHeight: '70dvh', display: 'flex', alignItems: 'flex-end', padding: '160px 10% 80px', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-mark-lime.svg" alt="" style={{ position: 'absolute', left: '-12%', top: '50%', transform: 'translateY(-50%)', width: '820px', maxWidth: 'none', opacity: 0.2, pointerEvents: 'none' }} />

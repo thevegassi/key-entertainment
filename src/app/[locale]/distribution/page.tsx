@@ -1,25 +1,13 @@
-import type { Metadata } from 'next';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
 import DistributionInquiryForm from '@/components/DistributionInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
 import SectionDivider from '@/components/SectionDivider';
+import { pageMetadata } from '@/lib/seo/metadata';
+import PageJsonLd from '@/components/seo/JsonLd';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-  return {
-    title: t('page_title_dist'),
-    description: t('page_desc_distribution'),
-    alternates: { canonical: `https://www.keyent.kz/${locale}/distribution` },
-    openGraph: { title: t('page_title_dist'), description: t('page_desc_distribution') },
-  };
-}
+export const generateMetadata = pageMetadata('distribution');
 
 const ytChannels = [
   { name: 'Qanay', handle: '@qanay.913', url: 'https://www.youtube.com/@qanay.913' },
@@ -160,6 +148,7 @@ export default async function DistributionPage() {
 
   return (
     <>
+      <PageJsonLd path="distribution" />
       {/* Hero */}
       <section
         className="on-dark"
