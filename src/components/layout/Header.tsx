@@ -14,6 +14,7 @@ const PAGES: NavItem[] = [
   { href: '/pr', label: 'PR & Marketing' },
   { href: '/booking', label: 'Booking' },
   { href: '/brand', labelKey: 'nav_brand_upper' },
+  { href: '/blog', labelKey: 'nav_blog' },
   { href: '/contacts', labelKey: 'nav_contacts' },
 ];
 
