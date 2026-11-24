@@ -211,6 +211,42 @@ h3 {
 }
 .service-card:hover { background: #fff; }
 .eco-card-link:hover { background: var(--off-white); }
+.post-card:hover { background: #fff; }
+
+/* ===================== БЛОГ ===================== */
+.post-card {
+    border-radius: var(--radius-card);
+    background: var(--off-white);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
+}
+.post-card .post-tag { color: var(--accent-press); font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+.post-card .post-title { color: var(--navy-deep); font-size: 1.15rem; font-weight: 800; line-height: 1.3; margin: 0; }
+.post-card .post-excerpt { color: var(--gray); font-size: 0.88rem; line-height: 1.7; margin: 0; flex-grow: 1; }
+.post-card .post-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--gray); letter-spacing: 0.5px; }
+.post-card .post-more { color: var(--navy-deep); font-weight: 800; }
+
+.article-body { max-width: 760px; margin: 0 auto; padding: 60px 10% 100px; }
+.article-body p { font-size: 1rem; color: var(--ink); line-height: 1.85; margin-bottom: 20px; }
+.article-body p a { color: var(--navy-deep); font-weight: 700; }
+.article-body h2 { font-size: 1.4rem; font-weight: 900; color: var(--navy-deep); margin: 48px 0 18px; }
+.article-body ul { padding-left: 22px; margin-bottom: 20px; }
+.article-body ul li { font-size: 1rem; color: var(--ink); line-height: 1.85; margin-bottom: 8px; }
+.article-body blockquote {
+    border-left: 3px solid var(--accent-press);
+    background: var(--off-white);
+    border-radius: 0 var(--radius-card) var(--radius-card) 0;
+    padding: 20px 28px;
+    margin: 32px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--navy-deep);
+}
+.article-body blockquote p { margin: 0; font-size: inherit; color: inherit; }
 
 .info-card h4 {
     color: var(--navy-deep);
