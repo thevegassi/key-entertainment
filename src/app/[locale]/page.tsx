@@ -4,6 +4,7 @@ import Icon from '@/components/icons/Icon';
 import SectionDivider from '@/components/SectionDivider';
 import { pageMetadata } from '@/lib/seo/metadata';
 import PageJsonLd from '@/components/seo/JsonLd';
+import Reveal from '@/components/Reveal';
 
 export const generateMetadata = pageMetadata('');
 
@@ -177,7 +178,8 @@ export default async function HomePage() {
             pointerEvents: 'none',
           }}
         />
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div aria-hidden="true" className="mission-glow" />
+        <Reveal style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ fontSize: '0.65rem', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)' }}>
             {t('index_mission_label')}
           </p>
@@ -205,7 +207,7 @@ export default async function HomePage() {
           >
             {t('index_mission_cta')}
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   );

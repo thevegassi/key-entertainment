@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Icon from '@/components/icons/Icon';
+import Reveal from '@/components/Reveal';
 
 const SOCIALS = [
   { href: 'https://wa.me/77010520606', label: 'WhatsApp', icon: 'TablerIconPhoneCall' },
@@ -30,8 +31,15 @@ export default async function Footer() {
         style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.3, mixBlendMode: 'overlay', pointerEvents: 'none' }}
       />
       <div style={{ position: 'relative' }}>
+        <div className="footer-marquee" aria-hidden="true">
+          <div className="footer-marquee-track">
+            {[0, 1, 2, 3].map((n) => (
+              <span key={n} className="footer-marquee-item">KEY ENTERTAINMENT <i /></span>
+            ))}
+          </div>
+        </div>
         <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 0.8fr 0.8fr', gap: 'var(--space-14)', marginBottom: 'var(--space-14)' }}>
-          <div>
+          <Reveal delay={0}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-white.svg" alt="Key Entertainment" style={{ height: '32px', marginBottom: 'var(--space-8)' }} />
             <p style={{ color: '#fff', fontSize: '1.3rem', fontWeight: 300, lineHeight: 1.3, maxWidth: '360px', marginBottom: 'var(--space-8)' }}>
@@ -62,9 +70,9 @@ export default async function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={120}>
             <p style={{ color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)', fontSize: '0.68rem', letterSpacing: '2px', textTransform: 'uppercase' }}>
               {t('nav_contacts_upper')}
             </p>
@@ -73,9 +81,9 @@ export default async function Footer() {
             <p style={{ marginTop: 'var(--space-8)', lineHeight: 1.7, fontSize: '0.72rem' }}>
               ТОО «KEY ENTERTAINMENT»<br />БИН 231240023174
             </p>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={240}>
             <p style={{ color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)', fontSize: '0.68rem', letterSpacing: '2px', textTransform: 'uppercase' }}>
               {t('nav_brand_upper')}
             </p>
@@ -86,7 +94,7 @@ export default async function Footer() {
                 </Link>
               ))}
             </nav>
-          </div>
+          </Reveal>
         </div>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 'var(--space-6)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', fontSize: '0.72rem' }}>

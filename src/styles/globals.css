@@ -1044,3 +1044,42 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: var(--ink) !important;
     caret-color: var(--ink);
 }
+
+/* ===================== АНИМАЦИИ НИЗА САЙТА =====================
+   Бренд: только fade (opacity), 180–280ms, без слайдов/пружин/параллакса. */
+
+/* Появление при скролле. Скрываем только если JS доступен и движение не отключено. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transition: opacity 600ms var(--ease-standard, cubic-bezier(.2,0,.2,1)) var(--reveal-delay, 0ms); }
+    .reveal.is-in { opacity: 1; }
+}
+
+/* Бегущая строка с вордмарком над футером — линейное движение с постоянной скоростью */
+.footer-marquee { overflow: hidden; white-space: nowrap; margin: 0 -5% var(--space-12, 64px); user-select: none; }
+.footer-marquee-track { display: inline-flex; animation: footerMarquee 42s linear infinite; will-change: transform; }
+.footer-marquee-item {
+    font-size: clamp(2.4rem, 8vw, 6.5rem); font-weight: 900; letter-spacing: -0.01em; line-height: 1;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.35);
+    padding-right: 0.6em; display: inline-flex; align-items: center; gap: 0.6em;
+}
+.footer-marquee-item i { width: 0.28em; height: 0.28em; border-radius: 50%; background: var(--accent); display: inline-block; }
+@keyframes footerMarquee { to { transform: translateX(-50%); } }
+.footer-marquee:hover .footer-marquee-track { animation-play-state: paused; }
+
+/* «Дыхание» лаймового свечения в секции миссии — opacity на GPU */
+.mission-glow {
+    position: absolute; left: 50%; top: 50%; width: 640px; height: 640px; margin: -320px 0 0 -320px;
+    border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(211,255,51,0.14) 0%, transparent 65%);
+    animation: missionBreathe 7s ease-in-out infinite;
+}
+@keyframes missionBreathe { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+/* Подчёркивание ссылок футера — fade цвета уже есть; добавляем лайм-акцент на навигации */
+.footer-nav-link { transition: color var(--dur-base, 180ms) var(--ease-standard, ease); }
+.footer-nav-link:hover { color: var(--accent) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-marquee-track, .mission-glow { animation: none !important; }
+    .mission-glow { opacity: 0.6; }
+}
