@@ -350,7 +350,7 @@ footer {
 .reveal-img {
     opacity: 0;
     transform: scale(0.97) translateY(20px);
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     filter: grayscale(1) blur(4px);
 }
 
@@ -1083,3 +1083,36 @@ input:-webkit-autofill:focus {
     .footer-marquee-track, .mission-glow { animation: none !important; }
     .mission-glow { opacity: 0.6; }
 }
+
+/* ===================== HOME: AUDIT FIXES ===================== */
+
+/* Hero H1: общий `h1 { … !important }` сжимал заголовок до ~28px на мобильных.
+   Вордмарк ≈ 8.5em в ширину, поэтому vw подобран под доступную ширину. */
+@media (max-width: 860px) {
+    .hero-section h1 { font-size: clamp(2.2rem, 9.4vw, 9rem) !important; letter-spacing: -0.01em !important; }
+}
+@media (max-width: 640px) {
+    .hero-section { padding-left: 5% !important; padding-right: 5% !important; }
+    .hero-section h1 { font-size: clamp(2rem, 10.2vw, 5rem) !important; }
+    .hero-section h1 > span:first-child { -webkit-text-stroke-width: 2.5px !important; }
+}
+
+/* Иконка featured-карточки: лайм на Oxford — парой, как в брендбуке */
+.eco-icon-tile {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px; border-radius: 12px;
+    background: var(--oxford); color: var(--accent); flex-shrink: 0;
+}
+
+/* Цифры не прыгают при count-up */
+.stat-num { font-variant-numeric: tabular-nums; }
+
+/* Skip-link: виден только при фокусе с клавиатуры */
+.skip-link {
+    position: absolute; left: 16px; top: -64px; z-index: 1000;
+    background: var(--accent); color: var(--accent-ink);
+    padding: 12px 20px; border-radius: var(--radius-pill);
+    font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+}
+.skip-link:focus-visible { top: 16px; outline: 2px solid var(--oxford); outline-offset: 2px; }
+main:focus { outline: none; }

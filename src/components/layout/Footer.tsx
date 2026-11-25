@@ -25,7 +25,7 @@ export default async function Footer() {
   const locale = await getLocale();
 
   return (
-    <footer style={{ background: 'var(--oxford)', position: 'relative', overflow: 'hidden', padding: 'var(--space-16) 5% var(--space-10)', color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>
+    <footer style={{ background: 'var(--oxford)', position: 'relative', overflow: 'hidden', padding: 'var(--space-12) 5% var(--space-10)', color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>
       <div
         aria-hidden="true"
         style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/pattern-4-navy.svg)', backgroundSize: '420px', opacity: 0.3, mixBlendMode: 'overlay', pointerEvents: 'none' }}
@@ -34,14 +34,14 @@ export default async function Footer() {
         <div className="footer-marquee" aria-hidden="true">
           <div className="footer-marquee-track">
             {[0, 1, 2, 3].map((n) => (
-              <span key={n} className="footer-marquee-item">KEY ENTERTAINMENT <i /></span>
+              <span key={n} className="footer-marquee-item" translate="no">KEY ENTERTAINMENT <i /></span>
             ))}
           </div>
         </div>
         <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 0.8fr 0.8fr', gap: 'var(--space-14)', marginBottom: 'var(--space-14)' }}>
           <Reveal delay={0}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-white.svg" alt="Key Entertainment" style={{ height: '32px', marginBottom: 'var(--space-8)' }} />
+            <img src="/logo-white.svg" alt="Key Entertainment" width={121} height={32} style={{ height: '32px', width: 'auto', marginBottom: 'var(--space-8)' }} />
             <p style={{ color: '#fff', fontSize: '1.3rem', fontWeight: 300, lineHeight: 1.3, maxWidth: '360px', marginBottom: 'var(--space-8)' }}>
               {t('index_hero_sub')}
             </p>
@@ -53,6 +53,7 @@ export default async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={label}
+                  aria-label={label}
                   style={{
                     display: 'flex',
                     alignItems: 'center',

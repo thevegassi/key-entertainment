@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -27,6 +27,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const viewport: Viewport = { themeColor: '#ffffff' };
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -37,6 +39,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
   const messages = await getMessages();
+  const t = await getTranslations({ locale });
   return (
     <html lang={HREFLANG[locale]}>
       <head>
@@ -51,10 +54,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body>
+        <a href="#main" className="skip-link">{t('skip_to_content')}</a>
         <Metrika />
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main>{children}</main>
+          <main id="main" tabIndex={-1}>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

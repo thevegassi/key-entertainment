@@ -1,5 +1,5 @@
 {
-  "legal_form_submit": "SEND —>",
+  "legal_form_submit": "SEND →",
   "legal_form_msg_ph": "Your question...",
   "legal_form_subject_ph": "E.g.: Copyright registration",
   "legal_form_subject": "Subject",
@@ -266,7 +266,7 @@
   "eco_book_desc": "Tours and management. USA, Kazakhstan, international venues.",
   "eco_pr_desc": "Image management and collaborations with world-class brands.",
   "eco_legal_desc": "Legal protection, copyright and contract support.",
-  "more": "LEARN MORE —>",
+  "more": "LEARN MORE →",
   "footer_privacy": "PRIVACY POLICY",
   "footer_offer": "PUBLIC OFFER",
   "footer_copy": "KEY ENTERTAINMENT LLP · BIN: 231240023174 · © 2015–2026 ALL RIGHTS RESERVED.",
@@ -428,5 +428,6 @@
   "cta_label": "Discuss cooperation",
   "cta_booking": "Book an artist",
   "cta_pr": "Get a consultation",
-  "cta_legal": "Get legal advice"
+  "cta_legal": "Get legal advice",
+  "skip_to_content": "Skip to content"
 }
