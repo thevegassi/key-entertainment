@@ -5,6 +5,7 @@ import SectionDivider from '@/components/SectionDivider';
 import { pageMetadata } from '@/lib/seo/metadata';
 import PageJsonLd from '@/components/seo/JsonLd';
 import Reveal from '@/components/Reveal';
+import CountUp from '@/components/CountUp';
 
 export const generateMetadata = pageMetadata('');
 
@@ -40,7 +41,7 @@ export default async function HomePage() {
               {t('index_hero_sub')}
             </p>
           </div>
-          <h1 style={{ fontSize: 'clamp(3rem, 11vw, 9rem)', fontWeight: 900, lineHeight: 0.92, marginBottom: '40px', color: '#fff', letterSpacing: '-0.01em' }}>
+          <h1 translate="no" style={{ fontSize: 'clamp(3rem, 11vw, 9rem)', fontWeight: 900, lineHeight: 0.92, marginBottom: '40px', color: '#fff', letterSpacing: '-0.01em' }}>
             <span style={{ WebkitTextStroke: '2px #fff', color: 'transparent', display: 'block' }}>KEY</span>
             <span style={{ color: 'var(--accent)', display: 'block' }}>ENTERTAINMENT</span>
           </h1>
@@ -97,7 +98,7 @@ export default async function HomePage() {
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}>
             {t('index_eco_title')}
           </h2>
-          <p style={{ color: 'var(--gray)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: '520px', marginTop: '16px' }}>
+          <p style={{ color: 'var(--ink)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: '520px', marginTop: '16px' }}>
             {t('index_eco_sub')}
           </p>
         </div>
@@ -123,7 +124,11 @@ export default async function HomePage() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: featured ? '20px' : '16px' }}>
-                <Icon name={icon} size={featured ? 32 : 26} style={{ color: 'var(--navy-deep)', flexShrink: 0 }} />
+                {featured ? (
+                  <span className="eco-icon-tile"><Icon name={icon} size={28} /></span>
+                ) : (
+                  <Icon name={icon} size={26} style={{ color: 'var(--navy-deep)', flexShrink: 0 }} />
+                )}
                 <h3 style={{ fontSize: featured ? '0.85rem' : '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, margin: 0 }}>
                   {label}
                 </h3>
@@ -153,7 +158,7 @@ export default async function HomePage() {
             { num: '20+', label: t('index_stat5_label') },
           ].map(({ num, label }) => (
             <div key={num}>
-              <p style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: 'var(--oxford)', lineHeight: 1 }}>{num}</p>
+              <CountUp value={num} className="stat-num" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: 'var(--oxford)', lineHeight: 1 }} />
               <p
                 style={{ color: 'var(--gray)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.5 }}
                 dangerouslySetInnerHTML={{ __html: label }}

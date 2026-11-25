@@ -16,6 +16,8 @@ export default function Icon({ name, size = 32, style, className }: Props) {
       height={size}
       viewBox={d.viewBox}
       fill="none"
+      aria-hidden="true"
+      focusable="false"
       style={style}
       className={className}
       // body is static design-system data transcribed from the brandbook
