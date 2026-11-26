@@ -29,6 +29,18 @@
 **Env (Vercel):** `NEXT_PUBLIC_YM_ID` (счётчик Метрики), `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, `NEXT_PUBLIC_YANDEX_VERIFICATION`.
 **Secrets (GitHub):** `GSC_SERVICE_ACCOUNT_JSON`.
 
+### UI-компоненты: shadcn/ui + animate-ui
+Подключены **изолированно** (`src/styles/tailwind.css`): Tailwind без preflight, утилиты генерируются только для `src/components/ui/` и `src/components/animate-ui/`. Остальной сайт (`globals.css`) не затронут — проверено попиксельным сравнением 14 снимков.
+
+| Что | Как |
+|---|---|
+| Добавить shadcn-компонент | `npx shadcn@latest add <name>` → `src/components/ui/` |
+| Добавить animate-ui | `npx shadcn@latest add @animate-ui/<name>` → `src/components/animate-ui/` (реестр задан в `components.json`) |
+| Токены | shadcn-цвета привязаны к переменным бренда (`primary` = лайм, `ring` = Oxford и т. д.) в `tailwind.css` |
+| Нужен Tailwind вне этих папок | добавить `@source` в `tailwind.css` |
+
+**Бренд-правила движения** (`src/lib/motion.ts`): только fade, 180–280ms, `cubic-bezier(.2,0,.2,1)`; без пружин, bounce и параллакса; уважать `prefers-reduced-motion`. Компоненты animate-ui приходят со `spring` по умолчанию — после добавления заменить `transition` на `brandTransition` (см. `primitives/effects/fade.tsx`).
+
 ---
 
 ## Проект
