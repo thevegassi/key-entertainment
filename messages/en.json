@@ -399,8 +399,8 @@
   "val_phone": "Format: +7XXXXXXXXXX",
   "val_min2": "Minimum 2 characters",
   "val_required": "Required field",
-  "val_sending": "SENDING...",
-  "val_error": "ERROR. PLEASE TRY AGAIN",
+  "val_sending": "SENDING…",
+  "val_error": "Could not send. Please try again or write to info@keyent.kz",
   "e404_title": "Page not found",
   "e404_sub": "Looks like this page moved or never existed. But the music — definitely exists.",
   "e404_home": "← Home",
@@ -430,5 +430,7 @@
   "cta_pr": "Get a consultation",
   "cta_legal": "Get legal advice",
   "skip_to_content": "Skip to content",
-  "footer_services": "Services"
+  "footer_services": "Services",
+  "val_success_title": "Thank you! Your request has been sent",
+  "val_success_text": "We will get back to you within 24 hours."
 }

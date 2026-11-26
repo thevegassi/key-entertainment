@@ -2,6 +2,7 @@
 
 import { useState, type CSSProperties } from 'react';
 import { trackGoal } from '@/lib/analytics';
+import FormSuccess from '@/components/FormSuccess';
 import { useTranslations } from 'next-intl';
 
 const darkInput: CSSProperties = {
@@ -43,14 +44,7 @@ export default function DistributionInquiryForm() {
     }
   }
 
-  if (status === 'done') {
-    return (
-      <div style={{ textAlign: 'center', padding: '40px' }}>
-        <p style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--accent)' }}>✓</p>
-        <p style={{ marginTop: '12px', color: 'rgba(255,255,255,0.65)' }}>{t('val_sending')}</p>
-      </div>
-    );
-  }
+  if (status === 'done') return <FormSuccess tone="dark" />;
 
   return (
     <form
@@ -60,12 +54,13 @@ export default function DistributionInquiryForm() {
     >
       <input type="hidden" name="_subject" value="Заявка — Distribution" />
       <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
       <input type="text" name="Имя" placeholder={t('dist_form_name_ph')} autoComplete="name" aria-label={t('dist_form_name_ph')} required style={darkInput} />
       <input type="email" name="Email" placeholder="mail@example.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
       <input type="url" name="Ссылка на демо" placeholder="https://soundcloud.com/..." autoComplete="off" aria-label="https://soundcloud.com/..." spellCheck={false} style={{ ...darkInput, gridColumn: 'span 2' }} />
       <input type="text" name="Тип партнерства" placeholder={t('dist_form_type_ph')} autoComplete="off" aria-label={t('dist_form_type_ph')} style={{ ...darkInput, gridColumn: 'span 2' }} />
       <textarea name="Сообщение" rows={4} placeholder={t('dist_form_msg_ph')} autoComplete="off" aria-label={t('dist_form_msg_ph')} style={{ ...darkInput, gridColumn: 'span 2' }} />
-      {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem', gridColumn: 'span 2' }}>{t('val_error')}</p>}
+      {status === 'error' && <p role="alert" style={{ color: '#ff8585', fontSize: '0.85rem', gridColumn: 'span 2' }}>{t('val_error')}</p>}
       <button type="submit" disabled={status === 'sending'} className="submit-btn">
         {status === 'sending' ? t('val_sending') : t('dist_form_submit')}
       </button>

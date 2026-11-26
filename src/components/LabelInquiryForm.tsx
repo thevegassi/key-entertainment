@@ -2,6 +2,7 @@
 
 import { useState, type CSSProperties } from 'react';
 import { trackGoal } from '@/lib/analytics';
+import FormSuccess from '@/components/FormSuccess';
 import { useTranslations } from 'next-intl';
 
 const darkInput: CSSProperties = {
@@ -43,14 +44,7 @@ export default function LabelInquiryForm() {
     }
   }
 
-  if (status === 'done') {
-    return (
-      <div style={{ textAlign: 'center', padding: '40px' }}>
-        <p style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--accent)' }}>✓</p>
-        <p style={{ marginTop: '12px', color: 'rgba(255,255,255,0.65)' }}>{t('val_sending')}</p>
-      </div>
-    );
-  }
+  if (status === 'done') return <FormSuccess tone="dark" />;
 
   return (
     <form
@@ -60,11 +54,12 @@ export default function LabelInquiryForm() {
     >
       <input type="hidden" name="_subject" value="Заявка — Label / Демо" />
       <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
       <input type="text" name="Псевдоним" placeholder="Artist Name" autoComplete="nickname" aria-label="Artist Name" required style={darkInput} />
       <input type="email" name="Email" placeholder="mail@example.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
       <input type="url" name="Ссылка на трек" placeholder="SoundCloud / Drive / YouTube" autoComplete="off" aria-label="SoundCloud / Drive / YouTube" spellCheck={false} style={{ ...darkInput, gridColumn: 'span 2' }} />
       <textarea name="Кратко о себе" rows={4} placeholder={t('label_form_about_ph')} autoComplete="off" aria-label={t('label_form_about_ph')} style={{ ...darkInput, gridColumn: 'span 2' }} />
-      {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem', gridColumn: 'span 2' }}>{t('val_error')}</p>}
+      {status === 'error' && <p role="alert" style={{ color: '#ff8585', fontSize: '0.85rem', gridColumn: 'span 2' }}>{t('val_error')}</p>}
       <button type="submit" disabled={status === 'sending'} className="submit-btn">
         {status === 'sending' ? t('val_sending') : t('label_form_submit')}
       </button>
