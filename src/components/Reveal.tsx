@@ -35,7 +35,22 @@ export default function Reveal({ children, delay = 0, className = '', style, as:
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // IntersectionObserver молчит, если блок «перепрыгнули» целиком (якорь, End, быстрый свайп):
+    // состояние не менялось ни на одном кадре. Страхуемся проверкой по скроллу.
+    const onScroll = () => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('is-in');
+        io.disconnect();
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => {
+      io.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   return (
