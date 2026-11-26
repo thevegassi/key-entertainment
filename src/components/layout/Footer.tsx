@@ -2,15 +2,7 @@ import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 import Icon from '@/components/icons/Icon';
 import Reveal from '@/components/Reveal';
-
-const SOCIALS = [
-  { href: 'https://wa.me/77010520606', label: 'WhatsApp', icon: 'TablerIconPhoneCall' },
-  { href: 'https://t.me/keyentkz', label: 'Telegram', icon: 'TablerIconBrandTelegram' },
-  { href: 'https://vk.com/keyentertainment', label: 'VK', icon: 'TablerIconBrandVk' },
-  { href: 'https://instagram.com/keyentertainment.kz', label: 'Instagram', icon: 'TablerIconBrandInstagram' },
-  { href: 'https://www.youtube.com/@keyentkz', label: 'YouTube', icon: 'TablerIconBrandYoutube' },
-  { href: 'https://music.yandex.kz/label/632686', label: 'Яндекс Музыка', icon: 'TablerIconMusic' },
-];
+import SocialLinks from '@/components/SocialLinks';
 
 const BRAND_LINKS = [
   { href: '/distribution', label: 'Distribution' },
@@ -45,32 +37,7 @@ export default async function Footer() {
             <p style={{ color: '#fff', fontSize: '1.3rem', fontWeight: 300, lineHeight: 1.3, maxWidth: '360px', marginBottom: 'var(--space-8)' }}>
               {t('index_hero_sub')}
             </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              {SOCIALS.map(({ href, label, icon }) => (
-                <a
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={label}
-                  aria-label={label}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '50%',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    color: 'rgba(255,255,255,0.75)',
-                    transition: 'background var(--dur-base, 180ms) var(--ease-standard, ease), color var(--dur-base, 180ms) var(--ease-standard, ease)',
-                  }}
-                  className="footer-social-icon"
-                >
-                  <Icon name={icon} size={16} />
-                </a>
-              ))}
-            </div>
+            <SocialLinks tone="dark" size={40} />
           </Reveal>
 
           <Reveal delay={120}>

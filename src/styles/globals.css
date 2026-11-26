@@ -1123,3 +1123,25 @@ main:focus { outline: none; }
     main > section.on-dark:first-of-type { padding-left: 6% !important; padding-right: 6% !important; }
     main > section.on-dark:first-of-type h1 { font-size: clamp(1.9rem, 9.4vw, 3.4rem) !important; line-height: 1.05 !important; }
 }
+
+/* ===================== СОЦСЕТИ ИКОНКАМИ ===================== */
+.social-links { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.social-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: var(--social-size, 40px); height: var(--social-size, 40px); border-radius: 50%;
+    border: 1px solid; text-decoration: none;
+    transition: background var(--dur-base, 180ms) var(--ease-standard, ease), color var(--dur-base, 180ms) var(--ease-standard, ease), border-color var(--dur-base, 180ms) var(--ease-standard, ease);
+}
+/* на тёмном: прозрачный → лайм (как было в футере) */
+.social-links--dark .social-link { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.22); }
+.social-links--dark .social-link:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.social-links--dark .social-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* на светлом: контур → Oxford с лаймом (пара из брендбука) */
+.social-links--light .social-link { color: var(--navy-deep); border-color: var(--hairline); background: #fff; }
+.social-links--light .social-link:hover { background: var(--oxford); border-color: var(--oxford); color: var(--accent); }
+.social-links--light .social-link:focus-visible { outline: 2px solid var(--oxford); outline-offset: 2px; }
+
+/* значок площадки на карточке артиста (вместо повторяющегося «Смотреть канал →») */
+.artist-card-icon { margin-top: 10px; color: var(--navy-deep); display: inline-flex; transition: color var(--dur-base, 180ms) var(--ease-standard, ease); }
+.artist-card:hover .artist-card-icon { color: var(--indigo-ink, var(--navy-deep)); }
+.artist-card:focus-visible { outline: 2px solid var(--oxford); outline-offset: 2px; }
