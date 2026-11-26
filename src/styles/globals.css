@@ -1116,3 +1116,10 @@ input:-webkit-autofill:focus {
 }
 .skip-link:focus-visible { top: 16px; outline: 2px solid var(--oxford); outline-offset: 2px; }
 main:focus { outline: none; }
+
+/* Hero внутренних страниц: общий `h1 { … !important }` сжимал заголовок до ~29px.
+   Длинное слово («DISTRIBUTION») ≈ 8.9em, vw подобран под ширину контента при padding 6%. */
+@media (max-width: 640px) {
+    main > section.on-dark:first-of-type { padding-left: 6% !important; padding-right: 6% !important; }
+    main > section.on-dark:first-of-type h1 { font-size: clamp(1.9rem, 9.4vw, 3.4rem) !important; line-height: 1.05 !important; }
+}
