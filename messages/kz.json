@@ -430,5 +430,9 @@
   "cta_pr": "Кеңес алу",
   "cta_legal": "Заңгер кеңесін алу",
   "skip_to_content": "Мазмұнға өту",
-  "footer_services": "Қызметтер"
+  "footer_services": "Қызметтер",
+  "lang_label": "Тіл",
+  "menu_open": "Мәзірді ашу",
+  "menu_close": "Мәзірді жабу",
+  "nav_main": "Негізгі навигация"
 }

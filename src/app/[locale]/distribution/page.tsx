@@ -140,7 +140,7 @@ export default async function DistributionPage() {
           </span>
         </Link>
       </div>
-      <p style={{ textAlign: 'center', fontSize: '0.65rem', letterSpacing: '2px', color: 'var(--gray)', marginTop: '16px', textTransform: 'uppercase' }}>
+      <p style={{ textAlign: 'center', fontSize: '0.65rem', letterSpacing: '2px', color: 'var(--ink)', marginTop: '16px', textTransform: 'uppercase' }}>
         {t('carousel_hint')}
       </p>
     </div>

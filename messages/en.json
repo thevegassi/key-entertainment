@@ -430,5 +430,9 @@
   "cta_pr": "Get a consultation",
   "cta_legal": "Get legal advice",
   "skip_to_content": "Skip to content",
-  "footer_services": "Services"
+  "footer_services": "Services",
+  "lang_label": "Language",
+  "menu_open": "Open menu",
+  "menu_close": "Close menu",
+  "nav_main": "Main navigation"
 }

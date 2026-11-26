@@ -66,7 +66,7 @@ export default async function BrandPage() {
               }}
             >
               <span style={{ fontSize: '0.65rem', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', color: c.dark ? '#000' : '#fff' }}>{c.name}</span>
-              <span style={{ fontSize: '0.72rem', fontWeight: 300, marginTop: '4px', color: c.dark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.65)' }}>{c.meta}</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 300, marginTop: '4px', color: c.dark ? 'rgba(0,0,0,0.78)' : 'rgba(255,255,255,0.65)' }}>{c.meta}</span>
             </div>
           ))}
         </div>
