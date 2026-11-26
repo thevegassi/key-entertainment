@@ -6,3 +6,6 @@ node_modules/
 out/
 .DS_Store
 *.log
+
+# taste skill: heavy assets (photos, icons, scenes ~35MB) stay local
+.agents/skills/design-taste-frontend/assets/
