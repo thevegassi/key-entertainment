@@ -86,7 +86,7 @@ export default async function Footer() {
 
           <Reveal delay={240}>
             <p style={{ color: 'var(--accent)', fontWeight: 800, marginBottom: 'var(--space-6)', fontSize: '0.68rem', letterSpacing: '2px', textTransform: 'uppercase' }}>
-              {t('nav_brand_upper')}
+              {t('footer_services')}
             </p>
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {BRAND_LINKS.map(({ href, label }) => (
@@ -94,6 +94,9 @@ export default async function Footer() {
                   {label}
                 </Link>
               ))}
+              <Link href={`/${locale}/brand`} className="footer-nav-link" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none' }}>
+                {t('nav_brand')}
+              </Link>
             </nav>
           </Reveal>
         </div>
