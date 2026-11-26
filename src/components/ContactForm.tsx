@@ -57,10 +57,10 @@ export default function ContactForm() {
       <input type="hidden" name="_autoresponse" value="Спасибо за обращение! Мы получили вашу заявку и свяжемся с вами в течение 24 часов. — Key Entertainment" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_subject" value="Заявка — Контакты" />
-      <input type="text" name="Имя" placeholder={t('contacts_form_name_ph')} required style={lightInput} />
-      <input type="email" name="Email" placeholder={t('contacts_form_email_ph')} required style={lightInput} />
-      <input type="tel" name="Телефон" placeholder="+7" style={lightInput} />
-      <textarea name="Сообщение" placeholder={t('contacts_form_msg_ph')} rows={5} style={lightInput} />
+      <input type="text" name="Имя" placeholder={t('contacts_form_name_ph')} autoComplete="name" aria-label={t('contacts_form_name_ph')} required style={lightInput} />
+      <input type="email" name="Email" placeholder={t('contacts_form_email_ph')} autoComplete="email" aria-label="Email" spellCheck={false} required style={lightInput} />
+      <input type="tel" name="Телефон" placeholder="+7" autoComplete="tel" aria-label="Phone" inputMode="tel" style={lightInput} />
+      <textarea name="Сообщение" placeholder={t('contacts_form_msg_ph')} autoComplete="off" aria-label={t('contacts_form_msg_ph')} rows={5} style={lightInput} />
       {status === 'error' && <p style={{ color: '#c0392b', fontSize: '0.85rem' }}>{t('val_error')}</p>}
       <button type="submit" disabled={status === 'sending'} className="submit-btn" style={{ gridColumn: 'auto' }}>
         {status === 'sending' ? t('val_sending') : t('contacts_form_submit')}

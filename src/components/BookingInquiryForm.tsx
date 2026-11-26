@@ -56,9 +56,9 @@ export default function BookingInquiryForm() {
     <form onSubmit={handleSubmit} className="contact-form contact-form--dark" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <input type="hidden" name="_subject" value="Заявка — Booking" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="Имя" placeholder={t('book_form_name')} required style={darkInput} />
-      <input type="email" name="Email" placeholder="mail@example.com" required style={darkInput} />
-      <textarea name="Запрос" rows={4} placeholder={t('book_form_request_ph')} required style={darkInput} />
+      <input type="text" name="Имя" placeholder={t('book_form_name')} autoComplete="name" aria-label={t('book_form_name')} required style={darkInput} />
+      <input type="email" name="Email" placeholder="mail@example.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
+      <textarea name="Запрос" rows={4} placeholder={t('book_form_request_ph')} autoComplete="off" aria-label={t('book_form_request_ph')} required style={darkInput} />
       {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem' }}>{t('val_error')}</p>}
       <button
         type="submit"

@@ -125,7 +125,7 @@ export default function LegalShop() {
                     placeholder={t('legal_modal_name_ph')}
                     style={inputStyle}
                   />
-                  {errors.name && <span style={errorStyle}>{errors.name}</span>}
+                  {errors.name && <span role="alert" style={errorStyle}>{errors.name}</span>}
                 </div>
                 <div>
                   <input
@@ -135,7 +135,7 @@ export default function LegalShop() {
                     placeholder={t('legal_modal_email')}
                     style={inputStyle}
                   />
-                  {errors.email && <span style={errorStyle}>{errors.email}</span>}
+                  {errors.email && <span role="alert" style={errorStyle}>{errors.email}</span>}
                 </div>
                 <div>
                   <input
@@ -145,7 +145,7 @@ export default function LegalShop() {
                     placeholder={t('legal_modal_phone')}
                     style={inputStyle}
                   />
-                  {errors.phone && <span style={errorStyle}>{errors.phone}</span>}
+                  {errors.phone && <span role="alert" style={errorStyle}>{errors.phone}</span>}
                 </div>
                 <button type="submit" className="submit-btn" style={{ gridColumn: 'auto' }}>
                   {t('legal_pay_btn')}

@@ -60,9 +60,9 @@ export default function PrInquiryForm() {
     >
       <input type="hidden" name="_subject" value="Заявка — PR & Marketing" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="Имя" placeholder="Name" required style={darkInput} />
-      <input type="email" name="Email" placeholder="mail@example.com" required style={darkInput} />
-      <input type="text" name="Услуга" placeholder={t('pr_form_service_ph')} style={darkInput} />
+      <input type="text" name="Имя" placeholder="Name" autoComplete="name" aria-label="Name" required style={darkInput} />
+      <input type="email" name="Email" placeholder="mail@example.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
+      <input type="text" name="Услуга" placeholder={t('pr_form_service_ph')} autoComplete="off" aria-label={t('pr_form_service_ph')} style={darkInput} />
       {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem' }}>{t('val_error')}</p>}
       <button type="submit" disabled={status === 'sending'} className="submit-btn" style={{ gridColumn: 'auto' }}>
         {status === 'sending' ? t('val_sending') : t('pr_form_submit')}

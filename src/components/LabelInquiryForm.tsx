@@ -60,10 +60,10 @@ export default function LabelInquiryForm() {
     >
       <input type="hidden" name="_subject" value="Заявка — Label / Демо" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="Псевдоним" placeholder="Artist Name" required style={darkInput} />
-      <input type="email" name="Email" placeholder="mail@example.com" required style={darkInput} />
-      <input type="url" name="Ссылка на трек" placeholder="SoundCloud / Drive / YouTube" style={{ ...darkInput, gridColumn: 'span 2' }} />
-      <textarea name="Кратко о себе" rows={4} placeholder={t('label_form_about_ph')} style={{ ...darkInput, gridColumn: 'span 2' }} />
+      <input type="text" name="Псевдоним" placeholder="Artist Name" autoComplete="nickname" aria-label="Artist Name" required style={darkInput} />
+      <input type="email" name="Email" placeholder="mail@example.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
+      <input type="url" name="Ссылка на трек" placeholder="SoundCloud / Drive / YouTube" autoComplete="off" aria-label="SoundCloud / Drive / YouTube" spellCheck={false} style={{ ...darkInput, gridColumn: 'span 2' }} />
+      <textarea name="Кратко о себе" rows={4} placeholder={t('label_form_about_ph')} autoComplete="off" aria-label={t('label_form_about_ph')} style={{ ...darkInput, gridColumn: 'span 2' }} />
       {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem', gridColumn: 'span 2' }}>{t('val_error')}</p>}
       <button type="submit" disabled={status === 'sending'} className="submit-btn">
         {status === 'sending' ? t('val_sending') : t('label_form_submit')}

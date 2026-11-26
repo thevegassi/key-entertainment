@@ -56,10 +56,10 @@ export default function LegalInquiryForm() {
     <form onSubmit={handleSubmit} className="contact-form contact-form--dark" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <input type="hidden" name="_subject" value="Заявка — Legal" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="Имя" placeholder={t('legal_form_name_ph')} required style={darkInput} />
-      <input type="email" name="Email" placeholder="example@mail.com" required style={darkInput} />
-      <input type="text" name="Тема" placeholder={t('legal_form_subject_ph')} style={darkInput} />
-      <textarea name="Сообщение" rows={4} placeholder={t('legal_form_msg_ph')} style={darkInput} />
+      <input type="text" name="Имя" placeholder={t('legal_form_name_ph')} autoComplete="name" aria-label={t('legal_form_name_ph')} required style={darkInput} />
+      <input type="email" name="Email" placeholder="example@mail.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
+      <input type="text" name="Тема" placeholder={t('legal_form_subject_ph')} autoComplete="off" aria-label={t('legal_form_subject_ph')} style={darkInput} />
+      <textarea name="Сообщение" rows={4} placeholder={t('legal_form_msg_ph')} autoComplete="off" aria-label={t('legal_form_msg_ph')} style={darkInput} />
       {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem' }}>{t('val_error')}</p>}
       <button
         type="submit"
