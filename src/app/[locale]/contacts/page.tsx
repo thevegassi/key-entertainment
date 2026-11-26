@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
 import SectionDivider from '@/components/SectionDivider';
+import SocialLinks from '@/components/SocialLinks';
 import { pageMetadata } from '@/lib/seo/metadata';
 import PageJsonLd from '@/components/seo/JsonLd';
 
@@ -13,15 +14,6 @@ const DEPARTMENTS = [
   { label: 'Booking', subKey: 'contacts_book_sub' as const, email: 'booking@keyent.kz' },
   { label: 'Legal', subKey: 'contacts_legal_sub' as const, email: 'legal@keyent.kz' },
   { label: 'PR & Marketing', subKey: 'contacts_pr_sub' as const, email: 'pr@keyent.kz' },
-];
-
-const SOCIALS = [
-  { href: 'https://wa.me/77010520606', label: 'WhatsApp' },
-  { href: 'https://t.me/keyentkz', label: 'Telegram' },
-  { href: 'https://vk.com/keyentertainment', label: 'VK' },
-  { href: 'https://instagram.com/keyentertainment.kz', label: 'Instagram' },
-  { href: 'https://www.youtube.com/@keyentkz', label: 'YouTube' },
-  { href: 'https://music.yandex.kz/label/632686', label: 'Яндекс Музыка' },
 ];
 
 export default async function ContactsPage() {
@@ -63,19 +55,7 @@ export default async function ContactsPage() {
               <p style={{ color: 'var(--navy-deep)', letterSpacing: '3px', fontSize: '0.65rem', textTransform: 'uppercase', marginBottom: 'var(--space-6)', fontWeight: 800 }}>
                 {t('contacts_socials')}
               </p>
-              <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
-                {SOCIALS.map(({ href, label }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: 'var(--gray)', textDecoration: 'none', fontSize: '0.8rem', border: '1px solid var(--hairline)', padding: '8px 16px', borderRadius: 'var(--radius-pill)' }}
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
+              <SocialLinks tone="light" size={44} />
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 import DistributionInquiryForm from '@/components/DistributionInquiryForm';
 import ServiceCard from '@/components/ServiceCard';
 import SectionDivider from '@/components/SectionDivider';
+import Icon from '@/components/icons/Icon';
 import { pageMetadata } from '@/lib/seo/metadata';
 import PageJsonLd from '@/components/seo/JsonLd';
 
@@ -80,9 +81,11 @@ export default async function DistributionPage() {
   const ArtistStrip = ({
     items,
     visitLabel,
+    icon,
   }: {
     items: { name: string; handle: string; url: string }[];
     visitLabel: string;
+    icon: string;
   }) => (
     <div style={{ marginTop: '48px' }}>
       <div
@@ -100,6 +103,8 @@ export default async function DistributionPage() {
             href={a.url}
             target="_blank"
             rel="noopener noreferrer"
+            className="artist-card"
+            aria-label={`${a.name} — ${visitLabel.replace(/\s*→\s*$/, '')}`}
             style={{
               flex: '0 0 200px',
               scrollSnapAlign: 'start',
@@ -114,8 +119,8 @@ export default async function DistributionPage() {
           >
             <span style={{ fontWeight: 800, color: 'var(--navy-deep)', fontSize: '0.95rem' }}>{a.name}</span>
             <span style={{ color: 'var(--gray)', fontSize: '0.78rem' }}>{a.handle}</span>
-            <span style={{ color: 'var(--navy-deep)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '1px', textTransform: 'uppercase', marginTop: '8px' }}>
-              {visitLabel}
+            <span className="artist-card-icon" aria-hidden="true">
+              <Icon name={icon} size={22} />
             </span>
           </a>
         ))}
@@ -227,7 +232,7 @@ export default async function DistributionPage() {
           resultNode={<p style={{ color: 'var(--gray)', fontSize: '0.92rem', lineHeight: 1.7, margin: 0 }}>{t('dist_yt_result')}</p>}
         />
 
-        <ArtistStrip items={ytChannels} visitLabel={t('yt_visit_channel')} />
+        <ArtistStrip items={ytChannels} visitLabel={t('yt_visit_channel')} icon="TablerIconBrandYoutube" />
       </section>
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
@@ -244,7 +249,7 @@ export default async function DistributionPage() {
           resultNode={<ol style={platformListStyle} dangerouslySetInnerHTML={{ __html: t('dist_tt_result') }} />}
         />
 
-        <ArtistStrip items={ttProfiles} visitLabel={t('tt_visit_profile')} />
+        <ArtistStrip items={ttProfiles} visitLabel={t('tt_visit_profile')} icon="TablerIconBrandTiktok" />
       </section>
       <SectionDivider from="var(--periwinkle)" to="var(--oxford)" />
 
