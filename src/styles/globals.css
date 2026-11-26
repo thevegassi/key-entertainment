@@ -14,7 +14,7 @@
     --indigo-ink: #080066;       /* type on periwinkle */
     --off-white: #F2F2F2;
     --ink: #1A1A1A;              /* body copy on light */
-    --ink-muted: rgba(12,35,80,.55);
+    --ink-muted: rgba(12,35,80,.7);  /* ≥4.5:1 на белом и светло-сером */
     --gray: #626D7A;
     --hairline: rgba(12,35,80,.12);
     --dark-card: #0D0D0D;
@@ -224,7 +224,7 @@ h3 {
     text-decoration: none;
     transition: background var(--dur-base, 180ms) var(--ease-standard, cubic-bezier(.2,0,.2,1));
 }
-.post-card .post-tag { color: var(--accent-press); font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+.post-card .post-tag { color: var(--navy-deep); font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
 .post-card .post-title { color: var(--navy-deep); font-size: 1.15rem; font-weight: 800; line-height: 1.3; margin: 0; }
 .post-card .post-excerpt { color: var(--gray); font-size: 0.88rem; line-height: 1.7; margin: 0; flex-grow: 1; }
 .post-card .post-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--gray); letter-spacing: 0.5px; }
@@ -898,6 +898,7 @@ img { max-width: 100%; height: auto; }
     text-align: left;
     white-space: nowrap;
 }
+.lang-option { display: block; text-decoration: none; }
 .lang-option:hover { color: var(--oxford); background: var(--off-white); }
 @media (max-width: 1024px) {
     .lang-switcher { margin: 0; }
