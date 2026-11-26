@@ -2,6 +2,7 @@
 
 import { useState, type CSSProperties } from 'react';
 import { trackGoal } from '@/lib/analytics';
+import FormSuccess from '@/components/FormSuccess';
 import { useTranslations } from 'next-intl';
 
 const darkInput: CSSProperties = {
@@ -43,24 +44,18 @@ export default function LegalInquiryForm() {
     }
   }
 
-  if (status === 'done') {
-    return (
-      <div style={{ textAlign: 'center', padding: '40px' }}>
-        <p style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--accent)' }}>✓</p>
-        <p style={{ marginTop: '12px', color: 'rgba(255,255,255,0.65)' }}>{t('val_sending')}</p>
-      </div>
-    );
-  }
+  if (status === 'done') return <FormSuccess tone="dark" />;
 
   return (
     <form onSubmit={handleSubmit} className="contact-form contact-form--dark" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <input type="hidden" name="_subject" value="Заявка — Legal" />
       <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
       <input type="text" name="Имя" placeholder={t('legal_form_name_ph')} autoComplete="name" aria-label={t('legal_form_name_ph')} required style={darkInput} />
       <input type="email" name="Email" placeholder="example@mail.com" autoComplete="email" aria-label="Email" spellCheck={false} required style={darkInput} />
       <input type="text" name="Тема" placeholder={t('legal_form_subject_ph')} autoComplete="off" aria-label={t('legal_form_subject_ph')} style={darkInput} />
       <textarea name="Сообщение" rows={4} placeholder={t('legal_form_msg_ph')} autoComplete="off" aria-label={t('legal_form_msg_ph')} style={darkInput} />
-      {status === 'error' && <p style={{ color: '#ff8585', fontSize: '0.85rem' }}>{t('val_error')}</p>}
+      {status === 'error' && <p role="alert" style={{ color: '#ff8585', fontSize: '0.85rem' }}>{t('val_error')}</p>}
       <button
         type="submit"
         disabled={status === 'sending'}
