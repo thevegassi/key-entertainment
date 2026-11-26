@@ -1,0 +1,58 @@
+/* Tailwind v4 для shadcn/ui и animate-ui — ИЗОЛИРОВАННО от основного сайта (globals.css):
+   — без preflight (сброс стилей не трогает существующие страницы);
+   — утилиты генерируются ТОЛЬКО для папок новых компонентов (source(none) + @source ниже).
+   Чтобы использовать Tailwind-классы где-то ещё, добавьте сюда ещё один @source. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+/* Утилиты — БЕЗ слоя: в globals.css есть сброс margin и padding для всех элементов (без слоя),
+   он бы перебил слоёные утилиты отступов (px, p, m). */
+@import 'tailwindcss/utilities.css' source(none);
+@import 'tw-animate-css';
+
+@source '../components/ui';
+@source '../components/animate-ui';
+
+/* Точечный аналог preflight — только для элементов shadcn/animate-ui (у них всегда есть data-slot).
+   Остальной сайт не затронут. Слой base ниже utilities, поэтому классы компонентов его переопределяют. */
+@layer base {
+  [data-slot], [data-slot] *, [data-slot]::before, [data-slot]::after {
+    box-sizing: border-box;
+    border: 0 solid var(--hairline);
+  }
+  [data-slot]:is(button, input, select, textarea), [data-slot] :is(button, input, select, textarea) {
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+  }
+  [data-slot]:is(button, [role='button']) { cursor: pointer; }
+}
+
+/* Токены shadcn → переменные бренда (globals.css). Бренд: лайм — акцент/CTA, Oxford — фокус и тёмный фон. */
+@theme inline {
+  --color-background: #fff;
+  --color-foreground: var(--ink);
+  --color-card: #fff;
+  --color-card-foreground: var(--ink);
+  --color-popover: #fff;
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-ink);
+  --color-secondary: var(--off-white);
+  --color-secondary-foreground: var(--navy-deep);
+  --color-muted: var(--off-white);
+  --color-muted-foreground: var(--gray);
+  --color-accent: var(--off-white);
+  --color-accent-foreground: var(--navy-deep);
+  --color-destructive: #c0392b;
+  --color-border: var(--hairline);
+  --color-input: var(--hairline);
+  --color-ring: var(--oxford);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: var(--radius-card);
+  --radius-xl: var(--radius-card);
+}
