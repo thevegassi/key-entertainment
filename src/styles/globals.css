@@ -1268,3 +1268,47 @@ main:focus { outline: none; }
 .deck-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 @media (max-width: 1024px) { .deck-grid-3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .deck-grid-3 { grid-template-columns: 1fr; } }
+
+/* ===== Фото и кейсы из деки (слайды 04, 05, 09, 16, 19–21) ===== */
+/* Тонировка navy поверх фото: как «mix-blend-mode: color» в Figma */
+.deck-tint { position: relative; overflow: hidden; background: #717171; isolation: isolate; }
+.deck-tint::after { content: ''; position: absolute; inset: 0; background: var(--oxford); mix-blend-mode: color; pointer-events: none; }
+.deck-tint img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.deck-band { border-radius: var(--radius-deck-lg); height: clamp(180px, 31vw, 420px); }
+.deck-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 22px; }
+.deck-photos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; display: block; filter: grayscale(1) contrast(1.05); background: #717171; }
+.deck-wall { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; max-width: 640px; margin: 0 0 40px; }
+.deck-wall img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; display: block; background: var(--card-lavender-inset); }
+@media (max-width: 640px) { .deck-wall { grid-template-columns: repeat(5, 1fr); } .deck-wall img:nth-child(n+26) { display: none; } }
+
+.deck-yt-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 48px 0 32px; }
+.deck-yt-card { display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: var(--oxford); transition: background var(--dur-base) var(--ease-standard); }
+.deck-yt-card:hover { background: #eef2fa; }
+.deck-yt-card:focus-visible { outline: 3px solid var(--oxford); outline-offset: 3px; }
+.deck-yt-card__shot { position: relative; border-radius: 10px; overflow: hidden; height: 108px; background: #fff; }
+.deck-yt-card__shot img { position: absolute; left: 0; top: 0; width: 175%; max-width: none; height: auto; transform: translate(-16%, -9%); display: block; }
+.deck-yt-card h3 { margin: 0; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.03em; text-transform: none; color: var(--oxford); }
+.deck-yt-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.deck-yt-card li { padding: 10px 0; border-top: 1px solid var(--oxford); font-size: .95rem; line-height: 1.25; letter-spacing: -0.02em; color: var(--oxford); }
+.deck-yt-card li:first-child { border-top: 0; padding-top: 0; font-weight: 700; }
+@media (max-width: 860px) { .deck-yt-cases { grid-template-columns: 1fr; } }
+
+.deck-case { display: flex; gap: 20px; align-items: stretch; }
+.deck-case__poster { flex: 0 0 38%; max-width: 200px; align-self: flex-start; aspect-ratio: 3 / 4; border-radius: 10px; overflow: hidden; background: var(--card-lavender-inset); }
+.deck-case__poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.deck-case__body { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-width: 0; }
+.deck-case h3 { margin: 0 0 10px; font-size: clamp(1.05rem, 1.6vw, 1.5rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; text-transform: none; color: var(--oxford); overflow-wrap: anywhere; }
+.deck-case p { margin: 0; font-size: .9rem; line-height: 1.4; letter-spacing: -0.01em; color: #3F4A5A; }
+.deck-case .deck-chip { align-self: flex-start; }
+.cases-grid .deck-case { min-height: 0; flex-direction: row; }
+
+.deck-logo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.deck-logo-card { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.deck-logo-tile { background: #fff; border-radius: 10px; height: 120px; display: flex; align-items: center; justify-content: center; padding: 14px; overflow: hidden; }
+.deck-logo-tile img { max-width: 100%; max-height: 90px; width: auto; height: auto; object-fit: contain; display: block; }
+.deck-logo-card h3 { margin: 6px 0 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.03em; text-transform: none; color: var(--oxford); }
+.deck-logo-card p { margin: 0; font-size: .88rem; line-height: 1.35; letter-spacing: -0.01em; color: #3F4A5A; }
+.deck-logo-more { justify-content: center; align-items: center; background: rgba(228,234,246,.55); }
+.deck-logo-more p { font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--oxford); }
+@media (max-width: 1024px) { .deck-logo-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .deck-logo-grid { grid-template-columns: repeat(2, 1fr); } .deck-case { flex-direction: column; } .deck-case__poster { max-width: none; flex-basis: auto; height: 220px; } }

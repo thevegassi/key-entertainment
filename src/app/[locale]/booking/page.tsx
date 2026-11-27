@@ -16,12 +16,12 @@ const SERVICE_ICONS: Record<string, string> = {
 export const generateMetadata = pageMetadata('booking');
 
 const CASES = [
-  { key: 'book_case1', title: 'BASQOSU FEST' },
-  { key: 'book_case2', title: 'ЯКУТСК BIG SHOW' },
-  { key: 'book_case3', title: 'KALI[ZONE] TOUR 2024' },
-  { key: 'book_case4', title: 'ИК USA TOUR' },
-  { key: 'book_case5', title: 'THE LIMBA USA TOUR' },
-  { key: 'book_case6', title: 'RAiM & ERKE USA TOUR' },
+  { key: 'book_case1', title: 'BASQOSU FEST', poster: 1, tag: 'KEY BOOKING AGENCY' },
+  { key: 'book_case2', title: 'ЯКУТСК BIG SHOW', poster: 2, tag: 'KEY BOOKING AGENCY' },
+  { key: 'book_case3', title: 'KALI[ZONE] TOUR 2024', poster: 3, tag: 'KEY BOOKING AGENCY' },
+  { key: 'book_case4', title: 'ИК USA TOUR', poster: 4, tag: 'ATB PROMOTIONS' },
+  { key: 'book_case5', title: 'THE LIMBA USA TOUR', poster: 5, tag: 'ATB PROMOTIONS' },
+  { key: 'book_case6', title: 'RAiM & ERKE USA TOUR', poster: 6, tag: 'ATB PROMOTIONS' },
 ] as const;
 
 export default async function BookingPage() {
@@ -66,6 +66,12 @@ export default async function BookingPage() {
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
           <div className="deck-card" style={{ padding: 'clamp(24px, 3vw, 36px)' }}>
+            <div className="deck-photos" aria-hidden="true">
+              {[1, 2, 3].map((n) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={n} src={`/deck/img/artist-${n}.webp`} alt="" loading="lazy" />
+              ))}
+            </div>
             <p className="slide-num">FOR TALENTS</p>
             <h3 style={{ marginBottom: '22px', color: 'var(--oxford)', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', letterSpacing: '-0.04em' }}>{t('book_for_artists_title')}</h3>
             <ul
@@ -77,6 +83,12 @@ export default async function BookingPage() {
             </p>
           </div>
           <div className="deck-card" style={{ padding: 'clamp(24px, 3vw, 36px)' }}>
+            <div className="deck-photos" aria-hidden="true">
+              {[1, 2, 3].map((n) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={n} src={`/deck/img/org-${n}.webp`} alt="" loading="lazy" />
+              ))}
+            </div>
             <p className="slide-num">FOR PARTNERS</p>
             <h3 style={{ marginBottom: '22px', color: 'var(--oxford)', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', letterSpacing: '-0.04em' }}>{t('book_for_org_title')}</h3>
             <ul
@@ -94,11 +106,19 @@ export default async function BookingPage() {
       <section style={{ padding: 'var(--space-16) 6% var(--space-16)', background: '#fff' }}>
         <SectionHeading eyebrow={t('book_cases_label')} on="light">{t('book_cases_title')}</SectionHeading>
         <div className="cases-grid">
-          {CASES.map((c, i) => (
-            <div key={c.key} className={i === 0 ? 'deck-navy' : 'deck-card'} style={i === 0 ? { borderRadius: 'var(--radius-deck)' } : undefined}>
-              <h4 style={{ color: i === 0 ? 'var(--accent)' : 'var(--oxford)', margin: '0 0 10px', fontSize: i === 0 ? '1.5rem' : '1.05rem', textTransform: 'none', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.15 }}>{c.title}</h4>
-              <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.5, letterSpacing: '-0.01em', color: i === 0 ? 'rgba(255,255,255,0.85)' : '#3F4A5A', maxWidth: i === 0 ? '480px' : undefined }}>{t(c.key)}</p>
-              <span className="deck-chip" style={{ alignSelf: 'flex-start', marginTop: 'auto', ...(i === 0 ? { background: 'var(--accent)', color: 'var(--accent-ink)' } : {}) }}>KEY BOOKING AGENCY</span>
+          {CASES.map((c) => (
+            <div key={c.key} className="deck-card deck-case">
+              <div className="deck-case__poster">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/deck/img/poster-p${c.poster}.webp`} alt={c.title} loading="lazy" />
+              </div>
+              <div className="deck-case__body">
+                <div>
+                  <h3 translate="no">{c.title}</h3>
+                  <p>{t(c.key)}</p>
+                </div>
+                <span className="deck-chip">{c.tag}</span>
+              </div>
             </div>
           ))}
         </div>
