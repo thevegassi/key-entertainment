@@ -66,11 +66,11 @@ export default async function LegalPage() {
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Areas of protection */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <SectionHeading eyebrow={t('legal_areas_label')} on="periwinkle">{t('legal_areas_title')}</SectionHeading>
+      <section className="on-dark deck-navy-section" style={{ padding: 'var(--space-16) 6%' }}>
+        <SectionHeading eyebrow={t('legal_areas_label')} on="dark">{t('legal_areas_title')}</SectionHeading>
         <div className="services-grid">
           {services.map((s) => (
-            <ServiceCard key={s} icon={AREA_ICONS[s]} label={t(`legal_${s}_title`)} on="periwinkle">
+            <ServiceCard key={s} icon={AREA_ICONS[s]} label={t(`legal_${s}_title`)} on="navy">
               {t(`legal_${s}_desc`)}
             </ServiceCard>
           ))}

@@ -50,11 +50,11 @@ export default async function BookingPage() {
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Services */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <SectionHeading eyebrow={t('book_services_label')} on="periwinkle">{t('book_services_title')}</SectionHeading>
+      <section className="on-dark deck-navy-section" style={{ padding: 'var(--space-16) 6%' }}>
+        <SectionHeading eyebrow={t('book_services_label')} on="dark">{t('book_services_title')}</SectionHeading>
         <div className="services-grid">
           {['s1', 's2', 's3', 's4'].map((s) => (
-            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`book_${s}_title`)} on="periwinkle">
+            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`book_${s}_title`)} on="navy">
               {t(`book_${s}_desc`)}
             </ServiceCard>
           ))}
@@ -65,22 +65,22 @@ export default async function BookingPage() {
       {/* For artists / for organizers */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
-          <div style={{ padding: '36px', borderLeft: '3px solid var(--accent)', background: 'var(--off-white)', borderRadius: 'var(--radius-card)' }}>
+          <div className="deck-card" style={{ padding: 'clamp(24px, 3vw, 36px)' }}>
             <p className="slide-num">FOR TALENTS</p>
-            <h3 style={{ marginBottom: '22px' }}>{t('book_for_artists_title')}</h3>
+            <h3 style={{ marginBottom: '22px', color: 'var(--oxford)', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', letterSpacing: '-0.04em' }}>{t('book_for_artists_title')}</h3>
             <ul
-              style={{ listStyle: 'none', padding: 0, color: 'var(--gray)', lineHeight: 1.9, fontSize: '0.92rem' }}
+              className="deck-chips-list"
               dangerouslySetInnerHTML={{ __html: t('book_artists_list') }}
             />
             <p style={{ marginTop: '22px', color: 'var(--navy-deep)', fontWeight: 700, fontSize: '0.9rem', lineHeight: 1.6 }}>
               {t('book_artists_result')}
             </p>
           </div>
-          <div style={{ padding: '36px', borderLeft: '3px solid var(--accent)', background: 'var(--off-white)', borderRadius: 'var(--radius-card)' }}>
+          <div className="deck-card" style={{ padding: 'clamp(24px, 3vw, 36px)' }}>
             <p className="slide-num">FOR PARTNERS</p>
-            <h3 style={{ marginBottom: '22px' }}>{t('book_for_org_title')}</h3>
+            <h3 style={{ marginBottom: '22px', color: 'var(--oxford)', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', letterSpacing: '-0.04em' }}>{t('book_for_org_title')}</h3>
             <ul
-              style={{ listStyle: 'none', padding: 0, color: 'var(--gray)', lineHeight: 1.9, fontSize: '0.92rem' }}
+              className="deck-chips-list"
               dangerouslySetInnerHTML={{ __html: t('book_org_list') }}
             />
             <p style={{ marginTop: '22px', color: 'var(--navy-deep)', fontWeight: 700, fontSize: '0.9rem', lineHeight: 1.6 }}>
@@ -89,24 +89,21 @@ export default async function BookingPage() {
           </div>
         </div>
       </section>
-      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Cases */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <SectionHeading eyebrow={t('book_cases_label')} on="periwinkle">{t('book_cases_title')}</SectionHeading>
+      <section style={{ padding: 'var(--space-16) 6% var(--space-16)', background: '#fff' }}>
+        <SectionHeading eyebrow={t('book_cases_label')} on="light">{t('book_cases_title')}</SectionHeading>
         <div className="cases-grid">
           {CASES.map((c, i) => (
-            <div key={c.key} style={{ background: i === 0 ? 'var(--oxford)' : 'var(--off-white)', borderRadius: 'var(--radius-card)', overflow: 'hidden' }}>
-              <div style={{ height: '6px', background: 'var(--accent)' }} />
-              <div style={{ padding: i === 0 ? '32px' : '26px' }}>
-                <h4 style={{ color: i === 0 ? '#fff' : 'var(--navy-deep)', marginBottom: '8px', fontSize: i === 0 ? '1.15rem' : '0.95rem', textTransform: 'uppercase', fontWeight: 800 }}>{c.title}</h4>
-                <p style={{ fontSize: i === 0 ? '0.92rem' : '0.85rem', color: i === 0 ? 'rgba(255,255,255,0.7)' : 'var(--gray)', lineHeight: 1.6, maxWidth: i === 0 ? '480px' : undefined }}>{t(c.key)}</p>
-              </div>
+            <div key={c.key} className={i === 0 ? 'deck-navy' : 'deck-card'} style={i === 0 ? { borderRadius: 'var(--radius-deck)' } : undefined}>
+              <h4 style={{ color: i === 0 ? 'var(--accent)' : 'var(--oxford)', margin: '0 0 10px', fontSize: i === 0 ? '1.5rem' : '1.05rem', textTransform: 'none', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.15 }}>{c.title}</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.5, letterSpacing: '-0.01em', color: i === 0 ? 'rgba(255,255,255,0.85)' : '#3F4A5A', maxWidth: i === 0 ? '480px' : undefined }}>{t(c.key)}</p>
+              <span className="deck-chip" style={{ alignSelf: 'flex-start', marginTop: 'auto', ...(i === 0 ? { background: 'var(--accent)', color: 'var(--accent-ink)' } : {}) }}>KEY BOOKING AGENCY</span>
             </div>
           ))}
         </div>
       </section>
-      <SectionDivider from="var(--periwinkle)" to="var(--oxford)" />
+      <SectionDivider from="#fff" to="var(--oxford)" flip />
 
       {/* Contact */}
       <section id="contact-section" className="on-dark" style={{ padding: 'var(--space-16) 10%', background: 'var(--oxford)', position: 'relative', overflow: 'hidden' }}>

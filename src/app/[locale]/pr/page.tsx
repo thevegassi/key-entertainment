@@ -55,11 +55,11 @@ export default async function PrPage() {
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Services */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <SectionHeading eyebrow={t('pr_services_label')} on="periwinkle">{t('pr_services_title')}</SectionHeading>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+      <section className="on-dark deck-navy-section" style={{ padding: 'var(--space-16) 6%' }}>
+        <SectionHeading eyebrow={t('pr_services_label')} on="dark">{t('pr_services_title')}</SectionHeading>
+        <div className="deck-grid-3">
           {['s1','s2','s3','s4','s5','s6'].map((s) => (
-            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`pr_${s}_title`)} on="periwinkle">
+            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`pr_${s}_title`)} on="navy">
               {t(`pr_${s}_desc`)}
             </ServiceCard>
           ))}
