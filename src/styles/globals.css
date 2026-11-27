@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root {
     /* ── Brand core (brandbook slide 04) ── */
@@ -37,8 +37,19 @@
     --space-16: 96px;
     --space-18: 108px;
     --space-20: 128px;
-    --font-display: 'Nunito Sans', sans-serif;
-    --font-body: 'Manrope', sans-serif;
+    --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;  /* Figma deck: Inter */
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    /* ── Figma deck tokens (key-music, 1920×1080 → site scale) ── */
+    --track-display: -0.05em;     /* 48px / -2.4px */
+    --lh-display: 1.1;
+    --card-lavender: #E4EAF6;     /* светлая карточка */
+    --card-lavender-inset: #C7D2E7; /* плитка иконки / фото внутри */
+    --navy-grad: linear-gradient(162deg, #0C2350 20.7%, #010814 141%);
+    --navy-grad-row: linear-gradient(194deg, #0C2350 46%, #010814 129%);
+    --radius-deck: 20px;          /* лавандовая карточка */
+    --radius-deck-lg: 30px;       /* крупные тёмные блоки */
+    --radius-deck-xl: 40px;       /* строки-«таблетки» направлений */
 
     /* Motion — brandbook house defaults: flat, fast, no bounce */
     --ease-standard: cubic-bezier(.2,0,.2,1);
@@ -68,7 +79,7 @@ html { scroll-behavior: smooth; }
 body {
     background: #FFFFFF;
     color: var(--ink);
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: var(--font-body);
     margin: 0;
     overflow-x: hidden;
 }
@@ -134,22 +145,22 @@ section {
 
 h1 {
     font-size: clamp(2.8rem, 7vw, 6.5rem);
-    text-transform: uppercase; font-weight: 900;
-    line-height: 0.92; margin: 0; letter-spacing: -1px;
+    text-transform: uppercase; font-weight: 700;
+    line-height: 0.95; margin: 0; letter-spacing: var(--track-display);
     color: var(--oxford);
 }
 
 h2 {
     font-size: clamp(1.8rem, 4vw, 3rem);
-    text-transform: uppercase; font-weight: 900;
-    margin-bottom: 40px; line-height: 1.1;
+    text-transform: uppercase; font-weight: 700;
+    margin-bottom: 40px; line-height: 1.05; letter-spacing: var(--track-display);
     color: var(--oxford);
 }
 
 h3 {
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-    text-transform: uppercase; font-weight: 900;
-    margin-bottom: 20px; line-height: 1.2;
+    text-transform: none; font-weight: 600;
+    margin-bottom: 20px; line-height: 1.15; letter-spacing: -0.04em;
     color: var(--oxford);
 }
 
@@ -683,7 +694,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
 
     /* Stat big */
     .stat-item.big { flex-direction: row !important; align-items: center !important; padding: 30px !important; }
-    .stat-item.big .stat-num { font-size: clamp(3rem, 8vw, 5rem) !important; }
+    .stat-item.big .stat-num { font-variant-numeric: tabular-nums; font-size: clamp(3rem, 8vw, 5rem) !important; }
 }
 
 /* ── 640px ── мобильный большой ── */
@@ -704,7 +715,7 @@ img:not(.nav-logo):not(.mission-logo-bg) {
     .stats-grid { grid-template-columns: 1fr !important; }
     .eco-grid { grid-template-columns: 1fr 1fr !important; }
     .stat-item { padding: 24px 18px !important; }
-    .stat-num { font-size: 2.8rem !important; }
+    .stat-num { font-variant-numeric: tabular-nums; font-size: 2.8rem !important; }
 
     /* Карусель */
     .case-slide { flex: 0 0 80vw !important; }
@@ -796,7 +807,7 @@ img { max-width: 100%; height: auto; }
         align-items: flex-start !important;
         padding: 32px 24px !important;
     }
-    .stat-item.big .stat-num {
+    .stat-item.big .stat-num { font-variant-numeric: tabular-nums;
         font-size: clamp(3.5rem, 14vw, 6rem) !important;
         letter-spacing: -2px !important;
     }
@@ -1123,3 +1134,181 @@ main:focus { outline: none; }
     main > section.on-dark:first-of-type { padding-left: 6% !important; padding-right: 6% !important; }
     main > section.on-dark:first-of-type h1 { font-size: clamp(1.9rem, 9.4vw, 3.4rem) !important; line-height: 1.05 !important; }
 }
+
+/* ===================== FIGMA DECK LANGUAGE (key-music, 1920×1080) =====================
+   Источник: Figma «key-music (Copy)», слайды 01–23. Inter, жёсткий трекинг −0.05em на дисплейных
+   заголовках, тёмные градиентные блоки с лаймовыми заголовками, светлые карточки #E4EAF6.
+   Движение — только fade (бренд-правило), см. src/lib/motion.ts. */
+.deck-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: var(--track-display);
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+.deck-lead {
+    font-size: clamp(1.1rem, 1.9vw, 1.75rem);
+    line-height: var(--lh-display);
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: pretty;
+}
+
+/* Светлая карточка */
+.deck-card {
+    background: var(--card-lavender);
+    border-radius: var(--radius-deck);
+    padding: clamp(20px, 2.2vw, 30px);
+    color: var(--oxford);
+}
+.deck-card__tile {
+    background: var(--card-lavender-inset);
+    border-radius: var(--radius-deck-lg);
+    display: grid; place-items: center;
+    color: var(--card-lavender);
+}
+
+/* Тёмный градиентный блок (Mission / Goal / History) */
+.deck-navy {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: var(--navy-grad);
+    color: #fff;
+    padding: clamp(24px, 3.1vw, 60px);
+    display: flex; flex-direction: column; gap: clamp(14px, 1.6vw, 30px);
+}
+.deck-navy::before {                     /* общий для всех блоков оверлей-паттерн из деки */
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: url(/pattern-4-navy.svg) center / 420px;
+    opacity: .22; mix-blend-mode: overlay; pointer-events: none;
+}
+.deck-navy__title {
+    color: var(--accent);
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    font-weight: 600; line-height: var(--lh-display);
+    letter-spacing: var(--track-display); text-transform: uppercase; margin: 0;
+}
+.deck-navy__text {
+    font-size: clamp(1rem, 1.67vw, 2rem);
+    line-height: var(--lh-display); letter-spacing: -0.045em; font-weight: 400; margin: 0;
+    max-width: 30ch; text-wrap: pretty;
+}
+.deck-navy__icon {
+    position: absolute; right: clamp(16px, 2vw, 40px); bottom: clamp(16px, 2vw, 40px);
+    width: clamp(88px, 12.5vw, 240px); height: auto; pointer-events: none;
+    filter: drop-shadow(0 0 40px rgba(211,255,51,.35));
+}
+.deck-navy--mission { border-radius: 0 0 0 var(--radius-deck-lg); }
+.deck-navy--goal    { border-radius: 0 var(--radius-deck-lg) 0 0; }
+.deck-navy--history { border-radius: var(--radius-deck-lg) 0 0 0; }
+.deck-who {
+    display: grid; grid-template-columns: 42fr 58fr; gap: 10px;
+}
+.deck-who__intro { grid-column: 1; padding: 0 clamp(16px, 3vw, 60px) clamp(16px, 2vw, 40px) 0; }
+.deck-who .deck-navy--mission { grid-column: 2; grid-row: 1; }
+.deck-who .deck-navy--goal { grid-column: 1; grid-row: 2; }
+.deck-who .deck-navy--history { grid-column: 2; grid-row: 2; }
+.deck-history__cols { display: flex; gap: clamp(20px, 3vw, 60px); justify-content: space-between; }
+.deck-history__cols p:last-child { text-align: right; }
+.deck-timeline { position: relative; height: 2px; margin-top: auto; background: linear-gradient(90deg, var(--accent), rgba(211,255,51,0)); }
+.deck-timeline::before { content: ''; position: absolute; left: 0; top: 50%; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); transform: translateY(-50%); box-shadow: 0 0 24px rgba(211,255,51,.6); }
+.deck-timeline__year { position: absolute; left: 4px; top: 18px; color: var(--accent); font-weight: 300; font-size: clamp(.9rem, 1.4vw, 1.6rem); letter-spacing: -0.04em; }
+
+/* Строки-«таблетки» направлений (слайд 03) */
+.deck-rows { display: flex; flex-direction: column; gap: 10px; }
+.deck-row {
+    position: relative; overflow: hidden; isolation: isolate;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    background: var(--navy-grad-row); color: #fff; text-decoration: none;
+    border-radius: var(--radius-deck-xl);
+    padding: clamp(20px, 2.3vw, 44px) clamp(22px, 2.6vw, 50px);
+}
+.deck-row::before {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: radial-gradient(ellipse 60% 140% at 100% 50%, rgba(211,255,51,.10), transparent 70%), url(/pattern-4-navy.svg) right center / 420px;
+    opacity: .5; pointer-events: none;
+}
+.deck-row::after {                      /* hover = лёгкая подсветка, без движения */
+    content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(211,255,51,.07);
+    opacity: 0; transition: opacity var(--dur-base) var(--ease-standard);
+}
+.deck-row:hover::after, .deck-row:focus-visible::after { opacity: 1; }
+.deck-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.deck-row__title { margin: 0; font-size: clamp(1.25rem, 2.5vw, 3rem); font-weight: 700; line-height: .95; letter-spacing: var(--track-display); color: #fff; text-transform: none; }
+.deck-row__mail { margin: clamp(8px, 1.1vw, 20px) 0 0; font-size: clamp(.9rem, 1.45vw, 1.75rem); line-height: .95; letter-spacing: -0.045em; color: var(--accent); }
+.deck-row__icon { flex: none; width: clamp(40px, 4.2vw, 80px); height: clamp(40px, 4.2vw, 80px); object-fit: contain; }
+
+/* Чипы-теги (слайды 06, 18, 19, 21) */
+.deck-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.deck-chip { background: var(--oxford); color: #fff; border-radius: 6px; padding: 6px 12px; font-size: .8rem; line-height: 1.25; letter-spacing: -0.02em; }
+.deck-chip--lime { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+@media (max-width: 860px) {
+    .deck-who { grid-template-columns: 1fr; }
+    .deck-who__intro, .deck-who .deck-navy--mission, .deck-who .deck-navy--goal, .deck-who .deck-navy--history { grid-column: 1; grid-row: auto; }
+    .deck-who__intro { padding-right: 0; }
+    .deck-navy--mission, .deck-navy--goal, .deck-navy--history { border-radius: var(--radius-deck-lg); }
+    .deck-history__cols { flex-direction: column; }
+    .deck-history__cols p:last-child { text-align: left; }
+    .deck-navy { min-height: 0; padding-bottom: 120px; }
+    .deck-navy--history { padding-bottom: 60px; }
+}
+@media (prefers-reduced-motion: reduce) { .deck-row::after { transition: none; } }
+.deck-display em, .deck-display i { font-style: normal; }
+@media (max-width: 860px) { .deck-history__cols p:first-child { flex: none !important; } }
+
+/* Секции-«слайд 17»: тёмный градиент с лаймовыми заголовками карточек */
+.deck-navy-section { background: var(--navy-grad); position: relative; overflow: hidden; isolation: isolate; }
+.deck-navy-section::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url(/pattern-4-navy.svg) center / 420px; opacity: .2; mix-blend-mode: overlay; pointer-events: none; }
+/* Списки-чипы (Who is this for?) */
+.deck-chips-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.deck-chips-list li { background: var(--oxford); color: #fff; border-radius: 6px; padding: 7px 12px; font-size: .85rem; line-height: 1.3; letter-spacing: -0.01em; }
+.cases-grid .deck-card, .cases-grid .deck-navy { display: flex; flex-direction: column; min-height: 190px; }
+.cases-grid > div:nth-child(1) { grid-column: span 1; }
+.deck-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 1024px) { .deck-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .deck-grid-3 { grid-template-columns: 1fr; } }
+
+/* ===== Фото и кейсы из деки (слайды 04, 05, 09, 16, 19–21) ===== */
+/* Тонировка navy поверх фото: как «mix-blend-mode: color» в Figma */
+.deck-tint { position: relative; overflow: hidden; background: #717171; isolation: isolate; }
+.deck-tint::after { content: ''; position: absolute; inset: 0; background: var(--oxford); mix-blend-mode: color; pointer-events: none; }
+.deck-tint img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.deck-band { border-radius: var(--radius-deck-lg); height: clamp(180px, 31vw, 420px); }
+.deck-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 22px; }
+.deck-photos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; display: block; filter: grayscale(1) contrast(1.05); background: #717171; }
+.deck-wall { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; max-width: 640px; margin: 0 0 40px; }
+.deck-wall img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; display: block; background: var(--card-lavender-inset); }
+@media (max-width: 640px) { .deck-wall { grid-template-columns: repeat(5, 1fr); } .deck-wall img:nth-child(n+26) { display: none; } }
+
+.deck-yt-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 48px 0 32px; }
+.deck-yt-card { display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: var(--oxford); transition: background var(--dur-base) var(--ease-standard); }
+.deck-yt-card:hover { background: #eef2fa; }
+.deck-yt-card:focus-visible { outline: 3px solid var(--oxford); outline-offset: 3px; }
+.deck-yt-card__shot { position: relative; border-radius: 10px; overflow: hidden; height: 108px; background: #fff; }
+.deck-yt-card__shot img { position: absolute; left: 0; top: 0; width: 175%; max-width: none; height: auto; transform: translate(-16%, -9%); display: block; }
+.deck-yt-card h3 { margin: 0; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.03em; text-transform: none; color: var(--oxford); }
+.deck-yt-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.deck-yt-card li { padding: 10px 0; border-top: 1px solid var(--oxford); font-size: .95rem; line-height: 1.25; letter-spacing: -0.02em; color: var(--oxford); }
+.deck-yt-card li:first-child { border-top: 0; padding-top: 0; font-weight: 700; }
+@media (max-width: 860px) { .deck-yt-cases { grid-template-columns: 1fr; } }
+
+.deck-case { display: flex; gap: 20px; align-items: stretch; }
+.deck-case__poster { flex: 0 0 38%; max-width: 200px; align-self: flex-start; aspect-ratio: 3 / 4; border-radius: 10px; overflow: hidden; background: var(--card-lavender-inset); }
+.deck-case__poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.deck-case__body { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-width: 0; }
+.deck-case h3 { margin: 0 0 10px; font-size: clamp(1.05rem, 1.6vw, 1.5rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; text-transform: none; color: var(--oxford); overflow-wrap: anywhere; }
+.deck-case p { margin: 0; font-size: .9rem; line-height: 1.4; letter-spacing: -0.01em; color: #3F4A5A; }
+.deck-case .deck-chip { align-self: flex-start; }
+.cases-grid .deck-case { min-height: 0; flex-direction: row; }
+
+.deck-logo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.deck-logo-card { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.deck-logo-tile { background: #fff; border-radius: 10px; height: 120px; display: flex; align-items: center; justify-content: center; padding: 14px; overflow: hidden; }
+.deck-logo-tile img { max-width: 100%; max-height: 90px; width: auto; height: auto; object-fit: contain; display: block; }
+.deck-logo-card h3 { margin: 6px 0 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.03em; text-transform: none; color: var(--oxford); }
+.deck-logo-card p { margin: 0; font-size: .88rem; line-height: 1.35; letter-spacing: -0.01em; color: #3F4A5A; }
+.deck-logo-more { justify-content: center; align-items: center; background: rgba(228,234,246,.55); }
+.deck-logo-more p { font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--oxford); }
+@media (max-width: 1024px) { .deck-logo-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .deck-logo-grid { grid-template-columns: repeat(2, 1fr); } .deck-case { flex-direction: column; } .deck-case__poster { max-width: none; flex-basis: auto; height: 220px; } }

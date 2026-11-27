@@ -18,17 +18,17 @@ const SERVICE_ICONS: Record<string, string> = {
 export const generateMetadata = pageMetadata('pr');
 
 const CASES = [
-  { name: 'DODO PIZZA', key: 'pr_case1' as const },
-  { name: 'COCA-COLA', key: 'pr_case2' as const },
-  { name: 'BURGER KING', key: 'pr_case3' as const },
-  { name: 'XIAOMI', key: 'pr_case4' as const },
-  { name: 'STAR OF ASIA', key: 'pr_case5' as const },
-  { name: 'PARTY AYUL', key: 'pr_case6' as const },
-  { name: 'ZERDELI SCHOOL', key: 'pr_case7' as const },
-  { name: 'KALIFARNIYA', key: null },
-  { name: 'QANAY', key: null },
-  { name: "ALMA'LE", key: null },
-  { name: 'ALMATY FILM FESTIVAL', key: 'pr_case8' as const },
+  { name: 'DODO PIZZA', logo: 'l01', key: 'pr_case1' as const },
+  { name: 'COCA-COLA', logo: 'l05', key: 'pr_case2' as const },
+  { name: 'BURGER KING', logo: 'l06', key: 'pr_case3' as const },
+  { name: 'XIAOMI', logo: 'l07', key: 'pr_case4' as const },
+  { name: 'STAR OF ASIA', logo: 'l10', key: 'pr_case5' as const },
+  { name: 'PARTY AYUL', logo: 'l09', key: 'pr_case6' as const },
+  { name: 'ZERDELI SCHOOL', logo: 'l08', key: 'pr_case7' as const },
+  { name: 'KALIFARNIYA', logo: 'l02', key: null },
+  { name: 'QANAY', logo: 'l03', key: null },
+  { name: "ALMA'LE", logo: 'l04', key: null },
+  { name: 'ALMATY FILM FESTIVAL', logo: 'l11', key: 'pr_case8' as const },
 ];
 
 export default async function PrPage() {
@@ -55,11 +55,11 @@ export default async function PrPage() {
       <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
       {/* Services */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <SectionHeading eyebrow={t('pr_services_label')} on="periwinkle">{t('pr_services_title')}</SectionHeading>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+      <section className="on-dark deck-navy-section" style={{ padding: 'var(--space-16) 6%' }}>
+        <SectionHeading eyebrow={t('pr_services_label')} on="dark">{t('pr_services_title')}</SectionHeading>
+        <div className="deck-grid-3">
           {['s1','s2','s3','s4','s5','s6'].map((s) => (
-            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`pr_${s}_title`)} on="periwinkle">
+            <ServiceCard key={s} icon={SERVICE_ICONS[s]} label={t(`pr_${s}_title`)} on="navy">
               {t(`pr_${s}_desc`)}
             </ServiceCard>
           ))}
@@ -73,30 +73,19 @@ export default async function PrPage() {
           <SectionHeading eyebrow={t('pr_cases_label')} on="light" center>{t('pr_cases_title')}</SectionHeading>
           <p style={{ color: 'var(--gray)', maxWidth: '680px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.6 }}>{t('pr_cases_sub')}</p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
-          {CASES.map((c, i) => {
-            const inverted = i % 4 === 0;
-            return (
-            <div
-              key={c.name}
-              style={{
-                background: inverted ? 'var(--oxford)' : 'var(--off-white)',
-                borderRadius: 'var(--radius-card)',
-                textAlign: 'center',
-                padding: '36px 24px',
-              }}
-            >
-              <h4 style={{ fontSize: '0.78rem', letterSpacing: '1px', fontWeight: 800, color: inverted ? 'var(--accent)' : 'var(--navy-deep)', marginBottom: '10px' }}>{c.name}</h4>
-              {c.key ? (
-                <p style={{ fontSize: '0.82rem', color: inverted ? 'rgba(255,255,255,0.7)' : 'var(--gray)', lineHeight: 1.5 }}>{t(c.key)}</p>
-              ) : (
-                <p style={{ fontSize: '0.82rem', color: inverted ? 'rgba(255,255,255,0.7)' : 'var(--gray)', lineHeight: 1.5 }}>Branding.</p>
-              )}
+        <div className="deck-logo-grid">
+          {CASES.map((c) => (
+            <div key={c.name} className="deck-card deck-logo-card">
+              <div className="deck-logo-tile">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/deck/img/logo-${c.logo}.webp`} alt={c.name} loading="lazy" style={c.logo === 'l01' ? { mixBlendMode: 'darken' } : undefined} />
+              </div>
+              <h3 translate="no">{c.name}</h3>
+              <p>{c.key ? t(c.key) : 'Branding.'}</p>
             </div>
-            );
-          })}
-          <div style={{ background: 'var(--off-white)', borderRadius: 'var(--radius-card)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '36px 24px' }}>
-            <p style={{ fontSize: '0.95rem', color: 'var(--gray)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 700 }}>{t('pr_and_more')}</p>
+          ))}
+          <div className="deck-card deck-logo-card deck-logo-more">
+            <p>{t('pr_and_more')}</p>
           </div>
         </div>
       </section>

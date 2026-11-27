@@ -140,7 +140,7 @@ export default async function DistributionPage() {
           </span>
         </Link>
       </div>
-      <p style={{ textAlign: 'center', fontSize: '0.65rem', letterSpacing: '2px', color: 'var(--gray)', marginTop: '16px', textTransform: 'uppercase' }}>
+      <p style={{ textAlign: 'center', fontSize: '0.65rem', letterSpacing: '2px', color: '#4A5565', marginTop: '16px', textTransform: 'uppercase' }}>
         {t('carousel_hint')}
       </p>
     </div>
@@ -174,6 +174,14 @@ export default async function DistributionPage() {
       </section>
       <SectionDivider from="var(--oxford)" to="#fff" />
 
+      {/* Фото-полоса со слайда 03 (тонировано navy через mix-blend: color) */}
+      <section style={{ padding: '0 6%', background: '#fff' }}>
+        <div className="deck-tint deck-band">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/deck/img/dist-hero.webp" alt="" width={1800} height={568} fetchPriority="low" />
+        </div>
+      </section>
+
       {/* S1 — Full Cycle */}
       <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
         <SectionHeading eyebrow={t('dist_s1_label')} on="light">{t('dist_s1_title')}</SectionHeading>
@@ -201,6 +209,12 @@ export default async function DistributionPage() {
         <p style={{ color: 'var(--indigo-ink)', marginBottom: '48px', maxWidth: '600px', lineHeight: 1.7 }}>
           {t('dist_partner_sub')}
         </p>
+        <div className="deck-wall" aria-hidden="true">
+          {Array.from({ length: 30 }, (_, i) => String(i + 1).padStart(2, '0')).map((n) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={n} src={`/deck/img/cover-${n}.webp`} alt="" width={140} height={140} loading="lazy" />
+          ))}
+        </div>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', maxWidth: '600px' }}>
           <div style={{ borderLeft: '2px solid var(--oxford)', paddingLeft: '18px' }}>
             <h3 style={{ fontWeight: 800, marginBottom: '8px' }}>{t('dist_artists_title')}</h3>
@@ -226,6 +240,27 @@ export default async function DistributionPage() {
           resultLabel={t('platform_result_label')}
           resultNode={<p style={{ color: 'var(--gray)', fontSize: '0.92rem', lineHeight: 1.7, margin: 0 }}>{t('dist_yt_result')}</p>}
         />
+
+        <div className="deck-yt-cases">
+          {[
+            { img: 'qanay-b', name: 'Qanay', url: ytChannels[0].url, k: 'q' },
+            { img: 'beibit', name: 'Beibit Kushkaliyev', url: ytChannels[1].url, k: 'b' },
+            { img: 'qanay-a', name: 'Anara Batyrkhan', url: ytChannels[2].url, k: 'a' },
+          ].map(({ img, name, url, k }) => (
+            <a key={k} href={url} target="_blank" rel="noopener noreferrer" className="deck-card deck-yt-card">
+              <div className="deck-yt-card__shot">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/deck/img/yt-${img}.webp`} alt={`${name} — YouTube`} loading="lazy" />
+              </div>
+              <h3 translate="no">{name}</h3>
+              <ul>
+                {[1, 2, 3].map((n) => (
+                  <li key={n}>{t(`dist_ytc_${k}${n}`)}</li>
+                ))}
+              </ul>
+            </a>
+          ))}
+        </div>
 
         <ArtistStrip items={ytChannels} visitLabel={t('yt_visit_channel')} />
       </section>

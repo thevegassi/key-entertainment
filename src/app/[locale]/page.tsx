@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo/metadata';
 import PageJsonLd from '@/components/seo/JsonLd';
 import Reveal from '@/components/Reveal';
 import CountUp from '@/components/CountUp';
+import { Fade } from '@/components/animate-ui/primitives/effects/fade';
 
 export const generateMetadata = pageMetadata('');
 
@@ -41,8 +42,8 @@ export default async function HomePage() {
               {t('index_hero_sub')}
             </p>
           </div>
-          <h1 translate="no" style={{ fontSize: 'clamp(3rem, 11vw, 9rem)', fontWeight: 900, lineHeight: 0.92, marginBottom: '40px', color: '#fff', letterSpacing: '-0.01em' }}>
-            <span style={{ WebkitTextStroke: '2px #fff', color: 'transparent', display: 'block' }}>KEY</span>
+          <h1 translate="no" className="deck-display" style={{ fontSize: 'clamp(3rem, 11vw, 9rem)', lineHeight: 0.9, marginBottom: '40px', color: '#fff' }}>
+            <span style={{ display: 'block' }}>KEY</span>
             <span style={{ color: 'var(--accent)', display: 'block' }}>ENTERTAINMENT</span>
           </h1>
           <Link
@@ -67,81 +68,91 @@ export default async function HomePage() {
       <SectionDivider from="var(--oxford)" to="#fff" />
 
       {/* Statement — the tagline gets its own full-bleed typographic moment */}
-      <section style={{ padding: 'var(--space-14) 8% var(--space-10)', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-14) 6% var(--space-10)', background: '#fff' }}>
         <p
-          style={{ fontSize: 'clamp(2.2rem, 7vw, 5.5rem)', fontWeight: 900, lineHeight: 0.95, color: 'var(--oxford)', margin: 0, letterSpacing: '-0.01em' }}
+          className="deck-display" style={{ fontSize: 'clamp(2.2rem, 7vw, 5.5rem)', lineHeight: 0.98, color: 'var(--oxford)', margin: 0, textTransform: 'none' }}
           dangerouslySetInnerHTML={{ __html: t('index_tagline') }}
         />
       </section>
 
-      {/* Who we are */}
-      <section style={{ padding: '0 10% var(--space-16)', background: '#fff' }}>
-        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
-          <p
-            style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.4rem)', fontWeight: 300, color: 'var(--ink)', lineHeight: 1.5 }}
-            dangerouslySetInnerHTML={{ __html: t('index_who_left') }}
-          />
-          <p
-            style={{ color: 'var(--gray)', lineHeight: 1.8 }}
-            dangerouslySetInnerHTML={{ __html: t('index_who_right') }}
-          />
+      {/* Who we are — Figma slide 02: intro + Mission / Goal / History blocks */}
+      <section style={{ padding: '0 6% var(--space-16)', background: '#fff' }}>
+        <div className="deck-who">
+          <div className="deck-who__intro">
+            <p
+              className="deck-lead"
+              style={{ color: 'var(--ink)', margin: '0 0 20px' }}
+              dangerouslySetInnerHTML={{ __html: t('index_who_left') }}
+            />
+            <p
+              style={{ color: 'var(--gray)', lineHeight: 1.6, letterSpacing: '-0.01em', margin: 0 }}
+              dangerouslySetInnerHTML={{ __html: t('index_who_right') }}
+            />
+          </div>
+          <Reveal className="deck-navy deck-navy--mission">
+            <h2 className="deck-navy__title">{t('who_mission_title')}</h2>
+            <p className="deck-navy__text">{t('who_mission_text')}</p>
+            <Fade inView asChild>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="deck-navy__icon" src="/deck/globe.svg" alt="" width={200} height={200} loading="lazy" />
+            </Fade>
+          </Reveal>
+          <Reveal className="deck-navy deck-navy--goal" delay={80}>
+            <h2 className="deck-navy__title">{t('who_goal_title')}</h2>
+            <p className="deck-navy__text">{t('who_goal_text')}</p>
+            <Fade inView asChild>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="deck-navy__icon" src="/deck/target.svg" alt="" width={208} height={208} loading="lazy" />
+            </Fade>
+          </Reveal>
+          <Reveal className="deck-navy deck-navy--history" delay={160}>
+            <h2 className="deck-navy__title">{t('who_history_title')}</h2>
+            <div className="deck-history__cols">
+              <p className="deck-navy__text" style={{ maxWidth: 'none', flex: '0 0 36%' }} dangerouslySetInnerHTML={{ __html: t('who_history_left') }} />
+              <p className="deck-navy__text" style={{ maxWidth: '36ch' }}>{t('who_history_right')}</p>
+            </div>
+            <div className="deck-timeline" aria-hidden="true"><span className="deck-timeline__year">2015</span></div>
+          </Reveal>
         </div>
       </section>
-      <SectionDivider from="#fff" to="var(--periwinkle)" flip />
 
-      {/* Ecosystem */}
-      <section style={{ padding: 'var(--space-16) 10%', background: 'var(--periwinkle)' }}>
-        <div style={{ marginBottom: '64px' }}>
-          <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 800, marginBottom: '12px' }}>
+      {/* Departments — Figma slide 03: navy rows, lime e-mail, solid icon */}
+      <section style={{ padding: 'var(--space-14) 6% var(--space-16)', background: '#fff' }}>
+        <div style={{ marginBottom: '48px' }}>
+          <p style={{ fontSize: '0.65rem', letterSpacing: '4px', color: 'var(--navy-deep)', fontWeight: 700, marginBottom: '12px' }}>
             {t('index_eco_label')}
           </p>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}>
+          <h2 className="deck-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: 0 }}>
             {t('index_eco_title')}
           </h2>
-          <p style={{ color: 'var(--ink)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: '520px', marginTop: '16px' }}>
+          <p style={{ color: 'var(--ink)', fontSize: '1rem', lineHeight: 1.6, maxWidth: '560px', marginTop: '16px' }}>
             {t('index_eco_sub')}
           </p>
         </div>
-        <div className="eco-grid">
+        <div className="deck-rows">
           {[
-            { href: '/label', label: 'Label', desc: t('eco_label_desc'), icon: 'TablerIconVinyl', featured: true },
-            { href: '/distribution', label: 'Distribution', desc: t('eco_dist_desc'), icon: 'TablerIconPlaylist', featured: true },
-            { href: '/booking', label: 'Booking', desc: t('eco_book_desc'), icon: 'TablerIconFlame', featured: false },
-            { href: '/pr', label: 'PR & Marketing', desc: t('eco_pr_desc'), icon: 'TablerIconNews', featured: false },
-            { href: '/legal', label: 'Legal', desc: t('eco_legal_desc'), icon: 'TablerIconAddressBook', featured: false },
-          ].map(({ href, label, desc, icon, featured }) => (
-            <Link
-              key={href}
-              href={`/${locale}${href}`}
-              className="eco-card-link"
-              style={{
-                display: 'block',
-                background: '#fff',
-                borderRadius: 'var(--radius-card)',
-                padding: featured ? '40px' : '32px',
-                textDecoration: 'none',
-                color: 'var(--ink)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: featured ? '20px' : '16px' }}>
-                {featured ? (
-                  <span className="eco-icon-tile"><Icon name={icon} size={28} /></span>
-                ) : (
-                  <Icon name={icon} size={26} style={{ color: 'var(--navy-deep)', flexShrink: 0 }} />
-                )}
-                <h3 style={{ fontSize: featured ? '0.85rem' : '0.7rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--navy-deep)', fontWeight: 800, margin: 0 }}>
-                  {label}
-                </h3>
-              </div>
-              <p style={{ color: 'var(--gray)', lineHeight: 1.7, fontSize: featured ? '0.95rem' : '0.9rem' }}>{desc}</p>
-            </Link>
+            { href: '/distribution', title: 'Key Distribution Services', mail: 'distribution@keyent.kz', icon: 'distribution', w: 72, h: 58 },
+            { href: '/legal', title: 'Key Legal Department', mail: 'legal@keyent.kz', icon: 'legal', w: 60, h: 67 },
+            { href: '/label', title: 'Key Music Label', mail: 'music-label@keyent.kz', icon: 'label', w: 67, h: 67 },
+            { href: '/pr', title: 'Key PR & Marketing Department', mail: 'pr@keyent.kz', icon: 'pr', w: 80, h: 80 },
+            { href: '/booking', title: 'Key Booking Agency', mail: 'booking@keyent.kz', icon: 'booking', w: 80, h: 80 },
+          ].map(({ href, title, mail, icon, w, h }, i) => (
+            <Reveal key={href} delay={i * 60}>
+              <Link href={`/${locale}${href}`} className="deck-row">
+                <span>
+                  <h3 className="deck-row__title" translate="no">{title}</h3>
+                  <p className="deck-row__mail">{mail}</p>
+                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="deck-row__icon" src={`/deck/dept-${icon}.svg`} alt="" width={w} height={h} loading="lazy" />
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
-      <SectionDivider from="var(--periwinkle)" to="#fff" />
 
       {/* Stats */}
-      <section style={{ padding: 'var(--space-16) 10%', background: '#fff' }}>
+      <section style={{ padding: 'var(--space-16) 6%', background: '#fff' }}>
         <div style={{ marginBottom: '64px' }}>
           <h2
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900 }}

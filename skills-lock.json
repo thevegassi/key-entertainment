@@ -8,6 +8,20 @@
       "skillPath": "skills/animate-ui/SKILL.md",
       "computedHash": "44b0004328b1e03f9b6f03f0bef8f100c937b6858cfe893174c0da087fb97fa6"
     },
+    "better-typography": {
+      "source": "jakubkrehel/skills",
+      "commit": "672ae44ace6aaed65b86cbb1e2fd6fbea0e79578",
+      "sourceType": "github",
+      "skillPath": "skills/better-typography/SKILL.md",
+      "computedHash": "4a1b00bc0f9c3c7a83f9cb94dfa67359bdd12e160afc3cd69a01c0c1f6d240ff"
+    },
+    "design-audit": {
+      "source": "bencium/bencium-marketplace",
+      "commit": "5de46a39b4640fa419560cd0b67e4c4b50dac802",
+      "sourceType": "github",
+      "skillPath": "design-audit/skills/design-audit/SKILL.md",
+      "computedHash": "864c1af4c7379a1d55329e8b69a1e3c73ea770f8df59a4bfa82c0f954f3bbcdc"
+    },
     "design-critique": {
       "source": "anthropics/knowledge-work-plugins",
       "commit": "5e504ae11498f2b8daa30d86b7dab97b2ecd8092",
@@ -64,12 +78,26 @@
       "skillPath": "skills/shadcn/SKILL.md",
       "computedHash": "388962d16c7a4f13aaeee0d8f128e50a87df8553d42ef7988c39c0e1c74a40e8"
     },
+    "visual-qa": {
+      "source": "dylanfeltus/skills",
+      "commit": "b97a48f8f7bc0b5cef09f219cd79217190d6817e",
+      "sourceType": "github",
+      "skillPath": "visual-qa/SKILL.md",
+      "computedHash": "1385b56a6cc38b5da131a60713fbd0d39e7b7afa833f21d6ce7ee58f7244164e"
+    },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
       "commit": "5a37a6329fbad3666c3207392a6a7c0110e92efb",
       "sourceType": "github",
       "skillPath": "skills/web-design-guidelines/SKILL.md",
       "computedHash": "5994e4cfd86144903d2ba750f862b9e36af15e3297aac983679e347b99f6cb71"
+    },
+    "web-typography": {
+      "source": "wondelai/skills",
+      "commit": "c37678106e63ef1c5472d848fb3d8b8c5b33fafe",
+      "sourceType": "github",
+      "skillPath": "web-typography/SKILL.md",
+      "computedHash": "dec11effdd7686fbbf0efda5e41ce2a5681a2f83b339bcec9ca41bf855b1841f"
     }
   }
 }

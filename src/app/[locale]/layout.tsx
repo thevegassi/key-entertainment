@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { HREFLANG, SITE_NAME, SITE_URL, isLocale } from '@/lib/seo/site';
 import Metrika from '@/components/analytics/Metrika';
+import '@/styles/tailwind.css';
 import '@/styles/globals.css';
 
 type Props = {
